@@ -10,6 +10,57 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{426bca5c-a63c-4a8c-afc6-bbd034d8197f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\presenter">
+      <UniqueIdentifier>{b4ce074c-1e56-413d-8f29-9079afac8a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view">
+      <UniqueIdentifier>{a2bd886f-0d66-4c1d-9ff1-847924e739e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model">
+      <UniqueIdentifier>{2b4af5a9-5571-4e3c-9ae6-efeb633cfb89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model\config">
+      <UniqueIdentifier>{12933f78-d4b1-4964-b86c-e7d77d788c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model\data">
+      <UniqueIdentifier>{c435b92b-b4cf-4632-9eb7-9a35504a08c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model\define">
+      <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model\sqlite">
+      <UniqueIdentifier>{3a86a9d8-bc31-40bc-a29d-bcaaea492440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\observer">
+      <UniqueIdentifier>{6285f443-5ce4-4e67-a9e1-79f951df0116}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\shake">
+      <UniqueIdentifier>{5b3a62c1-15d4-480f-aaf4-cf078ea9c998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util">
+      <UniqueIdentifier>{b3735066-28b3-45b4-9ed1-991246b7da93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\entity">
+      <UniqueIdentifier>{c673cc74-ea72-4937-8c4c-0bc5d18f65b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\rune">
+      <UniqueIdentifier>{24255e56-562f-4c21-9f52-0137f88b8fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\ui">
+      <UniqueIdentifier>{bd69f91d-6437-4dea-82f2-fd63c4d54044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\ui\common">
+      <UniqueIdentifier>{15bc661e-3956-4eab-bcf0-04d93442b67f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\ui\main">
+      <UniqueIdentifier>{58881be9-7bd1-4a80-bfe2-98e5861d5070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\view\ui\welcome">
+      <UniqueIdentifier>{3fb914bd-1912-43f6-8edc-ee826bd8012a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +72,33 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilDate.cpp">
+      <Filter>src\common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilHelper.cpp">
+      <Filter>src\common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilRandom.cpp">
+      <Filter>src\common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilString.cpp">
+      <Filter>src\common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\shake\Shake.cpp">
+      <Filter>src\common\shake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\observer\Observer.cpp">
+      <Filter>src\common\observer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\sqlite\shell.c">
+      <Filter>src\model\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\sqlite\sqlite3.c">
+      <Filter>src\model\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp">
+      <Filter>src\model\sqlite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +109,36 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilDate.h">
+      <Filter>src\common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilHelper.h">
+      <Filter>src\common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilRandom.h">
+      <Filter>src\common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilString.h">
+      <Filter>src\common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\shake\Shake.h">
+      <Filter>src\common\shake</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\observer\Observer.h">
+      <Filter>src\common\observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\sqlite\sqlite3.h">
+      <Filter>src\model\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\sqlite\sqlite3ext.h">
+      <Filter>src\model\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\sqlite\ManagerSqlite.h">
+      <Filter>src\model\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\define\DfinesValue.h">
+      <Filter>src\model\define</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
