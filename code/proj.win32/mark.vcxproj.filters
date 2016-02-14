@@ -99,6 +99,18 @@
     <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp">
       <Filter>src\model\sqlite</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\view\entity\Entity.cpp">
+      <Filter>src\view\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\view\rune\Rune.cpp">
+      <Filter>src\view\rune</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\view\ui\welcome\SceneWelcome.cpp">
+      <Filter>src\view\ui\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\view\ui\main\SceneMain.cpp">
+      <Filter>src\view\ui\main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -139,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\model\define\DfinesValue.h">
       <Filter>src\model\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\view\entity\Entity.h">
+      <Filter>src\view\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\view\rune\Rune.h">
+      <Filter>src\view\rune</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\view\ui\welcome\SceneWelcome.h">
+      <Filter>src\view\ui\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\view\ui\main\SceneMain.h">
+      <Filter>src\view\ui\main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
