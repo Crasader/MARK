@@ -5,7 +5,6 @@
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
-        <Project Name="SceneWelcome.csd" Type="Scene" />
         <Project Name="SceneMain.csd" Type="Scene" />
         <Folder Name="fonts">
           <TTF Name="Marker Felt.ttf" />
