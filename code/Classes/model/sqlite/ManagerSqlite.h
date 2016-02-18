@@ -9,24 +9,24 @@ USING_NS_CC;
 class ManagerSqlite
 {
 public:
-	static ManagerSqlite *getInstance();//æä¾›getInstanceå…¨å±€æŒ‡é’ˆ
+	static ManagerSqlite *getInstance();//Ìá¹©getInstanceÈ«¾ÖÖ¸Õë
 	static void destroyInstance();
 
 public:
 	~ManagerSqlite();
-	
+
 	void dataBaseOpen();
 	void dataBaseClose();
 	void tableCreate();
 	void dataInsert();
 	void dataQuery();
 	void dataDelete();
-	
+
 private:
 	ManagerSqlite();
 
-	sqlite3 *_dataBase;//æ•°æ®åº“æŒ‡é’ˆ
+	sqlite3 *_dataBase;//Êı¾İ¿âÖ¸Õë
 
 };
 
-#endif // !_MODEL_SQLITE_MANAGER_SQLITE_H_
+#endif

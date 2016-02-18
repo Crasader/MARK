@@ -1,5 +1,13 @@
 #include "Entity.h"
 
+Entity::Entity()
+{
+}
+
+Entity::~Entity()
+{
+}
+
 bool Entity::init()
 {
 	auto isInit = false;

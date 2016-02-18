@@ -26,9 +26,9 @@ ManagerSqlite::~ManagerSqlite()
 
 void ManagerSqlite::dataBaseOpen()
 {
-	auto path = FileUtils::getInstance()->getWritablePath() + "dataBase.db";//æŒ‡å®šæ•°æ®åº“çš„è·¯å¾„
+	auto path = FileUtils::getInstance()->getWritablePath() + "dataBase.db";//Ö¸¶¨Êı¾İ¿âµÄÂ·¾¶
 
-	auto result = sqlite3_open(path.c_str(), &_dataBase);//æ‰“å¼€ä¸€ä¸ªæ•°æ®åº“ï¼Œå¦‚æœè¯¥æ•°æ®åº“ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºä¸€ä¸ªæ•°æ®åº“æ–‡ä»¶
+	auto result = sqlite3_open(path.c_str(), &_dataBase);//´ò¿ªÒ»¸öÊı¾İ¿â£¬Èç¹û¸ÃÊı¾İ¿â²»´æÔÚ£¬Ôò´´½¨Ò»¸öÊı¾İ¿âÎÄ¼ş
 	if (result != SQLITE_OK)
 	{
 		log("ManagerSqlite::dataBaseOpen open database failed,  number%d", result);
@@ -42,8 +42,8 @@ void ManagerSqlite::dataBaseClose()
 
 void ManagerSqlite::tableCreate()
 {
-	std::string sql = "create table student(ID integer primary key autoincrement,name text,sex text)";//åˆ›å»ºè¡¨
-	
+	std::string sql = "create table student(ID integer primary key autoincrement,name text,sex text)";//´´½¨±í
+
 	auto result = sqlite3_exec(_dataBase, sql.c_str(), nullptr, nullptr, nullptr);
 	if (result != SQLITE_OK)
 	{
@@ -53,8 +53,8 @@ void ManagerSqlite::tableCreate()
 
 void ManagerSqlite::dataInsert()
 {
-	std::string sql = "insert into student values(1,'student1','male')";//å‘è¡¨ä¸­æ’å…¥1æ¡æ•°æ®
-	
+	std::string sql = "insert into student values(1,'student1','male')";//Ïò±íÖĞ²åÈë1ÌõÊı¾İ
+
 	auto result = sqlite3_exec(_dataBase, sql.c_str(), nullptr, nullptr, nullptr);
 	if (result != SQLITE_OK)
 	{
@@ -64,8 +64,8 @@ void ManagerSqlite::dataInsert()
 
 void ManagerSqlite::dataQuery()
 {
-	char **result;//æŸ¥è¯¢ç»“æœ
-	int r, c;//è¡Œã€åˆ—
+	char **result;//²éÑ¯½á¹û
+	int r, c;//ĞĞ¡¢ÁĞ
 	std::string sql = "select * from student";
 
 	sqlite3_get_table(_dataBase, sql.c_str(), &result, &r, &c, nullptr);
@@ -82,7 +82,7 @@ void ManagerSqlite::dataQuery()
 
 void ManagerSqlite::dataDelete()
 {
-	std::string sql = "delete from student where ID=1"; //åˆ é™¤ID = 1çš„å­¦ç”Ÿ
+	std::string sql = "delete from student where ID=1"; //É¾³ıID = 1µÄÑ§Éú
 
 	auto result = sqlite3_exec(_dataBase, sql.c_str(), nullptr, nullptr, nullptr);
 	if (result != SQLITE_OK)

@@ -1,5 +1,5 @@
-#ifndef _VIEW_UI_MAIN_SCENE_MAIN_H_
-#define _VIEW_UI_MAIN_SCENE_MAIN_H_
+#ifndef _UI_MAIN_SCENE_MAIN_H_
+#define _UI_MAIN_SCENE_MAIN_H_
 
 #include "cocos2d.h"
 

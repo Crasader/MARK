@@ -151,14 +151,15 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\common\util\UtilHelper.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilRandom.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilString.cpp" />
+    <ClCompile Include="..\Classes\entity\Creature.cpp" />
+    <ClCompile Include="..\Classes\entity\Entity.cpp" />
+    <ClCompile Include="..\Classes\entity\Rune.cpp" />
+    <ClCompile Include="..\Classes\entity\Unit.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp" />
     <ClCompile Include="..\Classes\model\sqlite\shell.c" />
     <ClCompile Include="..\Classes\model\sqlite\sqlite3.c" />
-    <ClCompile Include="..\Classes\view\entity\Entity.cpp" />
-    <ClCompile Include="..\Classes\view\rune\Rune.cpp" />
-    <ClCompile Include="..\Classes\view\ui\main\SceneMain.cpp" />
-    <ClCompile Include="..\Classes\view\ui\welcome\SceneWelcome.cpp" />
+    <ClCompile Include="..\Classes\ui\main\SceneMain.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,15 +170,15 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\common\util\UtilString.h" />
+    <ClInclude Include="..\Classes\entity\Creature.h" />
+    <ClInclude Include="..\Classes\entity\Entity.h" />
+    <ClInclude Include="..\Classes\entity\Rune.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\model\define\DfinesValue.h" />
     <ClInclude Include="..\Classes\model\sqlite\ManagerSqlite.h" />
     <ClInclude Include="..\Classes\model\sqlite\sqlite3.h" />
     <ClInclude Include="..\Classes\model\sqlite\sqlite3ext.h" />
-    <ClInclude Include="..\Classes\view\entity\Entity.h" />
-    <ClInclude Include="..\Classes\view\rune\Rune.h" />
-    <ClInclude Include="..\Classes\view\ui\main\SceneMain.h" />
-    <ClInclude Include="..\Classes\view\ui\welcome\SceneWelcome.h" />
+    <ClInclude Include="..\Classes\ui\main\SceneMain.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +195,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\entity\Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

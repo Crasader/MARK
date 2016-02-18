@@ -1,5 +1,5 @@
-#ifndef _VIEW_ENTITY_ENTITY_H_
-#define _VIEW_ENTITY_ENTITY_H_
+#ifndef _ENTITY_ENTITY_H_
+#define _ENTITY_ENTITY_H_
 
 #include "cocos2d.h"
 
@@ -18,13 +18,5 @@ public:
 private:
 
 };
-
-Entity::Entity()
-{
-}
-
-Entity::~Entity()
-{
-}
 
 #endif

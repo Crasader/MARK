@@ -1,20 +1,20 @@
-#include "Rune.h"
+#include "Unit.h"
 
-Rune::Rune()
+Unit::Unit()
 {
 }
 
-Rune::~Rune()
+Unit::~Unit()
 {
 }
 
-bool Rune::init()
+bool Unit::init()
 {
 	auto isInit = false;
 
 	do
 	{
-		CC_BREAK_IF(Node::init());
+		CC_BREAK_IF(Entity::init());
 
 		isInit = true;
 	} while (0);

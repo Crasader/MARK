@@ -13,12 +13,6 @@
     <Filter Include="src\common">
       <UniqueIdentifier>{426bca5c-a63c-4a8c-afc6-bbd034d8197f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\presenter">
-      <UniqueIdentifier>{b4ce074c-1e56-413d-8f29-9079afac8a7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\view">
-      <UniqueIdentifier>{a2bd886f-0d66-4c1d-9ff1-847924e739e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\model">
       <UniqueIdentifier>{2b4af5a9-5571-4e3c-9ae6-efeb633cfb89}</UniqueIdentifier>
     </Filter>
@@ -43,23 +37,17 @@
     <Filter Include="src\common\util">
       <UniqueIdentifier>{b3735066-28b3-45b4-9ed1-991246b7da93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\view\entity">
+    <Filter Include="src\entity">
       <UniqueIdentifier>{c673cc74-ea72-4937-8c4c-0bc5d18f65b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\view\rune">
-      <UniqueIdentifier>{24255e56-562f-4c21-9f52-0137f88b8fba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\view\ui">
+    <Filter Include="src\ui">
       <UniqueIdentifier>{bd69f91d-6437-4dea-82f2-fd63c4d54044}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\view\ui\common">
+    <Filter Include="src\ui\common">
       <UniqueIdentifier>{15bc661e-3956-4eab-bcf0-04d93442b67f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\view\ui\main">
+    <Filter Include="src\ui\main">
       <UniqueIdentifier>{58881be9-7bd1-4a80-bfe2-98e5861d5070}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\view\ui\welcome">
-      <UniqueIdentifier>{3fb914bd-1912-43f6-8edc-ee826bd8012a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,17 +87,20 @@
     <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp">
       <Filter>src\model\sqlite</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\view\entity\Entity.cpp">
-      <Filter>src\view\entity</Filter>
+    <ClCompile Include="..\Classes\ui\main\SceneMain.cpp">
+      <Filter>src\ui\main</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\view\rune\Rune.cpp">
-      <Filter>src\view\rune</Filter>
+    <ClCompile Include="..\Classes\entity\Rune.cpp">
+      <Filter>src\entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\view\ui\welcome\SceneWelcome.cpp">
-      <Filter>src\view\ui\welcome</Filter>
+    <ClCompile Include="..\Classes\entity\Entity.cpp">
+      <Filter>src\entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\view\ui\main\SceneMain.cpp">
-      <Filter>src\view\ui\main</Filter>
+    <ClCompile Include="..\Classes\entity\Unit.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\Creature.cpp">
+      <Filter>src\entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,22 +143,27 @@
     <ClInclude Include="..\Classes\model\define\DfinesValue.h">
       <Filter>src\model\define</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\view\entity\Entity.h">
-      <Filter>src\view\entity</Filter>
+    <ClInclude Include="..\Classes\ui\main\SceneMain.h">
+      <Filter>src\ui\main</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\view\rune\Rune.h">
-      <Filter>src\view\rune</Filter>
+    <ClInclude Include="..\Classes\entity\Rune.h">
+      <Filter>src\entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\view\ui\welcome\SceneWelcome.h">
-      <Filter>src\view\ui\welcome</Filter>
+    <ClInclude Include="..\Classes\entity\Entity.h">
+      <Filter>src\entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\view\ui\main\SceneMain.h">
-      <Filter>src\view\ui\main</Filter>
+    <ClInclude Include="..\Classes\entity\Creature.h">
+      <Filter>src\entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\entity\Unit.h">
+      <Filter>src\entity</Filter>
+    </None>
   </ItemGroup>
 </Project>
