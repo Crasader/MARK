@@ -46,8 +46,8 @@
     <Filter Include="src\ui\common">
       <UniqueIdentifier>{15bc661e-3956-4eab-bcf0-04d93442b67f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ui\main">
-      <UniqueIdentifier>{58881be9-7bd1-4a80-bfe2-98e5861d5070}</UniqueIdentifier>
+    <Filter Include="src\ui\menu">
+      <UniqueIdentifier>{3edac626-cc48-4102-9374-6e718aaa3144}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,9 +87,6 @@
     <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp">
       <Filter>src\model\sqlite</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ui\main\SceneMain.cpp">
-      <Filter>src\ui\main</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\entity\Rune.cpp">
       <Filter>src\entity</Filter>
     </ClCompile>
@@ -101,6 +98,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\entity\Creature.cpp">
       <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\SceneMain.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\menu\LayerMenuStart.cpp">
+      <Filter>src\ui\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\menu\HandleMenuStart.cpp">
+      <Filter>src\ui\menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +149,6 @@
     <ClInclude Include="..\Classes\model\define\DfinesValue.h">
       <Filter>src\model\define</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ui\main\SceneMain.h">
-      <Filter>src\ui\main</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\entity\Rune.h">
       <Filter>src\entity</Filter>
     </ClInclude>
@@ -154,6 +157,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\entity\Creature.h">
       <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\define\DfinesRes.h">
+      <Filter>src\model\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\SceneMain.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\menu\LayerMenuStart.h">
+      <Filter>src\ui\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\menu\HandleMenuStart.h">
+      <Filter>src\ui\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

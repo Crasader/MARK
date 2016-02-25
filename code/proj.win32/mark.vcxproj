@@ -159,7 +159,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp" />
     <ClCompile Include="..\Classes\model\sqlite\shell.c" />
     <ClCompile Include="..\Classes\model\sqlite\sqlite3.c" />
-    <ClCompile Include="..\Classes\ui\main\SceneMain.cpp" />
+    <ClCompile Include="..\Classes\ui\menu\HandleMenuStart.cpp" />
+    <ClCompile Include="..\Classes\ui\menu\LayerMenuStart.cpp" />
+    <ClCompile Include="..\Classes\ui\SceneMain.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,11 +176,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\entity\Entity.h" />
     <ClInclude Include="..\Classes\entity\Rune.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\model\define\DfinesRes.h" />
     <ClInclude Include="..\Classes\model\define\DfinesValue.h" />
     <ClInclude Include="..\Classes\model\sqlite\ManagerSqlite.h" />
     <ClInclude Include="..\Classes\model\sqlite\sqlite3.h" />
     <ClInclude Include="..\Classes\model\sqlite\sqlite3ext.h" />
-    <ClInclude Include="..\Classes\ui\main\SceneMain.h" />
+    <ClInclude Include="..\Classes\ui\menu\HandleMenuStart.h" />
+    <ClInclude Include="..\Classes\ui\menu\LayerMenuStart.h" />
+    <ClInclude Include="..\Classes\ui\SceneMain.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

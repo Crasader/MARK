@@ -1,5 +1,7 @@
 #include "Entity.h"
 
+USING_NS_CC;
+
 Entity::Entity()
 {
 }

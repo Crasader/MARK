@@ -3,9 +3,7 @@
 
 #include "cocos2d.h"
 
-USING_NS_CC;
-
-class Entity : public Node
+class Entity : public cocos2d::Node
 {
 public:
 	CREATE_FUNC(Entity);

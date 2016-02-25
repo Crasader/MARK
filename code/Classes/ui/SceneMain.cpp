@@ -1,5 +1,7 @@
 #include "SceneMain.h"
 
+USING_NS_CC;
+
 SceneMain::SceneMain()
 {
 }
@@ -16,6 +18,8 @@ bool SceneMain::init()
 	do
 	{
 		CC_BREAK_IF(Scene::init());
+
+		
 
 		isInit = true;
 	} while (0);

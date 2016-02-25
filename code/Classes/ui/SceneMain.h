@@ -1,11 +1,9 @@
-#ifndef _UI_MAIN_SCENE_MAIN_H_
-#define _UI_MAIN_SCENE_MAIN_H_
+#ifndef _UI_SCENE_MAIN_H_
+#define _UI_SCENE_MAIN_H_
 
 #include "cocos2d.h"
 
-USING_NS_CC;
-
-class SceneMain : public Scene
+class SceneMain : public cocos2d::Scene
 {
 public:
 	CREATE_FUNC(SceneMain);
@@ -16,7 +14,7 @@ public:
 	virtual bool init();
 
 private:
-
+	cocos2d::Scene *_skin;
 };
 
 #endif
