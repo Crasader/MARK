@@ -1,4 +1,5 @@
 #include "SceneMain.h"
+#include "menu/LayerMenuStart.h"
 
 USING_NS_CC;
 
@@ -17,9 +18,10 @@ bool SceneMain::init()
 
 	do
 	{
-		CC_BREAK_IF(Scene::init());
+		CC_BREAK_IF(!Scene::init());
 
-		
+		auto layerMenuStart = LayerMenuStart::create();
+		addChild(layerMenuStart);
 
 		isInit = true;
 	} while (0);

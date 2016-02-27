@@ -2,7 +2,12 @@
 #define _UI_MENU_HADLE_MENU_START_H_
 
 #include "cocos2d.h"
-#include "LayerMenuStart.h"
+
+class ILayerMenuStart
+{
+public:
+	virtual cocos2d::Layer * getSkin() { return nullptr; }
+};
 
 class HandleMenuStart : public cocos2d::Ref
 {

@@ -16,7 +16,7 @@ bool Entity::init()
 
 	do
 	{
-		CC_BREAK_IF(Node::init());
+		CC_BREAK_IF(!Node::init());
 
 		isInit = false;
 	} while (0);

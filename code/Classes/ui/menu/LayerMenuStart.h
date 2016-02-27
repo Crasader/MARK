@@ -3,12 +3,7 @@
 
 #include "cocos2d.h"
 #include "HandleMenuStart.h"
-
-class ILayerMenuStart
-{
-public:
-	virtual cocos2d::Layer * getSkin() const { return nullptr; };
-};
+#include "ui/UIWidget.h"
 
 class LayerMenuStart : public cocos2d::Layer, ILayerMenuStart
 {
@@ -22,7 +17,7 @@ public:
 
 	void onTouchBtn(cocos2d::Ref *ref, cocos2d::ui::Widget::TouchEventType type);
 
-	virtual cocos2d::Layer * getSkin() const { return _skin; }
+	virtual cocos2d::Layer * getSkin() { return _skin; }
 
 private:
 	const std::string btn0 = "btn0";

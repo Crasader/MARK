@@ -14,7 +14,7 @@ bool Unit::init()
 
 	do
 	{
-		CC_BREAK_IF(Entity::init());
+		CC_BREAK_IF(!Entity::init());
 
 		isInit = true;
 	} while (0);

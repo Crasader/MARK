@@ -4,7 +4,6 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Image Name="HelloWorld.png" />
-        <Project Name="SceneMain.csd" Type="Scene" />
         <Folder Name="fonts" />
         <Project Name="LayerMain.csd" Type="Layer" />
       </RootFolder>

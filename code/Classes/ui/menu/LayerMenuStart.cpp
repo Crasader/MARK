@@ -22,7 +22,7 @@ bool LayerMenuStart::init()
 
 	do
 	{
-		CC_BREAK_IF(Layer::init());
+		CC_BREAK_IF(!Layer::init());
 
 		_skin = (Layer *)CSLoader::createNode(RES_LAYER_MAIN);
 		addChild(_skin);
@@ -44,7 +44,7 @@ bool LayerMenuStart::init()
 	return isInit;
 }
 
-void LayerMenuStart::onTouchBtn(Ref *ref, Widget::TouchEventType type)
+void LayerMenuStart::onTouchBtn(cocos2d::Ref *ref, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type == Widget::TouchEventType::ENDED)
 	{

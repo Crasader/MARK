@@ -14,7 +14,7 @@ bool Creature::init()
 
 	do
 	{
-		CC_BREAK_IF(Unit::init());
+		CC_BREAK_IF(!Unit::init());
 
 		isInit = true;
 	} while (0);
