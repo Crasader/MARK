@@ -3,9 +3,63 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Image Name="HelloWorld.png" />
         <Folder Name="fonts" />
-        <Project Name="LayerMain.csd" Type="Layer" />
+        <Folder Name="images">
+          <Folder Name="battle">
+            <Image Name="card_box.png" />
+            <Image Name="line.png" />
+            <Image Name="nl_bar.png" />
+            <Image Name="nl_bg.png" />
+            <Image Name="role_bg.png" />
+            <Image Name="vs.png" />
+          </Folder>
+          <Folder Name="creature">
+            <Image Name="creature.png" />
+          </Folder>
+          <Folder Name="rune">
+            <Image Name="wilful_damage.png" />
+            <Image Name="cost_hp.png" />
+            <Image Name="heart.png" />
+            <Image Name="heart2.png" />
+            <Image Name="hp.png" />
+            <Image Name="cost_ep.png" />
+            <Image Name="magic_block.png" />
+            <Image Name="magic_damage.png" />
+            <Image Name="phtsical_block.png" />
+            <Image Name="physical_damage.png" />
+            <Image Name="wilful_block.png" />
+            <Image Name="restore_hp.png" />
+            <Image Name="restore_ep.png" />
+            <Image Name="quickly.png" />
+            <Image Name="unblock.png" />
+            <Image Name="zd.png" />
+          </Folder>
+          <Image Name="HelloWorld.png" />
+          <Folder Name="map">
+            <Image Name="unit_ground.jpg" />
+          </Folder>
+          <Folder Name="common">
+            <Image Name="loading.png" />
+          </Folder>
+        </Folder>
+        <Project Name="LayerBattle.csd" Type="Layer" />
+        <PlistInfo Name="PlistBattle.csi" Type="Plist" />
+        <Folder Name="ui">
+          <Folder Name="common">
+            <PlistInfo Name="PlistCommon.csi" Type="Plist" />
+            <Project Name="LayerResLoad.csd" Type="Layer" />
+          </Folder>
+          <Folder Name="menu">
+            <Project Name="LayerMenuStart.csd" Type="Layer" />
+          </Folder>
+        </Folder>
+        <Folder Name="core">
+          <Folder Name="entity">
+            <PlistInfo Name="PlistCreature.csi" Type="Plist" />
+            <PlistInfo Name="PlistMap.csi" Type="Plist" />
+            <PlistInfo Name="PlistRune.csi" Type="Plist" />
+          </Folder>
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

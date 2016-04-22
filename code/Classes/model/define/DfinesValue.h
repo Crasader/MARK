@@ -1,6 +1,0 @@
-#ifndef _MODEL_DEFINE_DEFINE_VALUES_H_
-#define _MODEL_DEFINE_DEFINE_VALUES_H_
-
-
-
-#endif

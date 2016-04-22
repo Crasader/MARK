@@ -1,27 +1,12 @@
 #include "ManagerSqlite.h"
 
-static ManagerSqlite *_instance;
+USING_NS_CC;
 
-ManagerSqlite * ManagerSqlite::getInstance()
-{
-	if (_instance == nullptr)
-	{
-		_instance = new ManagerSqlite();
-	}
-	return _instance;
-}
-
-void ManagerSqlite::destroyInstance()
-{
-	CC_SAFE_DELETE(_instance);
-}
-
-ManagerSqlite::ManagerSqlite() : _dataBase(nullptr)
-{
-}
+ManagerSqlite* ManagerSqlite::_instance = new ManagerSqlite();
 
 ManagerSqlite::~ManagerSqlite()
 {
+	_dataBase = nullptr;
 }
 
 void ManagerSqlite::dataBaseOpen()
@@ -89,4 +74,18 @@ void ManagerSqlite::dataDelete()
 	{
 		log("ManagerSqlite::dataDelete delete data failed, number%d", result);
 	}
+}
+
+ManagerSqlite::ManagerSqlite() : _dataBase(nullptr)
+{
+}
+
+ManagerSqlite::ManagerSqlite(const ManagerSqlite&)
+{
+
+}
+
+ManagerSqlite& ManagerSqlite::operator=(const ManagerSqlite&)
+{
+	return *_instance;
 }

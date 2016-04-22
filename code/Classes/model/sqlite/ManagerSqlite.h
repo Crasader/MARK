@@ -4,15 +4,14 @@
 #include "cocos2d.h"
 #include "sqlite3.h"
 
-USING_NS_CC;
-
 class ManagerSqlite
 {
 public:
-	static ManagerSqlite *getInstance();//提供getInstance全局指针
-	static void destroyInstance();
-
-public:
+	static const ManagerSqlite* getInstance()
+	{
+		return _instance;
+	}//提供getInstance全局指针
+	
 	~ManagerSqlite();
 
 	void dataBaseOpen();
@@ -24,6 +23,10 @@ public:
 
 private:
 	ManagerSqlite();
+	ManagerSqlite(const ManagerSqlite&);
+	ManagerSqlite& operator=(const ManagerSqlite&);
+
+	static ManagerSqlite* _instance;
 
 	sqlite3 *_dataBase;//数据库指针
 

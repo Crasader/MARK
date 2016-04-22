@@ -1,5 +1,7 @@
 #include "LayerMenuStart.h"
-#include "model/define/DfinesRes.h"
+#include "model/define/DefinesRes.h"
+#include "model/define/DefinesValue.h"
+#include "model/define/DefinesString.h"
 #include "cocostudio/ActionTimeline/CSLoader.h"
 #include "ui/UIButton.h"
 
@@ -24,17 +26,22 @@ bool LayerMenuStart::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_skin = (Layer *)CSLoader::createNode(RES_LAYER_MAIN);
+		_skin = (Layer *)CSLoader::createNode(RES_UI_MENU_LAYER_MENU_START_CSB);
 		addChild(_skin);
 
 		auto btn = (Button *)_skin->getChildByName(btn0);
-		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
-		btn = (Button *)_skin->getChildByName(btn1);
-		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
-		btn = (Button *)_skin->getChildByName(btn2);
+		btn->setTitleText(STR_MENU_START);
 		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
 
-		_handleMenuStart = new HandleMenuStart();
+		btn = (Button *)_skin->getChildByName(btn1);
+		btn->setTitleText(STR_MENU_SAVE_LOAD);
+		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
+
+		btn = (Button *)_skin->getChildByName(btn2);
+		btn->setTitleText(STR_MENU_SETTING);
+		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
+
+		_handleMenuStart = HandleMenuStart::create();
 		_handleMenuStart->retain();
 		_handleMenuStart->setLayerMenuStart(this);
 

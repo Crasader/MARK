@@ -1,0 +1,9 @@
+<PlistInfoProjectFile>
+  <PropertyGroup Type="Plist" Name="PlistCommon" ID="7a4e73b6-5a2e-4f5a-be52-e9fcf67b474d" Version="2.3.2.3" />
+  <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="1" AllowRotation="True" AllowAnySize="True" AllowTrim="True" ctype="PlistInfoData">
+    <ImageFiles>
+      <FilePathData Path="images/common/loading.png" />
+    </ImageFiles>
+    <MaxSize Width="1024" Height="1024" />
+  </Content>
+</PlistInfoProjectFile>
