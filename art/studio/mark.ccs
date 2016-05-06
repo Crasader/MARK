@@ -33,6 +33,10 @@
             <Image Name="quickly.png" />
             <Image Name="unblock.png" />
             <Image Name="zd.png" />
+            <Image Name="bg_common.png" />
+            <Image Name="bg_epic.png" />
+            <Image Name="bg_legendary.png" />
+            <Image Name="bg_rare.png" />
           </Folder>
           <Image Name="HelloWorld.png" />
           <Folder Name="map">
@@ -51,6 +55,7 @@
           </Folder>
           <Folder Name="menu">
             <Project Name="LayerMenuStart.csd" Type="Layer" />
+            <Project Name="LayerMenuSystem.csd" Type="Layer" />
           </Folder>
         </Folder>
         <Folder Name="core">

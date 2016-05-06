@@ -148,16 +148,20 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\common\bitData\BitData.cpp" />
     <ClCompile Include="..\Classes\common\observer\Observer.cpp" />
     <ClCompile Include="..\Classes\common\shake\Shake.cpp" />
+    <ClCompile Include="..\Classes\common\sqlite\DbHelper.cpp" />
+    <ClCompile Include="..\Classes\common\sqlite\shell.c" />
+    <ClCompile Include="..\Classes\common\sqlite\sqlite3.c" />
     <ClCompile Include="..\Classes\common\util\UtilDate.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilHelper.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilRandom.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilString.cpp" />
     <ClCompile Include="..\Classes\core\entity\Attribute.cpp" />
+    <ClCompile Include="..\Classes\core\entity\ModelEntity.cpp" />
     <ClCompile Include="..\Classes\core\entity\Region.cpp" />
     <ClCompile Include="..\Classes\core\entity\Terms.cpp" />
     <ClCompile Include="..\Classes\core\entity\Creature.cpp" />
     <ClCompile Include="..\Classes\core\entity\Entity.cpp" />
-    <ClCompile Include="..\Classes\core\entity\HandleLayerEntity.cpp" />
+    <ClCompile Include="..\Classes\core\entity\HandleEntity.cpp" />
     <ClCompile Include="..\Classes\core\entity\LayerEntity.cpp" />
     <ClCompile Include="..\Classes\core\entity\Rune.cpp" />
     <ClCompile Include="..\Classes\core\entity\Unit.cpp" />
@@ -184,11 +188,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\model\data\HandleDataTraining.cpp" />
     <ClCompile Include="..\Classes\model\data\HandleDataUnlock.cpp" />
     <ClCompile Include="..\Classes\model\data\ManagerData.cpp" />
-    <ClCompile Include="..\Classes\model\sqlite\ManagerSqlite.cpp" />
-    <ClCompile Include="..\Classes\model\sqlite\shell.c" />
-    <ClCompile Include="..\Classes\model\sqlite\sqlite3.c" />
     <ClCompile Include="..\Classes\ui\battle\HandleBg.cpp" />
-    <ClCompile Include="..\Classes\ui\battle\HandleEntity.cpp" />
+    <ClCompile Include="..\Classes\ui\battle\HandleUIEntity.cpp" />
     <ClCompile Include="..\Classes\ui\battle\HandleGrid.cpp" />
     <ClCompile Include="..\Classes\ui\battle\HandleHead.cpp" />
     <ClCompile Include="..\Classes\ui\battle\LayerBattle.cpp" />
@@ -203,7 +204,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ui\common\ModelResLoad.cpp" />
     <ClCompile Include="..\Classes\ui\common\SpriteBlur.cpp" />
     <ClCompile Include="..\Classes\ui\menu\HandleMenuStart.cpp" />
+    <ClCompile Include="..\Classes\ui\menu\HandleMenuSystem.cpp" />
     <ClCompile Include="..\Classes\ui\menu\LayerMenuStart.cpp" />
+    <ClCompile Include="..\Classes\ui\menu\LayerMenuSystem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -211,16 +214,20 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\bitData\BitData.h" />
     <ClInclude Include="..\Classes\common\observer\Observer.h" />
     <ClInclude Include="..\Classes\common\shake\Shake.h" />
+    <ClInclude Include="..\Classes\common\sqlite\DbHelper.h" />
+    <ClInclude Include="..\Classes\common\sqlite\sqlite3.h" />
+    <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h" />
     <ClInclude Include="..\Classes\common\util\UtilDate.h" />
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\common\util\UtilString.h" />
+    <ClInclude Include="..\Classes\core\entity\ModelEntity.h" />
     <ClInclude Include="..\Classes\core\entity\Region.h" />
     <ClInclude Include="..\Classes\core\entity\Terms.h" />
     <ClInclude Include="..\Classes\core\entity\Creature.h" />
     <ClInclude Include="..\Classes\core\entity\Attribute.h" />
     <ClInclude Include="..\Classes\core\entity\Entity.h" />
-    <ClInclude Include="..\Classes\core\entity\HandleLayerEntity.h" />
+    <ClInclude Include="..\Classes\core\entity\HandleEntity.h" />
     <ClInclude Include="..\Classes\core\entity\ILayerEntity.h" />
     <ClInclude Include="..\Classes\core\entity\LayerEntity.h" />
     <ClInclude Include="..\Classes\core\entity\Rune.h" />
@@ -245,11 +252,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\model\define\DefinesRes.h" />
     <ClInclude Include="..\Classes\model\define\DefinesString.h" />
     <ClInclude Include="..\Classes\model\define\DefinesValue.h" />
-    <ClInclude Include="..\Classes\model\sqlite\ManagerSqlite.h" />
-    <ClInclude Include="..\Classes\model\sqlite\sqlite3.h" />
-    <ClInclude Include="..\Classes\model\sqlite\sqlite3ext.h" />
     <ClInclude Include="..\Classes\ui\battle\HandleBg.h" />
-    <ClInclude Include="..\Classes\ui\battle\HandleEntity.h" />
+    <ClInclude Include="..\Classes\ui\battle\HandleUIEntity.h" />
     <ClInclude Include="..\Classes\ui\battle\HandleGrid.h" />
     <ClInclude Include="..\Classes\ui\battle\HandleHead.h" />
     <ClInclude Include="..\Classes\ui\battle\LayerBattle.h" />
@@ -266,8 +270,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ui\common\ModelResLoad.h" />
     <ClInclude Include="..\Classes\ui\common\SpriteBlur.h" />
     <ClInclude Include="..\Classes\ui\menu\HandleMenuStart.h" />
-    <ClInclude Include="..\Classes\ui\menu\IMenu.h" />
+    <ClInclude Include="..\Classes\ui\menu\HandleMenuSystem.h" />
+    <ClInclude Include="..\Classes\ui\menu\ILayerMenuStart.h" />
+    <ClInclude Include="..\Classes\ui\menu\ILayerMenuSystem.h" />
     <ClInclude Include="..\Classes\ui\menu\LayerMenuStart.h" />
+    <ClInclude Include="..\Classes\ui\menu\LayerMenuSystem.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,21 +1,22 @@
-#include "HandleLayerEntity.h"
+#include "HandleEntity.h"
 #include "model/define/DefinesValue.h"
-#include "../ManagerHandle.h"
+#include "core/ManagerHandle.h"
 
 USING_NS_CORE_ENTITY;
 
-HandleLayerEntity::HandleLayerEntity() : _layerEntity(nullptr)
+HandleEntity::HandleEntity() : _layerEntity(nullptr), _modelEntity(nullptr)
 {
 }
 
-HandleLayerEntity::~HandleLayerEntity()
+HandleEntity::~HandleEntity()
 {
 	ManagerHandle::getInstance()->detach(this);
 
 	_layerEntity = nullptr;
+	CC_SAFE_RELEASE_NULL(_modelEntity);
 }
 
-bool HandleLayerEntity::init()
+bool HandleEntity::init()
 {
 	auto isInit = false;
 
@@ -24,13 +25,16 @@ bool HandleLayerEntity::init()
 		idObserverSet((int)ID_OBSERVER::HANDLE_LAYER_ENTITY);
 		ManagerHandle::getInstance()->attach(this);
 
+		_modelEntity = ModelEntity::create();
+		_modelEntity->retain();
+
 		isInit = true;
 	} while (0);
 
 	return isInit;
 }
 
-void HandleLayerEntity::updateBySubject(va_list values)
+void HandleEntity::updateBySubject(va_list values)
 {
 	auto type = va_arg(values, TO_HANDLE_LAYER_ENTITY);
 	switch (type)
@@ -46,9 +50,8 @@ void HandleLayerEntity::updateBySubject(va_list values)
 	}
 }
 
-void core::entity::HandleLayerEntity::createWorld()
+void core::entity::HandleEntity::createWorld()
 {
-	_layerEntity->addCreature(1000);//添加主角
 	_layerEntity->addRegioon(1000);//从主角位置添加地图
 	_layerEntity->addRegioon(1001);
 	_layerEntity->addRegioon(1002);
@@ -58,5 +61,7 @@ void core::entity::HandleLayerEntity::createWorld()
 	_layerEntity->addRegioon(1006);
 	_layerEntity->addRegioon(1007);
 	_layerEntity->addRegioon(1008);//添加地图至填满
+
+	_layerEntity->addCreature(1000);//添加主角
 	_layerEntity->addCreature(1001);//添加其他生物
 }

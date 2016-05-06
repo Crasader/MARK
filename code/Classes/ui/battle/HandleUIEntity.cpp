@@ -1,6 +1,6 @@
 #pragma execution_character_set("utf-8")
 
-#include "HandleEntity.h"
+#include "HandleUIEntity.h"
 #include "model/define/DefinesValue.h"
 #include "core/temp/Grid.h"
 #include "core/temp/ManagerGrid.h"
@@ -11,17 +11,17 @@
 #include "model/define/DefinesRes.h"
 #include "../../core/ManagerHandle.h"
 
-HandleEntity::HandleEntity() : _skin(nullptr)
+HandleUIEntity::HandleUIEntity() : _skin(nullptr)
 {
 }
 
-HandleEntity::~HandleEntity()
+HandleUIEntity::~HandleUIEntity()
 {
 	ManagerHandle::getInstance()->detach(this);
 	_skin = nullptr;
 }
 
-bool HandleEntity::init()
+bool HandleUIEntity::init()
 {
 	auto isInit = false;
 	do 
@@ -34,7 +34,7 @@ bool HandleEntity::init()
 	return isInit;
 }
 
-void HandleEntity::setSkin(Layout *skin)
+void HandleUIEntity::setSkin(Layout *skin)
 {
 	_skin = skin;
 
@@ -62,7 +62,7 @@ void HandleEntity::setSkin(Layout *skin)
 	}
 }
 
-void HandleEntity::resetSkin()
+void HandleUIEntity::resetSkin()
 {
 	for (int i = 0; i < 2; i++)
 	{
@@ -72,7 +72,7 @@ void HandleEntity::resetSkin()
 	}
 }
 
-void HandleEntity::updateBySubject(va_list values)
+void HandleUIEntity::updateBySubject(va_list values)
 {
 	auto type = va_arg(values, TYPE_OBSERVER_HANDLE_ENTITY);
 	if (type == TYPE_OBSERVER_HANDLE_ENTITY::RUN_ENTITY_APPEAR)
@@ -98,7 +98,7 @@ void HandleEntity::updateBySubject(va_list values)
 	}
 }
 
-void HandleEntity::runEntityAppear()
+void HandleUIEntity::runEntityAppear()
 {
 	for (int i = 0; i < 2; i++)
 	{
@@ -122,7 +122,7 @@ void HandleEntity::runEntityAppear()
 	}
 }
 
-void HandleEntity::setTxtHpOrEnergy(EntityTemp *entity, const bool &isMst, const bool &isHp)
+void HandleUIEntity::setTxtHpOrEnergy(EntityTemp *entity, const bool &isMst, const bool &isHp)
 {
 	IdAttribute idAttribute;
 	string name = "";
@@ -142,7 +142,7 @@ void HandleEntity::setTxtHpOrEnergy(EntityTemp *entity, const bool &isMst, const
 	txt->setString(text);
 }
 
-void HandleEntity::runEntityAction()
+void HandleUIEntity::runEntityAction()
 {
 	auto managerEntity = ManagerEntity::getInstance();
 	auto monster = managerEntity->getMonster();
@@ -198,7 +198,7 @@ void HandleEntity::runEntityAction()
 	}
 }
 
-void HandleEntity::dealTurnOver()
+void HandleUIEntity::dealTurnOver()
 {
 	auto isTurnAll = ManagerEntity::getInstance()->isTurnOverAll();//一轮行动的动作全部结束
 	if (isTurnAll)
@@ -227,7 +227,7 @@ void HandleEntity::dealTurnOver()
 	}
 }
 
-void HandleEntity::dealRoundOver(const bool &isForce /*= false*/)
+void HandleUIEntity::dealRoundOver(const bool &isForce /*= false*/)
 {
 	auto handleDataGrid = ManagerData::getInstance()->getHandleDataGrid();
 	handleDataGrid->resetIndexGridBattle();
@@ -253,7 +253,7 @@ void HandleEntity::dealRoundOver(const bool &isForce /*= false*/)
 	}
 }
 
-void HandleEntity::updateTxtHpOrEnergy(const bool &isHp)
+void HandleUIEntity::updateTxtHpOrEnergy(const bool &isHp)
 {
 	IdAttribute idAttribute;
 	string name = "";

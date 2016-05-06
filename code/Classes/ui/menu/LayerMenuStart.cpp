@@ -8,7 +8,7 @@
 USING_NS_CC;
 using namespace ui;
 
-LayerMenuStart::LayerMenuStart() : _handleMenuStart(nullptr)
+LayerMenuStart::LayerMenuStart() : _skin(nullptr), _handleMenuStart(nullptr)
 {
 }
 

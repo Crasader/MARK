@@ -4,9 +4,10 @@
 #include "cocos2d.h"
 #include "ISceneMain.h"
 #include "HandleSceneMain.h"
-#include "ui/menu/LayerMenuStart.h"
 #include "ui/common/LayerResLoad.h"
 #include "core/entity/LayerEntity.h"
+#include "ui/menu/LayerMenuStart.h"
+#include "ui/menu/LayerMenuSystem.h"
 
 
 class SceneMain : public cocos2d::Scene, ISceneMain
@@ -28,11 +29,16 @@ public:
 	virtual void layerMenuStartAdd();
 	virtual void layerMenuStartRemove();
 
+	virtual void layerMenuSystemAdd();
+	virtual void layerMenuSystemRemove();
+
+
 private:
 	HandleSceneMain* _handleSceneMain;
 	userInerface::common::LayerResLoad* _layerResLoad;
 	core::entity::LayerEntity* _layerEntity;
 	LayerMenuStart* _layerMenuStart;
+	LayerMenuSystem* _layerMenuSystem;
 
 };
 

@@ -53,6 +53,12 @@ void HandleSceneMain::updateBySubject(va_list values)
 	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_REMOVE:
 		_sceneMain->layerMenuStartRemove();
 		break;
+	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_ADD:
+		_sceneMain->layerMenuSystemAdd();
+		break;
+	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_REMOVE:
+		_sceneMain->layerMenuSystemRemove();
+		break;
 	default:
 		break;
 	}

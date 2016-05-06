@@ -14,7 +14,11 @@
       <FilePathData Path="images/rune/unblock.png" />
       <FilePathData Path="images/rune/wilful_block.png" />
       <FilePathData Path="images/rune/wilful_damage.png" />
+      <FilePathData Path="images/rune/bg_common.png" />
+      <FilePathData Path="images/rune/bg_epic.png" />
+      <FilePathData Path="images/rune/bg_legendary.png" />
+      <FilePathData Path="images/rune/bg_rare.png" />
     </ImageFiles>
-    <MaxSize Width="1024" Height="1024" />
+    <MaxSize Width="1024" Height="128" />
   </Content>
 </PlistInfoProjectFile>

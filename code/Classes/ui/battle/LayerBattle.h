@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 #include "common/observer/Observer.h"
 #include "ui/common/ILayerAppearDisappear.h"
-#include "HandleEntity.h"
+#include "HandleUIEntity.h"
 #include "HandleBg.h"
 #include "HandleGrid.h"
 #include "HandleHead.h"
@@ -48,7 +48,7 @@ private:
 	
 private:
 	Layer *_skin;
-	HandleEntity *_handleEntity;
+	HandleUIEntity *_handleEntity;
 	HandleBg *_handleBg;
 	HandleHead *_handleHead;
 	HandleGrid *_handleGrid;

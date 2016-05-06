@@ -14,6 +14,9 @@ public:
 
 	virtual void layerMenuStartAdd() {}
 	virtual void layerMenuStartRemove() {}
+
+	virtual void layerMenuSystemAdd() {}
+	virtual void layerMenuSystemRemove() {}
 };
 
 #endif

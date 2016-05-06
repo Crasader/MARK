@@ -25,7 +25,7 @@ public:
 
 	void update(float delta);
 
-	void setLayerResLoad(userInerface::common::ILayerResLoad* val) { _layerResLoad = val; }
+	void setLayerResLoad(ILayerResLoad* val) { _layerResLoad = val; }
 
 private:
 	void loadSounds();

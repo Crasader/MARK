@@ -14,6 +14,7 @@
 #define RES_UI_COMMON_LAYER_RES_LOAD_CSB "ui/common/LayerResLoad.csb"
 
 #define RES_UI_MENU_LAYER_MENU_START_CSB "ui/menu/LayerMenuStart.csb"
+#define RES_UI_MENU_LAYER_MENU_SYSTEM_CSB "ui/menu/LayerMenuSystem.csb"
 
 #define RES_IMAGES_MAIN_CIRCLE_LINE_POINT_PNG "images/battle/lianxian_dian.png"
 #define RES_IMAGES_MAIN_CIRCLE_LINE_CIRCLE_PNG "images/battle/lianxian_quan.png"

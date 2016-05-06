@@ -11,7 +11,7 @@
 USING_NS_UI_COMMON;
 using namespace CocosDenshion;
 
-HandleResLoad::HandleResLoad() : _bitData(nullptr), _modelResLoad(nullptr)
+HandleResLoad::HandleResLoad() : _layerResLoad(nullptr), _modelResLoad(nullptr), _bitData(nullptr)
 {
 }
 

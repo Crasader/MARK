@@ -1,12 +1,12 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="LayerMain" ID="33ecb751-e4ce-4e82-9c31-988fdce09d09" Version="2.3.2.3" />
+  <PropertyGroup Type="Layer" Name="LayerMenuStart" ID="33ecb751-e4ce-4e82-9c31-988fdce09d09" Version="2.3.2.3" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
-      <ObjectData Name="LayerMain" Tag="5" ctype="GameLayerObjectData">
+      <ObjectData Name="LayerMenuStart" Tag="5" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="btn0" ActionTag="454791013" Tag="6" IconVisible="False" LeftMargin="166.2446" RightMargin="381.7554" TopMargin="356.2468" BottomMargin="567.7532" TouchEnable="True" FontSize="30" ButtonText="开始" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn0" ActionTag="454791013" Tag="6" IconVisible="False" LeftMargin="166.2446" RightMargin="381.7554" TopMargin="356.2468" BottomMargin="567.7532" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="92.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="212.2446" Y="585.7532" />
@@ -19,7 +19,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn1" ActionTag="848033843" Tag="7" IconVisible="False" LeftMargin="165.9317" RightMargin="382.0683" TopMargin="448.7504" BottomMargin="475.2496" TouchEnable="True" FontSize="30" ButtonText="存取" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn1" ActionTag="848033843" Tag="7" IconVisible="False" LeftMargin="165.9317" RightMargin="382.0683" TopMargin="448.7504" BottomMargin="475.2496" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="92.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="211.9317" Y="493.2496" />
@@ -32,7 +32,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn2" ActionTag="-552672781" Tag="8" IconVisible="False" LeftMargin="165.6185" RightMargin="382.3815" TopMargin="532.4167" BottomMargin="391.5833" TouchEnable="True" FontSize="30" ButtonText="设置" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn2" ActionTag="-552672781" Tag="8" IconVisible="False" LeftMargin="165.6185" RightMargin="382.3815" TopMargin="532.4167" BottomMargin="391.5833" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="92.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="211.6185" Y="409.5833" />

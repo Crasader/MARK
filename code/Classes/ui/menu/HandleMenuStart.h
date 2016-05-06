@@ -1,8 +1,8 @@
-#ifndef __UI_MENU_HADLE_MENU_START_H__
-#define __UI_MENU_HADLE_MENU_START_H__
+#ifndef __UI_MENU_HANDLE_MENU_START_H__
+#define __UI_MENU_HANDLE_MENU_START_H__
 
 #include "cocos2d.h"
-#include "IMenu.h"
+#include "ILayerMenuStart.h"
 
 class HandleMenuStart : public cocos2d::Ref
 {

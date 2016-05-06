@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "ILayerEntity.h"
-#include "HandleLayerEntity.h"
+#include "HandleEntity.h"
 #include "Entity.h"
 
 NS_BEGIN_CORE_ENTITY
@@ -22,11 +22,9 @@ public:
 	virtual void addRune();
 	virtual void startEngine();
 
-	virtual void update(float delta);
-
 private:
 	cocos2d::Vector<core::entity::Entity*> _vecEntity;
-	HandleLayerEntity* _handleLayerEntity;
+	core::entity::HandleEntity* _handleEntity;
 
 };
 

@@ -28,7 +28,7 @@ public:
 	CC_SYNTHESIZE(StateEntity, _state, StateEntity);
 
 protected:
-	virtual void createSkin();
+	virtual void createSkin();//add skin,set state standby
 
 private:
 	

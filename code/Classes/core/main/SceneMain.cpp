@@ -7,7 +7,12 @@ USING_NS_CC;
 USING_NS_UI_COMMON;
 USING_NS_CORE_ENTITY;
 
-SceneMain::SceneMain() : _handleSceneMain(nullptr), _layerResLoad(nullptr), _layerEntity(nullptr), _layerMenuStart(nullptr)
+SceneMain::SceneMain() : 
+	_handleSceneMain(nullptr), 
+	_layerResLoad(nullptr), 
+	_layerEntity(nullptr), 
+	_layerMenuStart(nullptr), 
+	_layerMenuSystem(nullptr)
 {
 }
 
@@ -17,6 +22,7 @@ SceneMain::~SceneMain()
 	layerResLoadRemove();
 	layerEntityRemove();
 	layerMenuStartRemove();
+	layerMenuSystemRemove();
 }
 
 bool SceneMain::init()
@@ -81,5 +87,20 @@ void SceneMain::layerMenuStartRemove()
 	{
 		_layerMenuStart->removeFromParent();
 		_layerMenuStart = nullptr;
+	}
+}
+
+void SceneMain::layerMenuSystemAdd()
+{
+	_layerMenuSystem = LayerMenuSystem::create();
+	addChild(_layerMenuSystem);
+}
+
+void SceneMain::layerMenuSystemRemove()
+{
+	if (_layerMenuSystem)
+	{
+		_layerMenuSystem->removeFromParent();
+		_layerMenuSystem = nullptr;
 	}
 }

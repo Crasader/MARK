@@ -174,7 +174,7 @@ void LayerBattle::createSkin()
 	addChild(_skin);
 
 	auto layoutEntity = (Layout *)_skin->getChildByName("layoutEntity");
-	_handleEntity = HandleEntity::create();
+	_handleEntity = HandleUIEntity::create();
 	_handleEntity->retain();
 	_handleEntity->setSkin(layoutEntity);
 

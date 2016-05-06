@@ -13,14 +13,14 @@ USING_NS_CC;
 using namespace ui;
 using namespace coreTemp;
 
-class HandleEntity : public Ref, public Observer
+class HandleUIEntity : public Ref, public Observer
 {
 public:
-	CREATE_FUNC(HandleEntity);
+	CREATE_FUNC(HandleUIEntity);
 
 public:
-	HandleEntity();
-	~HandleEntity();
+	HandleUIEntity();
+	~HandleUIEntity();
 
 	virtual bool init();
 
