@@ -1,7 +1,7 @@
 #pragma execution_character_set("utf-8")
 
 #include "ManagerData.h"
-#include "../config/ManagerCfg.h"
+#include "common/config/ManagerCfg.h"
 
 DataGrid::DataGrid() :
 	_id(0),

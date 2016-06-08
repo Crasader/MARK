@@ -16,14 +16,8 @@
     <Filter Include="src\model">
       <UniqueIdentifier>{2b4af5a9-5571-4e3c-9ae6-efeb633cfb89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\model\config">
-      <UniqueIdentifier>{12933f78-d4b1-4964-b86c-e7d77d788c94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\model\data">
       <UniqueIdentifier>{c435b92b-b4cf-4632-9eb7-9a35504a08c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\model\define">
-      <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\common\observer">
       <UniqueIdentifier>{6285f443-5ce4-4e67-a9e1-79f951df0116}</UniqueIdentifier>
@@ -34,65 +28,68 @@
     <Filter Include="src\common\util">
       <UniqueIdentifier>{b3735066-28b3-45b4-9ed1-991246b7da93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ui">
-      <UniqueIdentifier>{bd69f91d-6437-4dea-82f2-fd63c4d54044}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\common">
-      <UniqueIdentifier>{15bc661e-3956-4eab-bcf0-04d93442b67f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\menu">
-      <UniqueIdentifier>{3edac626-cc48-4102-9374-6e718aaa3144}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core">
-      <UniqueIdentifier>{50531dc9-dc22-491e-bafe-b01a34a119dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\entity">
-      <UniqueIdentifier>{c673cc74-ea72-4937-8c4c-0bc5d18f65b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\main">
-      <UniqueIdentifier>{6086f172-d770-4860-9af5-862babd937df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\entity\subs">
-      <UniqueIdentifier>{e3c97132-6c1c-4a64-a33b-2ab4af53eeef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\battle">
-      <UniqueIdentifier>{711d3f9d-fca3-4f00-ae1b-6db8ea492c7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\battle\catch">
-      <UniqueIdentifier>{cf157eaf-6766-4ddd-97ea-77e4ccdd5df8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\battle\gridSelect">
-      <UniqueIdentifier>{821eb113-932c-4bf7-85ed-0ca656670ff3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\battle\result">
-      <UniqueIdentifier>{d28577cd-6a62-4f0e-943b-f05c0603eb0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\entity\subs\unit">
-      <UniqueIdentifier>{b7c10e69-7cff-4461-86f4-5796a20c3871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\temp">
-      <UniqueIdentifier>{31f6aeea-54fa-476a-b066-24966fa42220}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\entity\subs\attribute">
-      <UniqueIdentifier>{8af192ae-5e23-414a-b37b-c9ce826f1f8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\core\entity\subs\terms">
-      <UniqueIdentifier>{dda2baa3-6f35-47e2-b296-14776b78ebb9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\common\load">
-      <UniqueIdentifier>{52d5dbea-c484-4647-a99a-24a196162690}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\common\bitData">
       <UniqueIdentifier>{c2361aba-a4f2-44d0-b8be-4b3cca4643a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ui\menu\start">
-      <UniqueIdentifier>{b1211eca-55e2-4a07-b49c-783c6dd9b927}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\menu\system">
-      <UniqueIdentifier>{af7f8da7-650e-4567-9d10-97a9cc23e893}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\common\sqlite">
       <UniqueIdentifier>{3a86a9d8-bc31-40bc-a29d-bcaaea492440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{50531dc9-dc22-491e-bafe-b01a34a119dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\entity">
+      <UniqueIdentifier>{c673cc74-ea72-4937-8c4c-0bc5d18f65b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\entity\subs">
+      <UniqueIdentifier>{e3c97132-6c1c-4a64-a33b-2ab4af53eeef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\entity\subs\unit">
+      <UniqueIdentifier>{b7c10e69-7cff-4461-86f4-5796a20c3871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\entity\subs\attribute">
+      <UniqueIdentifier>{8af192ae-5e23-414a-b37b-c9ce826f1f8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\entity\subs\terms">
+      <UniqueIdentifier>{dda2baa3-6f35-47e2-b296-14776b78ebb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\temp">
+      <UniqueIdentifier>{31f6aeea-54fa-476a-b066-24966fa42220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui">
+      <UniqueIdentifier>{a8eaeaba-d116-440f-bd8d-0351eb01bba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\battle">
+      <UniqueIdentifier>{df88d1c8-8827-40a2-9177-81a7ef22cc62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\common">
+      <UniqueIdentifier>{dd1f6563-a4ce-43a2-9077-4596e19636e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\common\load">
+      <UniqueIdentifier>{79a74135-bfc4-4fbb-9f7b-4b1dec6846de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\menu">
+      <UniqueIdentifier>{9fec7203-a350-41ed-944b-f37d3b819e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\menu\start">
+      <UniqueIdentifier>{75d4c44a-984f-463f-a9e9-0f439db9108f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\menu\system">
+      <UniqueIdentifier>{efb47d78-93ae-4999-a49e-4306cad7be3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\welcome">
+      <UniqueIdentifier>{860e387c-bb2c-4eae-a070-7a25e70b036e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\spriteBlur">
+      <UniqueIdentifier>{9025b739-c0bc-4afa-bf48-cc394bd5d1e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\define">
+      <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\config">
+      <UniqueIdentifier>{9b9bd056-09be-4840-afc0-be4013adfb62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\welcome\logo">
+      <UniqueIdentifier>{f32c563d-1e5f-4c37-ba92-2d0cc7ab660e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -122,78 +119,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\common\observer\Observer.cpp">
       <Filter>src\common\observer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\main\SceneMain.cpp">
-      <Filter>src\core\main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Entity.cpp">
-      <Filter>src\core\entity\subs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\LayerEntity.cpp">
-      <Filter>src\core\entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\main\HandleSceneMain.cpp">
-      <Filter>src\core\main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\ManagerHandle.cpp">
-      <Filter>src\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\LayerCatch.cpp">
-      <Filter>src\ui\battle\catch</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\LayerGridSelect.cpp">
-      <Filter>src\ui\battle\gridSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\NodeCircleLine.cpp">
-      <Filter>src\ui\battle\gridSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\LayerBattleResult.cpp">
-      <Filter>src\ui\battle\result</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\HandleBg.cpp">
-      <Filter>src\ui\battle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\HandleGrid.cpp">
-      <Filter>src\ui\battle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\HandleHead.cpp">
-      <Filter>src\ui\battle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\LayerBattle.cpp">
-      <Filter>src\ui\battle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\NodeHead.cpp">
-      <Filter>src\ui\battle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Creature.cpp">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Unit.cpp">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\Grid.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\Maid.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\ManagerEntity.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\ManagerGrid.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\ManagerTimer.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\Monster.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\Scenery.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\model\config\ManagerCfg.cpp">
-      <Filter>src\model\config</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\model\data\HandleDataEntity.cpp">
       <Filter>src\model\data</Filter>
@@ -225,59 +150,8 @@
     <ClCompile Include="..\Classes\model\data\ManagerData.cpp">
       <Filter>src\model\data</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Attribute.cpp">
-      <Filter>src\core\entity\subs\attribute</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Terms.cpp">
-      <Filter>src\core\entity\subs\terms</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Rune.cpp">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\common\SpriteBlur.cpp">
-      <Filter>src\ui\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\temp\EntityTemp.cpp">
-      <Filter>src\core\temp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\LayerGradeUp.cpp">
-      <Filter>src\ui\battle\result</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\Region.cpp">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\common\LayerResLoad.cpp">
-      <Filter>src\ui\common\load</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\common\HandleResLoad.cpp">
-      <Filter>src\ui\common\load</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\common\ModelResLoad.cpp">
-      <Filter>src\ui\common\load</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\common\bitData\BitData.cpp">
       <Filter>src\common\bitData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\HandleEntity.cpp">
-      <Filter>src\core\entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\core\entity\ModelEntity.cpp">
-      <Filter>src\core\entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\menu\HandleMenuStart.cpp">
-      <Filter>src\ui\menu\start</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\menu\LayerMenuStart.cpp">
-      <Filter>src\ui\menu\start</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\menu\LayerMenuSystem.cpp">
-      <Filter>src\ui\menu\system</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\menu\HandleMenuSystem.cpp">
-      <Filter>src\ui\menu\system</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ui\battle\HandleUIEntity.cpp">
-      <Filter>src\ui\battle</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\common\sqlite\DbHelper.cpp">
       <Filter>src\common\sqlite</Filter>
@@ -287,6 +161,150 @@
     </ClCompile>
     <ClCompile Include="..\Classes\common\sqlite\sqlite3.c">
       <Filter>src\common\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\HandleGame.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ManagerHandle.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\SceneGame.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\EntityTemp.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\Grid.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\Maid.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\ManagerEntity.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\ManagerGrid.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\ManagerTimer.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\Monster.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\temp\Scenery.cpp">
+      <Filter>src\game\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\HandleEntity.cpp">
+      <Filter>src\game\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\LayerEntity.cpp">
+      <Filter>src\game\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\ModelEntity.cpp">
+      <Filter>src\game\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Entity.cpp">
+      <Filter>src\game\entity\subs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Attribute.cpp">
+      <Filter>src\game\entity\subs\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Terms.cpp">
+      <Filter>src\game\entity\subs\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Creature.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Region.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Rune.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\Unit.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\HandleBg.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\HandleGrid.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\HandleHead.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\HandleUIEntity.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\LayerBattle.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\LayerBattleResult.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\LayerCatch.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\LayerGradeUp.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\LayerGridSelect.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\NodeCircleLine.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp">
+      <Filter>src\game\ui\battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\HandleResLoad.cpp">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerResLoad.cpp">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\ModelResLoad.cpp">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\HandleMenuStart.cpp">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\HandleMenuSystem.cpp">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\spriteBlur\SpriteBlur.cpp">
+      <Filter>src\common\spriteBlur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ModelGame.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\config\ManagerCfg.cpp">
+      <Filter>src\common\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp">
+      <Filter>src\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\HandleWelcome.cpp">
+      <Filter>src\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\ModelWelcome.cpp">
+      <Filter>src\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogo.cpp">
+      <Filter>src\welcome\logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\HandleLogo.cpp">
+      <Filter>src\welcome\logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\ModelLogo.cpp">
+      <Filter>src\welcome\logo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -317,167 +335,11 @@
     <ClInclude Include="..\Classes\common\observer\Observer.h">
       <Filter>src\common\observer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\core\main\SceneMain.h">
-      <Filter>src\core\main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Entity.h">
-      <Filter>src\core\entity\subs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\LayerEntity.h">
-      <Filter>src\core\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\main\ISceneMain.h">
-      <Filter>src\core\main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\main\HandleSceneMain.h">
-      <Filter>src\core\main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\ILayerEntity.h">
-      <Filter>src\core\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\ManagerHandle.h">
-      <Filter>src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\LayerCatch.h">
-      <Filter>src\ui\battle\catch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\LayerGridSelect.h">
-      <Filter>src\ui\battle\gridSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\NodeCircleLine.h">
-      <Filter>src\ui\battle\gridSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\LayerBattleResult.h">
-      <Filter>src\ui\battle\result</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\HandleBg.h">
-      <Filter>src\ui\battle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\HandleGrid.h">
-      <Filter>src\ui\battle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\HandleHead.h">
-      <Filter>src\ui\battle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\LayerBattle.h">
-      <Filter>src\ui\battle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\NodeHead.h">
-      <Filter>src\ui\battle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Creature.h">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Unit.h">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\Grid.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\Maid.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\ManagerEntity.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\ManagerGrid.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\ManagerTimer.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\Monster.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\Scenery.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\config\ManagerCfg.h">
-      <Filter>src\model\config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\config\ManagerCfgDefines.h">
-      <Filter>src\model\config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\define\DefinesRes.h">
-      <Filter>src\model\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\define\DefinesString.h">
-      <Filter>src\model\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\define\DefinesValue.h">
-      <Filter>src\model\define</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\model\data\ManagerData.h">
       <Filter>src\model\data</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Attribute.h">
-      <Filter>src\core\entity\subs\attribute</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Terms.h">
-      <Filter>src\core\entity\subs\terms</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Rune.h">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\SpriteBlur.h">
-      <Filter>src\ui\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\ILayerAppearDisappear.h">
-      <Filter>src\ui\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\temp\EntityTemp.h">
-      <Filter>src\core\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\LayerGradeUp.h">
-      <Filter>src\ui\battle\result</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\model\define\DefinesNamespace.h">
-      <Filter>src\model\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\Region.h">
-      <Filter>src\core\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\ILayerResLoad.h">
-      <Filter>src\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\LayerResLoad.h">
-      <Filter>src\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\HandleResLoad.h">
-      <Filter>src\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\common\ModelResLoad.h">
-      <Filter>src\ui\common\load</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\bitData\BitData.h">
       <Filter>src\common\bitData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\HandleEntity.h">
-      <Filter>src\core\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\core\entity\ModelEntity.h">
-      <Filter>src\core\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\HandleMenuStart.h">
-      <Filter>src\ui\menu\start</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\LayerMenuStart.h">
-      <Filter>src\ui\menu\start</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\ILayerMenuStart.h">
-      <Filter>src\ui\menu\start</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\ILayerMenuSystem.h">
-      <Filter>src\ui\menu\system</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\LayerMenuSystem.h">
-      <Filter>src\ui\menu\system</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\menu\HandleMenuSystem.h">
-      <Filter>src\ui\menu\system</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ui\battle\HandleUIEntity.h">
-      <Filter>src\ui\battle</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\common\sqlite\DbHelper.h">
       <Filter>src\common\sqlite</Filter>
@@ -487,6 +349,189 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h">
       <Filter>src\common\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\HandleGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ISceneGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ManagerHandle.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\SceneGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\EntityTemp.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\Grid.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\Maid.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\ManagerEntity.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\ManagerGrid.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\ManagerTimer.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\Monster.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\temp\Scenery.h">
+      <Filter>src\game\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\HandleEntity.h">
+      <Filter>src\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ILayerEntity.h">
+      <Filter>src\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\LayerEntity.h">
+      <Filter>src\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ModelEntity.h">
+      <Filter>src\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Entity.h">
+      <Filter>src\game\entity\subs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Attribute.h">
+      <Filter>src\game\entity\subs\attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Terms.h">
+      <Filter>src\game\entity\subs\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Creature.h">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Region.h">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Rune.h">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\Unit.h">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\HandleBg.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\HandleGrid.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\HandleHead.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\HandleUIEntity.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\LayerBattle.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\LayerBattleResult.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\LayerCatch.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\LayerGradeUp.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\LayerGridSelect.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\NodeCircleLine.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\battle\NodeHead.h">
+      <Filter>src\game\ui\battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h">
+      <Filter>src\game\ui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\HandleResLoad.h">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerResLoad.h">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\LayerResLoad.h">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ModelResLoad.h">
+      <Filter>src\game\ui\common\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\HandleMenuStart.h">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerMenuStart.h">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\HandleMenuSystem.h">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerMenuSystem.h">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\spriteBlur\SpriteBlur.h">
+      <Filter>src\common\spriteBlur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ModelGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\define\DefinesNamespace.h">
+      <Filter>src\common\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\define\DefinesRes.h">
+      <Filter>src\common\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\define\DefinesString.h">
+      <Filter>src\common\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\define\DefinesValue.h">
+      <Filter>src\common\define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\config\ManagerCfg.h">
+      <Filter>src\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\config\ManagerCfgDefines.h">
+      <Filter>src\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\ISceneWelcome.h">
+      <Filter>src\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\SceneWelcome.h">
+      <Filter>src\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\HandleWelcome.h">
+      <Filter>src\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\ModelWelcome.h">
+      <Filter>src\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\ILayerLogo.h">
+      <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h">
+      <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\HandleLogo.h">
+      <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\ModelLogo.h">
+      <Filter>src\welcome\logo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

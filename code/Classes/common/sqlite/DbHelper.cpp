@@ -84,6 +84,18 @@ void DbHelper::dataDelete(std::string tableName, std::string condition /*= ""*/)
 	executeSql(sql);
 }
 
+int loadData(void* para, int columnNum, char** columnValue, char** columnName)
+{
+	map<string, string> dic;
+	for (auto i = 0; i < columnNum; i++)
+	{
+		dic.insert(make_pair<string, string>((string)columnName[i], (string)columnValue[i]));
+	}
+	auto vec = (vector<map<string, string>>*)para;
+	vec->push_back(dic);
+	return 0;
+}
+
 void DbHelper::executeSql(std::string sql, std::vector<std::map<std::string, std::string>>* vec /*= nullptr*/)
 {
 	dataBaseOpen();
@@ -96,20 +108,9 @@ void DbHelper::executeSql(std::string sql, std::vector<std::map<std::string, std
 	{
 		log("ManagerSqlite::executeSql failed result:%d errmsg%s", result, errmsg);
 	}
+	sqlite3_free(errmsg);
 
 	dataBaseClose();
-}
-
-int loadData(void* para, int columnNum, char** columnValue, char** columnName)
-{
-	map<string, string> dic;
-	for (auto i = 0; i < columnNum; i++)
-	{
-		dic.insert(make_pair<string, string>((string)columnName[i], (string)columnValue[i]));
-	}
-	auto vec = (vector<map<string, string>>*)para;
-	vec->push_back(dic);
-	return 0;
 }
 
 DbHelper::DbHelper() : _dataBase(nullptr)

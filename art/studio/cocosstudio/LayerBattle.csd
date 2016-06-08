@@ -63,7 +63,7 @@
               <AbstractNodeData Name="spriteMaid2" ActionTag="1095255639" Tag="159" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="1.0675" RightMargin="517.9325" TopMargin="797.0000" BottomMargin="-4.0000" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="24.0675" Y="19.0000" />
+                <Position X="61.5675" Y="79.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.0962" Y="0.0828" />
@@ -74,7 +74,7 @@
               <AbstractNodeData Name="spriteMaid1" ActionTag="1754159978" Tag="160" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="120.0000" RightMargin="393.5000" TopMargin="123.0000" BottomMargin="-4.0000" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="143.0000" Y="19.0000" />
+                <Position X="180.5000" Y="79.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2906" Y="0.2865" />
@@ -85,7 +85,7 @@
               <AbstractNodeData Name="spriteMaid0" ActionTag="-1111923364" Tag="161" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="240.0000" RightMargin="269.0000" TopMargin="123.0000" BottomMargin="-4.0000" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="263.0000" Y="19.0000" />
+                <Position X="300.5000" Y="79.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4852" Y="0.2865" />
@@ -106,7 +106,7 @@
               <AbstractNodeData Name="spriteMst2" ActionTag="-911797163" Tag="189" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="518.9999" RightMargin="0.0001" TopMargin="-4.0001" BottomMargin="797.0001" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="616.9999" Y="941.0001" />
+                <Position X="579.4999" Y="880.5001" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9055" Y="0.9172" />
@@ -117,7 +117,7 @@
               <AbstractNodeData Name="spriteMst1" ActionTag="-1010833670" Tag="188" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="398.9998" RightMargin="120.0001" TopMargin="-4.0000" BottomMargin="797.0000" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="496.9999" Y="941.0000" />
+                <Position X="459.4999" Y="880.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7180" Y="0.9172" />
@@ -128,7 +128,7 @@
               <AbstractNodeData Name="spriteMst0" ActionTag="267273659" Tag="187" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="279.0000" RightMargin="240.0000" TopMargin="-4.0000" BottomMargin="797.0000" ctype="SpriteObjectData">
                 <Size X="121.0000" Y="167.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="377.0000" Y="941.0000" />
+                <Position X="339.5000" Y="880.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5305" Y="0.9172" />
@@ -214,7 +214,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9141" Y="0.1031" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="Sprite_role1" ActionTag="812945493" Tag="774" IconVisible="False" LeftMargin="435.4998" RightMargin="97.5001" TopMargin="781.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
@@ -225,7 +225,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7641" Y="0.0771" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="Sprite_role2" ActionTag="-1106534215" Tag="775" IconVisible="False" LeftMargin="352.4996" RightMargin="180.5004" TopMargin="781.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
@@ -236,7 +236,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6344" Y="0.0771" />
                 <PreSize X="0.1672" Y="0.2188" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="layoutHeadMaid" CanEdit="False" ActionTag="1751947810" Tag="192" IconVisible="False" LeftMargin="365.0000" TopMargin="754.9993" BottomMargin="0.0007" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
@@ -309,7 +309,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.0836" Y="0.8969" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="Sprite_role1_0" ActionTag="-1903453401" Tag="777" IconVisible="False" LeftMargin="181.6692" RightMargin="351.3308" TopMargin="-31.0000" BottomMargin="781.0000" ctype="SpriteObjectData">
@@ -320,7 +320,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.3675" Y="0.9229" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="Sprite_role2_0" ActionTag="1416864441" Tag="778" IconVisible="False" LeftMargin="96.6695" RightMargin="436.3305" TopMargin="-31.0000" BottomMargin="781.0000" ctype="SpriteObjectData">
@@ -331,7 +331,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2346" Y="0.9229" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="images/creature/creature.png" Plist="core/entity/PlistCreature.plist" />
+                <FileData Type="MarkedSubImage" Path="images/battle/creature.png" Plist="PlistBattle.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="layoutHeadMst" CanEdit="False" ActionTag="1609905036" Tag="193" IconVisible="False" RightMargin="365.0000" TopMargin="0.0001" BottomMargin="754.9999" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">

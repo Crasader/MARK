@@ -12,6 +12,7 @@
             <Image Name="nl_bg.png" />
             <Image Name="role_bg.png" />
             <Image Name="vs.png" />
+            <Image Name="creature.png" />
           </Folder>
           <Folder Name="creature">
             <Image Name="creature.png" />
@@ -40,25 +41,31 @@
           </Folder>
           <Image Name="HelloWorld.png" />
           <Folder Name="map">
-            <Image Name="unit_ground.jpg" />
+            <Image Name="ground.png" />
           </Folder>
           <Folder Name="common">
             <Image Name="loading.png" />
+            <Image Name="Button_Normal.png" />
           </Folder>
         </Folder>
         <Project Name="LayerBattle.csd" Type="Layer" />
         <PlistInfo Name="PlistBattle.csi" Type="Plist" />
-        <Folder Name="ui">
-          <Folder Name="common">
-            <PlistInfo Name="PlistCommon.csi" Type="Plist" />
-            <Project Name="LayerResLoad.csd" Type="Layer" />
-          </Folder>
-          <Folder Name="menu">
-            <Project Name="LayerMenuStart.csd" Type="Layer" />
-            <Project Name="LayerMenuSystem.csd" Type="Layer" />
+        <Folder Name="welcome">
+          <Folder Name="logo">
+            <Project Name="LayerLogo.csd" Type="Layer" />
           </Folder>
         </Folder>
-        <Folder Name="core">
+        <Folder Name="game">
+          <Folder Name="ui">
+            <Folder Name="common">
+              <PlistInfo Name="PlistCommon.csi" Type="Plist" />
+              <Project Name="LayerResLoad.csd" Type="Layer" />
+            </Folder>
+            <Folder Name="menu">
+              <Project Name="LayerMenuStart.csd" Type="Layer" />
+              <Project Name="LayerMenuSystem.csd" Type="Layer" />
+            </Folder>
+          </Folder>
           <Folder Name="entity">
             <PlistInfo Name="PlistCreature.csi" Type="Plist" />
             <PlistInfo Name="PlistMap.csi" Type="Plist" />

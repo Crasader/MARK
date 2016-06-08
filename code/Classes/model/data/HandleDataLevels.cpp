@@ -2,10 +2,10 @@
 
 #include "ManagerData.h"
 #include "common/util/UtilString.h"
-#include "../config/ManagerCfg.h"
-#include "../define/DefinesString.h"
+#include "common/config/ManagerCfg.h"
+#include "common/define/DefinesString.h"
 #include "common/util/UtilRandom.h"
-#include "../../core/ManagerHandle.h"
+#include "game/ManagerHandle.h"
 
 DataLevel::DataLevel() : _id(0), _index(0), _state(TypeLevelState::NONE), _vecTargetComplete({}), _vecVecAward({})
 {

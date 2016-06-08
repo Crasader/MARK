@@ -1,12 +1,12 @@
 ﻿#pragma execution_character_set("utf-8")
 
 #include "ManagerData.h"
-#include "../config/ManagerCfg.h"
+#include "common/config/ManagerCfg.h"
 #include "common/util/UtilRandom.h"
 #include "common/util/UtilDate.h"
-#include "core/temp/ManagerGrid.h"
-#include "core/temp/ManagerEntity.h"
-#include "../../core/ManagerHandle.h"
+#include "game/temp/ManagerGrid.h"
+#include "game/temp/ManagerEntity.h"
+#include "game/ManagerHandle.h"
 
 using namespace coreTemp;
 

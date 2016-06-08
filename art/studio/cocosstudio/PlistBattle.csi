@@ -8,7 +8,8 @@
       <FilePathData Path="images/battle/nl_bg.png" />
       <FilePathData Path="images/battle/role_bg.png" />
       <FilePathData Path="images/battle/vs.png" />
+      <FilePathData Path="images/battle/creature.png" />
     </ImageFiles>
-    <MaxSize Width="1024" Height="1024" />
+    <MaxSize Width="1024" Height="512" />
   </Content>
 </PlistInfoProjectFile>

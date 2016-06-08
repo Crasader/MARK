@@ -4,8 +4,8 @@
 #define __DATA_DATA_MANAGER_DATA_H__
 
 #include "cocos2d.h"
-#include "../define/DefinesValue.h"
-#include "../config/ManagerCfgDefines.h"
+#include "common/define/DefinesValue.h"
+#include "common/config/ManagerCfgDefines.h"
 
 USING_NS_CC;
 using namespace std;
