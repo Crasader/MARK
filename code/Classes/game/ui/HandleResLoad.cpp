@@ -196,6 +196,7 @@ void HandleResLoad::loadedImages()
 	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_RES_LOAD_REMOVE);
 	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_ENTITY_ADD);
 	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_ADD);
+	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_ADD);
 	
 	/*auto time = UtilDate::getSecond();
 	log("```````````````LayerWelcome::handleLoading loaded time:%s", Value(time).asString().c_str());
@@ -246,7 +247,7 @@ void HandleResLoad::imageAsyncLoad(const string &fileName)
 	auto bitData = _modelResLoad->getBitData();
 	auto totalBit = bitData->getTotalBit();
 	textureCache->addImageAsync(fileNamePic, CC_CALLBACK_1(HandleResLoad::imageAsyncCallback, this, fileName, totalBit));
-	bitData->setTotalBit(totalBit);
+	bitData->modifyTotalBit(totalBit);
 }
 
 void HandleResLoad::imageAsyncCallback(Texture2D* texture, const string& fileName, const int& bit)

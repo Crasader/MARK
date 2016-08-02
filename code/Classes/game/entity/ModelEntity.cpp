@@ -2,12 +2,13 @@
 
 USING_NS_GAME_ENTITY;
 
-ModelEntity::ModelEntity()
+ModelEntity::ModelEntity() : _state(StateLayerEntity::WORLD_UNCREATE), _dataEntityCreate(nullptr)
 {
 }
 
 ModelEntity::~ModelEntity()
 {
+	CC_SAFE_RELEASE_NULL(_dataEntityCreate);
 }
 
 bool ModelEntity::init()
@@ -16,6 +17,8 @@ bool ModelEntity::init()
 
 	do
 	{
+		_dataEntityCreate = BitData::create();
+		_dataEntityCreate->retain();
 
 		isInit = true;
 	} while (0);

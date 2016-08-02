@@ -21,13 +21,13 @@ public:
 	bool getBit(int bit);
 	void setBit(int bit);
 
-	int getTotalBit();
-	void setTotalBit(int bit);
+	CC_SYNTHESIZE(int, _totalBit, TotalBit);
+	void modifyTotalBit(int bit);
 	bool isAllBitTrue();
 
 private:
 	std::vector<int> _vecData;
-	int _totalBit;
+
 };
 
 #endif

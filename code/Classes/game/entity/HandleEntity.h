@@ -18,7 +18,9 @@ public:
 
 	virtual bool init();
 	virtual void updateBySubject(va_list values);
-	virtual void createWorld();
+	void update(float delta);
+	void entityAdd();
+	void entityCreating();
 
 	void setLayerEntity(ILayerEntity* val) { _layerEntity = val; }
 

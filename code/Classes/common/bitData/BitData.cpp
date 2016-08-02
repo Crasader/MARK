@@ -24,7 +24,7 @@ bool BitData::init()
 
 bool BitData::getBit(int bit)
 {
-	setTotalBit(bit);
+	modifyTotalBit(bit);
 
 	auto lengthIntBit = sizeof(int) * 8;
 	auto indexVecData = bit / lengthIntBit;
@@ -33,19 +33,14 @@ bool BitData::getBit(int bit)
 
 void BitData::setBit(int bit)
 {
-	setTotalBit(bit);
+	modifyTotalBit(bit);
 
 	auto lengthIntBit = sizeof(int) * 8;
 	auto indexVecData = bit / lengthIntBit;
 	_vecData[indexVecData] |= (1 << (bit % lengthIntBit));
 }
 
-int BitData::getTotalBit()
-{
-	return _totalBit;
-}
-
-void BitData::setTotalBit(int bit)
+void BitData::modifyTotalBit(int bit)
 {
 	if (_totalBit < bit + 1)
 	{

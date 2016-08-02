@@ -17,10 +17,10 @@ public:
 	~LayerEntity();
 
 	virtual bool init();
-	virtual void addRegioon(const int& id);
-	virtual void addCreature(const int& id);
-	virtual void addRune();
-	virtual void startEngine();
+	virtual void update(float delta);
+	virtual void addRegioon(const int& id, BitData* dataCreate);
+	virtual void addCreature(const int& id, BitData*dataCreate);
+	virtual void addRune(const int& id, BitData* dataCreate);
 
 private:
 	cocos2d::Vector<Entity*> _vecEntity;

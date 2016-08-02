@@ -26,8 +26,7 @@ bool HandleMenuStart::init()
 void HandleMenuStart::gameStart()
 {
 	auto manager = ManagerHandle::getInstance();
-	manager->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::START_ENGINE);
-	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_ADD);
+	manager->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::GAME_START);
 	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_REMOVE);
 }
 
