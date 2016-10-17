@@ -1,11 +1,12 @@
 #include "ModelWelcome.h"
 
-ModelWelcome::ModelWelcome()
+ModelWelcome::ModelWelcome() : _listener(nullptr)
 {
 }
 
 ModelWelcome::~ModelWelcome()
 {
+	_listener = nullptr;
 }
 
 bool ModelWelcome::init()

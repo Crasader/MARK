@@ -15,6 +15,7 @@ public:
 
 	virtual bool init();
 
+	void onEventLayerLogoOver(cocos2d::EventCustom* event);
 	void replaceSceneToGame();//ÇÐ»»ÎªÓÎÏ·³¡¾°
 
 	void setSceneWelcome(ISceneWelcome* val) { _sceneWelcome = val; }

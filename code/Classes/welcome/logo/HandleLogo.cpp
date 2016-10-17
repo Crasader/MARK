@@ -1,4 +1,7 @@
 #include "HandleLogo.h"
+#include "common/define/DefinesValue.h"
+
+USING_NS_CC;
 
 HandleLogo::HandleLogo() : _layerLogo(nullptr), _modelLogo(nullptr)
 {
@@ -50,6 +53,7 @@ void HandleLogo::update(float delta)
 		if (isTimeOver)
 		{
 			_modelLogo->setState(StateLogo::LOGOOVER);
+			Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(EVENT_LAYER_LOGO_OVER);
 		}
 		return;
 	}

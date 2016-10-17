@@ -15,7 +15,6 @@ public:
 	~SceneWelcome();
 
 	virtual bool init();
-	virtual void update(float delta);
 
 	virtual void layerLogoAdd();
 	virtual void layerLogoRemove();

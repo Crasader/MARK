@@ -13,8 +13,11 @@ public:
 
 	virtual bool init();
 
-private:
+	cocos2d::EventListenerCustom* getEventListener() const { return _listener; }
+	void setEventListener(cocos2d::EventListenerCustom* val) { _listener = val; }
 
+private:
+	cocos2d::EventListenerCustom* _listener;
 };
 
 #endif

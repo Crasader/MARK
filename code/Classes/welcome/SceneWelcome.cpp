@@ -24,28 +24,19 @@ bool SceneWelcome::init()
 
 		layerLogoAdd();
 
-		scheduleUpdate();
-
 		isInit = true;
 	} while (0);
 
 	return isInit;
 }
 
-void SceneWelcome::update(float delta)
-{
-	if (_layerLogo->isLogoPlayOver())
-	{
-		_handleWelcome->replaceSceneToGame();
-
-		unscheduleUpdate();
-	}
-}
-
 void SceneWelcome::layerLogoAdd()
 {
-	_layerLogo = LayerLogo::create();
-	addChild(_layerLogo);
+	if (!_layerLogo)
+	{
+		_layerLogo = LayerLogo::create();
+		addChild(_layerLogo);
+	}
 }
 
 void SceneWelcome::layerLogoRemove()

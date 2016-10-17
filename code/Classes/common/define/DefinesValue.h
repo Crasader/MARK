@@ -427,4 +427,6 @@ enum class TYPE_OBSERVER_HANDLE_ENTITY
 	{ TypeLevelTarget::TRAP, IdAttribute::ENTITY_TRAP_DISARM_NUM } \
 }
 
+#define EVENT_LAYER_LOGO_OVER "event_layer_logo_over"
+
 #endif

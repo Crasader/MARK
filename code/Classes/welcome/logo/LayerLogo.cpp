@@ -53,8 +53,3 @@ void LayerLogo::playAnimation()
 	actionTimeline->play(ANIMATION_NAME, false);
 	_skin->runAction(actionTimeline);
 }
-
-bool LayerLogo::isLogoPlayOver()
-{
-	return _handleLogo->isStateLogoBeLogoOver();
-}

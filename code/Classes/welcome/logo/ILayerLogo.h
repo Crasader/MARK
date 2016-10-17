@@ -6,7 +6,6 @@ class ILayerLogo
 public:
 	virtual void createSkin() {}//构造皮肤
 	virtual void playAnimation() {}//播放动画
-	virtual bool isLogoPlayOver() { return false; }//是否LOGO结束
 
 };
 

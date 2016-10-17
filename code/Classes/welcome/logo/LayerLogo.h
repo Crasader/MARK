@@ -18,7 +18,6 @@ public:
 
 	virtual void createSkin();
 	virtual void playAnimation();
-	virtual bool isLogoPlayOver();
 
 private:
 	HandleLogo* _handleLogo;
