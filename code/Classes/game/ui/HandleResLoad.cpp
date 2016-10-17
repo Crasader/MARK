@@ -7,6 +7,7 @@
 #include "common/util/UtilDate.h"
 #include "game/ManagerHandle.h"
 
+USING_NS_CC;
 USING_NS_UI_COMMON;
 using namespace CocosDenshion;
 
@@ -192,12 +193,9 @@ void HandleResLoad::loadedImages()
 {
 	_layerResLoad->stopLoad();
 
-	auto manager = ManagerHandle::getInstance();
-	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_RES_LOAD_REMOVE);
-	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_ENTITY_ADD);
-	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_ADD);
-	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_MAIN, TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_ADD);
-	
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->dispatchCustomEvent(EVENT_LAYER_RES_LOAD_LOADED);
+
 	/*auto time = UtilDate::getSecond();
 	log("```````````````LayerWelcome::handleLoading loaded time:%s", Value(time).asString().c_str());
 	//

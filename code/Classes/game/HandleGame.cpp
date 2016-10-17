@@ -3,13 +3,20 @@
 #include "common/define/DefinesValue.h"
 #include "ManagerHandle.h"
 
+USING_NS_CC;
+
 HandleGame::HandleGame() : _sceneMain(nullptr), _modelGame(nullptr)
 {
 }
 
 HandleGame::~HandleGame()
 {
+	auto listener = _modelGame->getListener();
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->removeEventListener(listener);
+
 	ManagerHandle::getInstance()->detach(this);
+	
 	_sceneMain = nullptr;
 	CC_SAFE_RELEASE_NULL(_modelGame);
 }
@@ -27,6 +34,10 @@ bool HandleGame::init()
 
 		_modelGame = ModelGame::create();
 		_modelGame->retain();
+
+		auto dispatcher = Director::getInstance()->getEventDispatcher();
+		auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_RES_LOAD_LOADED, CC_CALLBACK_1(HandleGame::onEventLayerResLoadLoaded, this));
+		_modelGame->setListener(listener);
 
 		isInit = true;
 	} while (0);
@@ -66,6 +77,14 @@ void HandleGame::updateBySubject(va_list values)
 	default:
 		break;
 	}
+}
+
+void HandleGame::onEventLayerResLoadLoaded(cocos2d::EventCustom* event)
+{
+	_sceneMain->layerResLoadRemove();
+	_sceneMain->layerEntityAdd();
+	_sceneMain->layerMenuStartAdd();
+	_sceneMain->layerMenuSystemAdd();
 }
 
 void HandleGame::crateDatabase()

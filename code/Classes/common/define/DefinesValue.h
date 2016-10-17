@@ -428,5 +428,6 @@ enum class TYPE_OBSERVER_HANDLE_ENTITY
 }
 
 #define EVENT_LAYER_LOGO_OVER "event_layer_logo_over"
+#define EVENT_LAYER_RES_LOAD_LOADED "event_layer_res_load_loaded"
 
 #endif

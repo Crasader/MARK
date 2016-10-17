@@ -3,12 +3,13 @@
 
 USING_NS_CC;
 
-ModelGame::ModelGame()
+ModelGame::ModelGame() : _listener(nullptr)
 {
 }
 
 ModelGame::~ModelGame()
 {
+	_listener = nullptr;
 }
 
 bool ModelGame::init()

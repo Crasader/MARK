@@ -17,6 +17,8 @@ public:
 	virtual bool init();
 	virtual void updateBySubject(va_list values);
 
+	void onEventLayerResLoadLoaded(cocos2d::EventCustom* event);
+
 	void crateDatabase();
 
 	CC_SYNTHESIZE(ISceneGame*, _sceneMain, SceneGame);

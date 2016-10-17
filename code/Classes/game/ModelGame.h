@@ -15,7 +15,11 @@ public:
 
 	void createDatabase();//构建数据库
 
+	cocos2d::EventListenerCustom* getListener() const { return _listener; }
+	void setListener(cocos2d::EventListenerCustom* val) { _listener = val; }
+
 private:
+	cocos2d::EventListenerCustom* _listener;
 
 };
 
