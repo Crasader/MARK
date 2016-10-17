@@ -91,6 +91,9 @@
     <Filter Include="src\welcome\logo">
       <UniqueIdentifier>{f32c563d-1e5f-4c37-ba92-2d0cc7ab660e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\entity\across">
+      <UniqueIdentifier>{5c6b4b64-5332-41de-ba4c-c5b51e74f5cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -305,6 +308,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\welcome\logo\ModelLogo.cpp">
       <Filter>src\welcome\logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\LayerAcross.cpp">
+      <Filter>src\game\entity\across</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -532,6 +538,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\welcome\logo\ModelLogo.h">
       <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\IAcrossObject.h">
+      <Filter>src\game\entity\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ILayerAcross.h">
+      <Filter>src\game\entity\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\LayerAcross.h">
+      <Filter>src\game\entity\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\HandleAcross.h">
+      <Filter>src\game\entity\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ModelAcross.h">
+      <Filter>src\game\entity\across</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

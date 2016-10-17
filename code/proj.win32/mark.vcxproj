@@ -161,6 +161,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\game\entity\Creature.cpp" />
     <ClCompile Include="..\Classes\game\entity\Entity.cpp" />
     <ClCompile Include="..\Classes\game\entity\HandleEntity.cpp" />
+    <ClCompile Include="..\Classes\game\entity\LayerAcross.cpp" />
     <ClCompile Include="..\Classes\game\entity\LayerEntity.cpp" />
     <ClCompile Include="..\Classes\game\entity\ModelEntity.cpp" />
     <ClCompile Include="..\Classes\game\entity\Region.cpp" />
@@ -235,12 +236,17 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\common\util\UtilString.h" />
+    <ClInclude Include="..\Classes\game\entity\HandleAcross.h" />
+    <ClInclude Include="..\Classes\game\entity\LayerAcross.h" />
     <ClInclude Include="..\Classes\game\entity\Attribute.h" />
     <ClInclude Include="..\Classes\game\entity\Creature.h" />
     <ClInclude Include="..\Classes\game\entity\Entity.h" />
     <ClInclude Include="..\Classes\game\entity\HandleEntity.h" />
+    <ClInclude Include="..\Classes\game\entity\ILayerAcross.h" />
+    <ClInclude Include="..\Classes\game\entity\IAcrossObject.h" />
     <ClInclude Include="..\Classes\game\entity\ILayerEntity.h" />
     <ClInclude Include="..\Classes\game\entity\LayerEntity.h" />
+    <ClInclude Include="..\Classes\game\entity\ModelAcross.h" />
     <ClInclude Include="..\Classes\game\entity\ModelEntity.h" />
     <ClInclude Include="..\Classes\game\entity\Region.h" />
     <ClInclude Include="..\Classes\game\entity\Rune.h" />
