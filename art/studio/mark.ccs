@@ -47,6 +47,11 @@
             <Image Name="loading.png" />
             <Image Name="Button_Normal.png" />
           </Folder>
+          <Folder Name="across">
+            <Image Name="dot.png" />
+            <Image Name="line.png" />
+            <Image Name="ring.png" />
+          </Folder>
         </Folder>
         <Project Name="LayerBattle.csd" Type="Layer" />
         <PlistInfo Name="PlistBattle.csi" Type="Plist" />
@@ -70,6 +75,7 @@
             <PlistInfo Name="PlistCreature.csi" Type="Plist" />
             <PlistInfo Name="PlistMap.csi" Type="Plist" />
             <PlistInfo Name="PlistRune.csi" Type="Plist" />
+            <PlistInfo Name="PlistAcross.csi" Type="Plist" />
           </Folder>
         </Folder>
       </RootFolder>

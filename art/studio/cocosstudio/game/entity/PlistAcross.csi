@@ -1,0 +1,11 @@
+<PlistInfoProjectFile>
+  <PropertyGroup Type="Plist" Name="PlistAcross" ID="f99ce2ce-7f86-456b-81e5-d5b197ecd860" Version="2.3.2.3" />
+  <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="1" AllowRotation="True" AllowAnySize="True" AllowTrim="True" ctype="PlistInfoData">
+    <ImageFiles>
+      <FilePathData Path="images/across/dot.png" />
+      <FilePathData Path="images/across/line.png" />
+      <FilePathData Path="images/across/ring.png" />
+    </ImageFiles>
+    <MaxSize Width="256" Height="256" />
+  </Content>
+</PlistInfoProjectFile>
