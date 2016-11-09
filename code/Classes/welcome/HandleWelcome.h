@@ -15,6 +15,8 @@ public:
 
 	virtual bool init();
 
+	void addEventLayerLogoOver();
+	void removeEventLayerLogoOver();
 	void onEventLayerLogoOver(cocos2d::EventCustom* event);
 	void replaceSceneToGame();//ÇÐ»»ÎªÓÎÏ·³¡¾°
 

@@ -1,5 +1,5 @@
-#ifndef __CORE_ENTITY_I_ACROSS_OBJECT_H__
-#define __CORE_ENTITY_I_ACROSS_OBJECT_H__
+#ifndef __CORE_ACROSS_I_ACROSS_OBJECT_H__
+#define __CORE_ACROSS_I_ACROSS_OBJECT_H__
 
 #include "cocos2d.h"
 

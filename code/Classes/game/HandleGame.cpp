@@ -11,9 +11,7 @@ HandleGame::HandleGame() : _sceneMain(nullptr), _modelGame(nullptr)
 
 HandleGame::~HandleGame()
 {
-	auto listener = _modelGame->getListener();
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	dispatcher->removeEventListener(listener);
+	removeEventLayerResLoadLoaded();
 
 	ManagerHandle::getInstance()->detach(this);
 	
@@ -35,9 +33,7 @@ bool HandleGame::init()
 		_modelGame = ModelGame::create();
 		_modelGame->retain();
 
-		auto dispatcher = Director::getInstance()->getEventDispatcher();
-		auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_RES_LOAD_LOADED, CC_CALLBACK_1(HandleGame::onEventLayerResLoadLoaded, this));
-		_modelGame->setListener(listener);
+		addEventLayerResLoadLoaded();
 
 		isInit = true;
 	} while (0);
@@ -79,12 +75,28 @@ void HandleGame::updateBySubject(va_list values)
 	}
 }
 
+void HandleGame::addEventLayerResLoadLoaded()
+{
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_RES_LOAD_LOADED, CC_CALLBACK_1(HandleGame::onEventLayerResLoadLoaded, this));
+	_modelGame->setListener(listener);
+}
+
+void HandleGame::removeEventLayerResLoadLoaded()
+{
+	auto listener = _modelGame->getListener();
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->removeEventListener(listener);
+}
+
 void HandleGame::onEventLayerResLoadLoaded(cocos2d::EventCustom* event)
 {
 	_sceneMain->layerResLoadRemove();
 	_sceneMain->layerEntityAdd();
 	_sceneMain->layerMenuStartAdd();
 	_sceneMain->layerMenuSystemAdd();
+
+	removeEventLayerResLoadLoaded();
 }
 
 void HandleGame::crateDatabase()

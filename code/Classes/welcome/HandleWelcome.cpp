@@ -9,9 +9,7 @@ HandleWelcome::HandleWelcome() : _sceneWelcome(nullptr), _modelWelcome(nullptr)
 
 HandleWelcome::~HandleWelcome()
 {
-	auto listener = _modelWelcome->getEventListener();
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	dispatcher->removeEventListener(listener);
+	removeEventLayerLogoOver();
 
 	_sceneWelcome = nullptr;
 	CC_SAFE_RELEASE_NULL(_modelWelcome);
@@ -26,9 +24,7 @@ bool HandleWelcome::init()
 		_modelWelcome = ModelWelcome::create();
 		_modelWelcome->retain();
 
-		auto dispatcher = Director::getInstance()->getEventDispatcher();
-		auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_LOGO_OVER, CC_CALLBACK_1(HandleWelcome::onEventLayerLogoOver, this));
-		_modelWelcome->setEventListener(listener);
+		addEventLayerLogoOver();
 
 		isInit = true;
 	} while (0);
@@ -36,9 +32,24 @@ bool HandleWelcome::init()
 	return isInit;
 }
 
+void HandleWelcome::addEventLayerLogoOver()
+{
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_LOGO_OVER, CC_CALLBACK_1(HandleWelcome::onEventLayerLogoOver, this));
+	_modelWelcome->setEventListener(listener);
+}
+
+void HandleWelcome::removeEventLayerLogoOver()
+{
+	auto listener = _modelWelcome->getEventListener();
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->removeEventListener(listener);
+}
+
 void HandleWelcome::onEventLayerLogoOver(EventCustom* event)
 {
 	replaceSceneToGame();
+	removeEventLayerLogoOver();
 }
 
 void HandleWelcome::replaceSceneToGame()
