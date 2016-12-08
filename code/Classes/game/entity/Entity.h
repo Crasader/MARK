@@ -1,5 +1,5 @@
-#ifndef __CORE_ENTITY_ENTITY_H__
-#define __CORE_ENTITY_ENTITY_H__
+#ifndef __ENTITY_H__
+#define __ENTITY_H__
 
 #include "cocos2d.h"
 #include "common/define/DefinesNamespace.h"
@@ -13,6 +13,13 @@ enum class StateEntity
 	STANDBY
 };
 
+enum class TypeEntity
+{
+	REGION,
+	CREATURE,
+	RUNE
+};
+
 class Entity : public cocos2d::Node
 {
 public:
@@ -24,9 +31,9 @@ public:
 	virtual bool init();
 	virtual void update(float delta);
 
-	void setDataEntityCreate(const int& bitId, BitData* value);
-
+	CC_SYNTHESIZE(TypeEntity, _type, Type);
 	CC_SYNTHESIZE(int, _id, Id);
+	CC_SYNTHESIZE(int, _bitIndex, BitIndex);
 	CC_SYNTHESIZE_READONLY(cocos2d::Node*, _skin, Skin);
 	CC_SYNTHESIZE(StateEntity, _state, StateEntity);
 
@@ -34,8 +41,6 @@ protected:
 	virtual void createSkin();//add skin,set state standby
 
 private:
-	int _dataCreateBitId;
-	BitData* _dataCreate;
 
 };
 

@@ -22,9 +22,6 @@ bool HandleEntity::init()
 
 	do
 	{
-		idObserverSet((int)ID_OBSERVER::HANDLE_LAYER_ENTITY);
-		ManagerHandle::getInstance()->attach(this);
-
 		_modelEntity = ModelEntity::create();
 		_modelEntity->retain();
 
@@ -39,6 +36,9 @@ void HandleEntity::updateBySubject(va_list values)
 	auto type = va_arg(values, TO_HANDLE_LAYER_ENTITY);
 	switch (type)
 	{
+	case TO_HANDLE_LAYER_ENTITY::ENTITY_CREATED:
+		setDataEntityCreatedBit(values);
+		break;
 	case TO_HANDLE_LAYER_ENTITY::GAME_START:
 		break;
 	case TO_HANDLE_LAYER_ENTITY::GAME_STOP:
@@ -51,51 +51,80 @@ void HandleEntity::updateBySubject(va_list values)
 void HandleEntity::update(float delta)
 {
 	auto state = _modelEntity->getState();
-	if (StateLayerEntity::WORLD_UNCREATE == state)
+
+	if (StateLayerEntity::ATTACH_OBSERVER == state)
 	{
-		entityAdd();
+		attachObserver();
 		return;
 	}
 
-	if (StateLayerEntity::WORLD_CREATING == state)
+	if (StateLayerEntity::UNCREATE_WORLD == state)
 	{
-		entityCreating();
+		addEntity();
 		return;
 	}
 
-	if (StateLayerEntity::WORLD_CREATED == state)
+	if (StateLayerEntity::CREATING_WORLD == state)
+	{
+		creatingEntity();
+		return;
+	}
+
+	if (StateLayerEntity::CREATED_WORLD == state)
 	{
 
 		return;
 	}
 }
 
-void HandleEntity::entityAdd()
+void HandleEntity::attachObserver()
 {
-	auto data = _modelEntity->getDataEntityCreate();
+	idObserverSet((int)ID_OBSERVER::HANDLE_LAYER_ENTITY);
+	ManagerHandle::getInstance()->attach(this);
 
-	_layerEntity->addRegioon(1000, data);//从中心位置添加地图
-	_layerEntity->addRegioon(1001, data);
-	_layerEntity->addRegioon(1002, data);
-	_layerEntity->addRegioon(1003, data);
-	_layerEntity->addRegioon(1004, data);
-	_layerEntity->addRegioon(1005, data);
-	_layerEntity->addRegioon(1006, data);
-	_layerEntity->addRegioon(1007, data);
-	_layerEntity->addRegioon(1008, data);//添加地图至填满
-
-	_layerEntity->addCreature(1000, data);//添加主角
-	_layerEntity->addCreature(1001, data);//添加其他生物
-
-	_modelEntity->setState(StateLayerEntity::WORLD_CREATING);
+	_modelEntity->setState(StateLayerEntity::UNCREATE_WORLD);
 }
 
-void HandleEntity::entityCreating()
+void HandleEntity::addEntity()
 {
-	auto data = _modelEntity->getDataEntityCreate();
-	if (data->isAllBitTrue())//所有实体构造完成
+	addEntityByTypeNum(TypeEntity::REGION, 9);//从中心位置添加地图,添加地图至填满
+
+	addEntityByTypeNum(TypeEntity::CREATURE, 2);//添加主角及其他生物
+
+	_modelEntity->setState(StateLayerEntity::CREATING_WORLD);
+}
+
+void HandleEntity::addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num)
+{
+	auto id = 1000;
+	for (auto i = 0; i < num; i++)
 	{
-		_modelEntity->setState(StateLayerEntity::WORLD_CREATED);
+		auto entity = _modelEntity->getEntity(type, id + i);
+		_layerEntity->addEntity(entity);
+		setEntityBitIndex(entity);
+	}
+}
+
+void HandleEntity::setEntityBitIndex(Entity* entity)
+{
+	auto dataCreated = _modelEntity->getDataEntityCreated();
+	auto bitIndex = dataCreated->getTotalBit();
+	dataCreated->modifyTotalBit(bitIndex + 1);
+	entity->setBitIndex(bitIndex);
+}
+
+void HandleEntity::setDataEntityCreatedBit(va_list values)
+{
+	auto bitIndex = va_arg(values, int);
+	_modelEntity->getDataEntityCreated()->setBit(bitIndex);
+}
+
+void HandleEntity::creatingEntity()
+{
+	auto dataCreated = _modelEntity->getDataEntityCreated();
+	if (dataCreated->isAllBitTrue())//所有实体构造完成
+	{
+		_modelEntity->setState(StateLayerEntity::CREATED_WORLD);
 		return;
 	}
 }

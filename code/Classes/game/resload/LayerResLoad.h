@@ -1,13 +1,11 @@
 #pragma execution_character_set("utf-8")
 
-#ifndef __GAME_UI_LAYER_RES_LOAD_H__
-#define __GAME_UI_LAYER_RES_LOAD_H__
+#ifndef __LAYER_RES_LOAD_H__
+#define __LAYER_RES_LOAD_H__
 
 #include "cocos2d.h"
 #include "ILayerResLoad.h"
 #include "HandleResLoad.h"
-
-NS_BEGIN_UI_COMMON
 
 class LayerResLoad : public cocos2d::Layer, ILayerResLoad
 {
@@ -19,20 +17,16 @@ public:
 	~LayerResLoad();
 
 	virtual bool init();
+	
 	virtual void update(float delta);
-	virtual void createSkin();
-	virtual void playLoad();
-	virtual void stopLoad();
+
+	virtual void addSkin(cocos2d::Node* skin);
+	virtual void playLoadAnimation(cocos2d::Node* node);//播放加载动画
+	virtual void stopLoadAnimation(cocos2d::Node* node);//停止加载动画
 
 private:
 	HandleResLoad* _handleImageLoad;
 
-	cocos2d::Node* _skin;
-
-	const std::string SPRITELOAD = "spriteLoad";
-
 };
-
-NS_END_END
 
 #endif

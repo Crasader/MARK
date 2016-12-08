@@ -1,22 +1,14 @@
-#ifndef __GAME_I_SCENE_GAME_H__
-#define __GAME_I_SCENE_GAME_H__
+#ifndef __I_SCENE_GAME_H__
+#define __I_SCENE_GAME_H__
 
 #include "cocos2d.h"
 
 class ISceneGame
 {
 public:
-	virtual void layerResLoadAdd() {}
-	virtual void layerResLoadRemove() {}
+	virtual void addLayer(cocos2d::Layer* layer) {}
+	virtual void removeLayer(cocos2d::Layer* layer) {}
 
-	virtual void layerEntityAdd() {}
-	virtual void layerEntityRemove() {}
-
-	virtual void layerMenuStartAdd() {}
-	virtual void layerMenuStartRemove() {}
-
-	virtual void layerMenuSystemAdd() {}
-	virtual void layerMenuSystemRemove() {}
 };
 
 #endif

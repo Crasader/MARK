@@ -1,5 +1,5 @@
-#ifndef __GAME_UI_MODEL_RES_LOAD_H__
-#define __GAME_UI_MODEL_RES_LOAD_H__
+#ifndef __MODEL_RES_LOAD_H__
+#define __MODEL_RES_LOAD_H__
 
 #include "cocos2d.h"
 #include "common/define/DefinesNamespace.h"
@@ -7,11 +7,10 @@
 #include <map>
 #include "common/bitData/BitData.h"
 
-NS_BEGIN_UI_COMMON
-
 enum class StateResLoad
 {
-	UNINIT,
+	DEFAULT,
+	CREATE_SKIN,
 	UNLOAD_SOUND,
 	LOADING_SOUND,
 	LOADED_SOUND,
@@ -30,13 +29,17 @@ public:
 
 	virtual bool init();
 	
+	cocos2d::Node* getSkin();
+	cocos2d::Node* getSpriteLoad();
+	BitData* getBitData();
+
 	CC_SYNTHESIZE(StateResLoad, _state, State);
-	CC_SYNTHESIZE_READONLY(BitData*, _bitData, BitData);
 
 private:
+	cocos2d::Node* _skin;
+	cocos2d::Node* _spriteLoad;
+	BitData* _bitData;
 
 };
-
-NS_END_END
 
 #endif

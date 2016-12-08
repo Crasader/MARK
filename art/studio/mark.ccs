@@ -75,6 +75,8 @@
             <PlistInfo Name="PlistCreature.csi" Type="Plist" />
             <PlistInfo Name="PlistMap.csi" Type="Plist" />
             <PlistInfo Name="PlistRune.csi" Type="Plist" />
+          </Folder>
+          <Folder Name="across">
             <PlistInfo Name="PlistAcross.csi" Type="Plist" />
           </Folder>
         </Folder>

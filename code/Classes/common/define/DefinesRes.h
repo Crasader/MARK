@@ -10,6 +10,9 @@
 #define RES_GAME_ENTITY_PLIST_CREATURE_PLIST "game/entity/PlistCreature.plist"
 #define RES_GAME_ENTITY_PLIST_MAP_PLIST "game/entity/PlistMap.plist"
 #define RES_GAME_ENTITY_PLIST_RUNE_PLIST "game/entity/PlistRune.plist"
+
+#define RES_GAME_ACROSS_PLIST_ACROSS_PLIST "game/across/PlistAcross.plist"
+
 #define RES_GAME_UI_COMMON_PLIST_COMMON_PLIST "game/ui/common/PlistCommon.plist"
 #define RES_GAME_UI_COMMON_LAYER_RES_LOAD_CSB "game/ui/common/LayerResLoad.csb"
 #define RES_GAME_UI_MENU_LAYER_MENU_START_CSB "game/ui/menu/LayerMenuStart.csb"

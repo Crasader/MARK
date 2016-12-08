@@ -1,5 +1,5 @@
-#ifndef __CORE_ENTITY_HANDLE_ENTITY_H__
-#define __CORE_ENTITY_HANDLE_ENTITY_H__
+#ifndef __HANDLE_ENTITY_H__
+#define __HANDLE_ENTITY_H__
 
 #include "cocos2d.h"
 #include "common/observer/Observer.h"
@@ -17,14 +17,20 @@ public:
 	~HandleEntity();
 
 	virtual bool init();
-	virtual void updateBySubject(va_list values);
 	void update(float delta);
-	void entityAdd();
-	void entityCreating();
-
+	
+	virtual void updateBySubject(va_list values);
+	
 	void setLayerEntity(ILayerEntity* val) { _layerEntity = val; }
 
 private:
+	void attachObserver();
+	void addEntity();
+	void addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num);
+	void setEntityBitIndex(Entity* entity);
+	void setDataEntityCreatedBit(va_list values);
+	void creatingEntity();
+
 	ILayerEntity* _layerEntity;
 	ModelEntity* _modelEntity;
 

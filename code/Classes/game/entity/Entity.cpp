@@ -1,16 +1,21 @@
 #include "Entity.h"
+#include "game/ManagerHandle.h"
+#include "common/define/DefinesValue.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-Entity::Entity() : _id(0), _state(StateEntity::UNINIT), _skin(nullptr), _dataCreateBitId(0), _dataCreate(nullptr)
+Entity::Entity() : 
+	_id(0), 
+	_bitIndex(0), 
+	_skin(nullptr), 
+	_state(StateEntity::UNINIT)
 {
 }
 
 Entity::~Entity()
 {
 	_skin = nullptr;
-	_dataCreate = nullptr;
 }
 
 bool Entity::init()
@@ -41,17 +46,11 @@ void Entity::update(float delta)
 	}
 }
 
-void Entity::setDataEntityCreate(const int& bitId, BitData* value)
-{
-	_dataCreateBitId = bitId;
-	_dataCreate = value;
-}
-
 void Entity::createSkin()
 {
 	this->addChild(_skin);
 	_state = StateEntity::STANDBY;
 
-	_dataCreate->setBit(_dataCreateBitId);
-	_dataCreate = nullptr;
+	auto managerHandle = ManagerHandle::getInstance();
+	managerHandle->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::ENTITY_CREATED, _bitIndex);
 }

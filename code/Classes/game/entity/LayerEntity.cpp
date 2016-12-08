@@ -12,7 +12,6 @@ LayerEntity::LayerEntity() : _handleEntity(nullptr)
 
 LayerEntity::~LayerEntity()
 {
-	_vecEntity.clear();
 	CC_SAFE_RELEASE_NULL(_handleEntity);
 }
 
@@ -41,56 +40,37 @@ void LayerEntity::update(float delta)
 	_handleEntity->update(delta);
 }
 
-void LayerEntity::addRegioon(const int& id, BitData* dataCreate)
+void LayerEntity::addEntity(Entity* entity)
 {
-	auto region = Region::create();
-	region->setId(id);
-	addChild(region);
-	_vecEntity.pushBack(region);
-
-	std::map<int, Vec2> dicPostion = 
+	addChild(entity);
+	
+	std::map<TypeEntity, std::map<int, Vec2>> dicDicPostion =
 	{
-		{1000, Vec2(320.0f, 480.0f) },
-		{ 1001, Vec2(320.0f, 270.0f) },{ 1002, Vec2(320.0f, 690.0f) },//上下
-		{ 1003, Vec2(110.0f, 480.0f) },{ 1004, Vec2(530.0f, 480.0f) },//左右
-		{ 1005, Vec2(110.0f, 270.0f) },{ 1006, Vec2(530.0f, 690.0f) },//左上右下
-		{ 1007, Vec2(110.0f, 690.0f) },{ 1008, Vec2(530.0f, 270.0f) } //左下右上
+		{
+			TypeEntity::REGION,
+			{
+				{ 1000, Vec2(320.0f, 480.0f) },
+				{ 1001, Vec2(320.0f, 270.0f) },{ 1002, Vec2(320.0f, 690.0f) },//上下
+				{ 1003, Vec2(110.0f, 480.0f) },{ 1004, Vec2(530.0f, 480.0f) },//左右
+				{ 1005, Vec2(110.0f, 270.0f) },{ 1006, Vec2(530.0f, 690.0f) },//左上右下
+				{ 1007, Vec2(110.0f, 690.0f) },{ 1008, Vec2(530.0f, 270.0f) } //左下右上
+			} 
+		},
+		{
+			TypeEntity::CREATURE,
+			{
+				{ 1000, Vec2(320.0f, 270.0f) },
+				{ 1001, Vec2(320.0f, 690.0f) }
+			}
+		}
 	};
 
-	region->setPosition(dicPostion[id]);
-
-	auto bitId = dataCreate->getTotalBit();
-	dataCreate->modifyTotalBit(bitId + 1);
-	region->setDataEntityCreate(bitId, dataCreate);
+	auto type = entity->getType();
+	auto id = entity->getId();
+	entity->setPosition(dicDicPostion[type][id]);
 }
 
-void LayerEntity::addCreature(const int& id, BitData* dataCreate)
+void LayerEntity::removeEntity(Entity* entity)
 {
-	auto creature = Creature::create();
-	creature->setId(id);
-	addChild(creature);
-	_vecEntity.pushBack(creature);
-
-	std::map<int, Vec2> dicPostion =
-	{
-		{ 1000, Vec2(320.0f, 270.0f) },
-		{ 1001, Vec2(320.0f, 690.0f) }
-	};
-
-	creature->setPosition(dicPostion[id]);
-
-	auto bitId = dataCreate->getTotalBit();
-	dataCreate->modifyTotalBit(bitId + 1);
-	creature->setDataEntityCreate(bitId, dataCreate);
-}
-
-void LayerEntity::addRune(const int& id, BitData* dataCreate)
-{
-	auto rune = Rune::create();
-	addChild(rune);
-	_vecEntity.pushBack(rune);
-
-	auto bitId = dataCreate->getTotalBit();
-	dataCreate->modifyTotalBit(bitId + 1);
-	rune->setDataEntityCreate(bitId, dataCreate);
+	removeChild(entity);
 }

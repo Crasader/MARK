@@ -5,7 +5,7 @@
 
 USING_NS_CC;
 
-HandleGame::HandleGame() : _sceneMain(nullptr), _modelGame(nullptr)
+HandleGame::HandleGame() : _sceneGame(nullptr), _modelGame(nullptr)
 {
 }
 
@@ -15,7 +15,7 @@ HandleGame::~HandleGame()
 
 	ManagerHandle::getInstance()->detach(this);
 	
-	_sceneMain = nullptr;
+	_sceneGame = nullptr;
 	CC_SAFE_RELEASE_NULL(_modelGame);
 }
 
@@ -25,15 +25,8 @@ bool HandleGame::init()
 
 	do
 	{
-		UtilRandom::initRandomSeed();
-
-		idObserverSet((int)ID_OBSERVER::HANDLE_SCENE_MAIN);
-		ManagerHandle::getInstance()->attach(this);
-
 		_modelGame = ModelGame::create();
 		_modelGame->retain();
-
-		addEventLayerResLoadLoaded();
 
 		isInit = true;
 	} while (0);
@@ -41,65 +34,152 @@ bool HandleGame::init()
 	return isInit;
 }
 
+void HandleGame::update(float delta)
+{
+	auto state = _modelGame->getStateGame();
+
+	if (StateGame::DEFAULT == state)
+	{
+		return;
+	}
+
+	if (StateGame::INIT_RODOM_SEED == state)
+	{
+		initRandomSeed();
+		return;
+	}
+
+	if (StateGame::ATTACH_OBSERVER == state)
+	{
+		attachOvserver();
+		return;
+	}
+
+	if (StateGame::GET_DATA_BASE == state)
+	{
+		getDatabase();
+		return;
+	}
+
+	if (StateGame::UNLOAD_RES == state)
+	{
+		loadRes();
+		return;
+	}
+
+	if (StateGame::LOADING_RES == state)
+	{
+		return;
+	}
+
+	if (StateGame::LOADED_RES == state)
+	{
+		loadedRes();
+		return;
+	}
+}
+
 void HandleGame::updateBySubject(va_list values)
 {
-	auto type = va_arg(values, TO_HANDLE_SCENE_MAIN);
+	auto type = va_arg(values, TO_HANDLE_SCENE_GAME);
 	switch (type)
 	{
-	case TO_HANDLE_SCENE_MAIN::LAYER_RES_LOAD_ADD:
-		_sceneMain->layerResLoadAdd();
+	case TO_HANDLE_SCENE_GAME::LAYER_RES_LOAD_ADD:
+		createLayer(TypeLayer::RESLOAD);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_RES_LOAD_REMOVE:
-		_sceneMain->layerResLoadRemove();
+	case TO_HANDLE_SCENE_GAME::LAYER_RES_LOAD_REMOVE:
+		deleteLayer(TypeLayer::RESLOAD);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_ENTITY_ADD:
-		_sceneMain->layerEntityAdd();
+	case TO_HANDLE_SCENE_GAME::LAYER_ENTITY_ADD:
+		createLayer(TypeLayer::ENTITY);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_ENTITY_REMOVE:
-		_sceneMain->layerEntityRemove();
+	case TO_HANDLE_SCENE_GAME::LAYER_ENTITY_REMOVE:
+		deleteLayer(TypeLayer::ENTITY);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_ADD:
-		_sceneMain->layerMenuStartAdd();
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_ADD:
+		createLayer(TypeLayer::MENU_START);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_START_REMOVE:
-		_sceneMain->layerMenuStartRemove();
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_REMOVE:
+		deleteLayer(TypeLayer::MENU_START);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_ADD:
-		_sceneMain->layerMenuSystemAdd();
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_ADD:
+		createLayer(TypeLayer::MENU_SYSTEM);
 		break;
-	case TO_HANDLE_SCENE_MAIN::LAYER_MENU_SYSTEM_REMOVE:
-		_sceneMain->layerMenuSystemRemove();
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_REMOVE:
+		deleteLayer(TypeLayer::MENU_SYSTEM);
 		break;
 	default:
 		break;
 	}
 }
 
+void HandleGame::initRandomSeed()
+{
+	UtilRandom::initRandomSeed();
+	_modelGame->setStateGame(StateGame::ATTACH_OBSERVER);
+}
+
+void HandleGame::attachOvserver()
+{
+	idObserverSet((int)ID_OBSERVER::HANDLE_SCENE_GAME);
+	ManagerHandle::getInstance()->attach(this);
+	_modelGame->setStateGame(StateGame::GET_DATA_BASE);
+}
+
+void HandleGame::getDatabase()
+{
+	_modelGame->getDatabase();
+	_modelGame->setStateGame(StateGame::UNLOAD_RES);
+}
+
+void HandleGame::createLayer(const TypeLayer& type)
+{
+	auto layer = _modelGame->getLayer(type);
+	_sceneGame->addLayer(layer);
+}
+
+void HandleGame::deleteLayer(const TypeLayer& type)
+{
+	auto layer = _modelGame->getLayer(type);
+	_sceneGame->removeLayer(layer);
+	_modelGame->setLayerNullptr(type);
+}
+
+void HandleGame::loadRes()
+{
+	createLayer(TypeLayer::RESLOAD);
+
+	addEventLayerResLoadLoaded();
+
+	_modelGame->setStateGame(StateGame::LOADING_RES);
+}
+
 void HandleGame::addEventLayerResLoadLoaded()
 {
 	auto dispatcher = Director::getInstance()->getEventDispatcher();
 	auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_RES_LOAD_LOADED, CC_CALLBACK_1(HandleGame::onEventLayerResLoadLoaded, this));
-	_modelGame->setListener(listener);
+	_modelGame->setListenerLayerResLoadLoaded(listener);
 }
 
 void HandleGame::removeEventLayerResLoadLoaded()
 {
-	auto listener = _modelGame->getListener();
+	auto listener = _modelGame->getListenerLayerResLoadLoaded();
 	auto dispatcher = Director::getInstance()->getEventDispatcher();
 	dispatcher->removeEventListener(listener);
 }
 
 void HandleGame::onEventLayerResLoadLoaded(cocos2d::EventCustom* event)
 {
-	_sceneMain->layerResLoadRemove();
-	_sceneMain->layerEntityAdd();
-	_sceneMain->layerMenuStartAdd();
-	_sceneMain->layerMenuSystemAdd();
-
-	removeEventLayerResLoadLoaded();
+	_modelGame->setStateGame(StateGame::LOADED_RES);
 }
 
-void HandleGame::crateDatabase()
+void HandleGame::loadedRes()
 {
-	_modelGame->createDatabase();
+	deleteLayer(TypeLayer::RESLOAD);
+	createLayer(TypeLayer::ENTITY);
+	createLayer(TypeLayer::MENU_START);
+
+	removeEventLayerResLoadLoaded();
+
+	_modelGame->setStateGame(StateGame::DEFAULT);
 }

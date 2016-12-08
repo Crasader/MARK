@@ -64,9 +64,6 @@
     <Filter Include="src\game\ui\common">
       <UniqueIdentifier>{dd1f6563-a4ce-43a2-9077-4596e19636e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\ui\common\load">
-      <UniqueIdentifier>{79a74135-bfc4-4fbb-9f7b-4b1dec6846de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game\ui\menu">
       <UniqueIdentifier>{9fec7203-a350-41ed-944b-f37d3b819e28}</UniqueIdentifier>
     </Filter>
@@ -93,6 +90,9 @@
     </Filter>
     <Filter Include="src\game\across">
       <UniqueIdentifier>{94c45676-860c-43f8-8cf7-2517ab4f1e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\resload">
+      <UniqueIdentifier>{72c16825-3f55-4329-89ce-267ce2894365}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -261,15 +261,6 @@
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp">
       <Filter>src\game\ui\battle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\HandleResLoad.cpp">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\LayerResLoad.cpp">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\ModelResLoad.cpp">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\ui\HandleMenuStart.cpp">
       <Filter>src\game\ui\menu\start</Filter>
     </ClCompile>
@@ -311,6 +302,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\across\LayerAcross.cpp">
       <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\across\ModelAcross.cpp">
+      <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\across\HandleAcross.cpp">
+      <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\resload\HandleResLoad.cpp">
+      <Filter>src\game\resload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\resload\LayerResLoad.cpp">
+      <Filter>src\game\resload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\resload\ModelResLoad.cpp">
+      <Filter>src\game\resload</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -461,18 +467,6 @@
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h">
       <Filter>src\game\ui\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\HandleResLoad.h">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\ILayerResLoad.h">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\LayerResLoad.h">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\ModelResLoad.h">
-      <Filter>src\game\ui\common\load</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\ui\HandleMenuStart.h">
       <Filter>src\game\ui\menu\start</Filter>
     </ClInclude>
@@ -553,6 +547,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\across\ModelAcross.h">
       <Filter>src\game\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\resload\HandleResLoad.h">
+      <Filter>src\game\resload</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\resload\ILayerResLoad.h">
+      <Filter>src\game\resload</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\resload\LayerResLoad.h">
+      <Filter>src\game\resload</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\resload\ModelResLoad.h">
+      <Filter>src\game\resload</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

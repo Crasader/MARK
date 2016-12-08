@@ -1,5 +1,6 @@
 #include "HandleWelcome.h"
 #include "game/SceneGame.h"
+#include "common/define/DefinesValue.h"
 
 USING_NS_CC;
 
@@ -55,8 +56,16 @@ void HandleWelcome::onEventLayerLogoOver(EventCustom* event)
 void HandleWelcome::replaceSceneToGame()
 {
 	auto scene = SceneGame::create();
+
 	/*auto animateScene = TransitionMoveInB::create(0.3f, scene);*/
 	auto animateScene = TransitionFade::create(1.0f, scene);
 	/*auto animateScene = TransitionPageTurn::create(1.0f, scene, false);*/
 	Director::getInstance()->replaceScene(animateScene);
+	
+	auto actionDelay = DelayTime::create(1.0f);
+	auto acionCallFunc = CallFunc::create([scene]()
+	{
+		scene->scheduleUpdate();
+	});
+	scene->runAction(Sequence::create(actionDelay, acionCallFunc, nullptr));
 }
