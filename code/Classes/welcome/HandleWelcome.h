@@ -1,5 +1,5 @@
-#ifndef __WELCOME_HANDLE_WELCOME_H__
-#define __WELCOME_HANDLE_WELCOME_H__
+#ifndef __HANDLE_WELCOME_H__
+#define __HANDLE_WELCOME_H__
 
 #include "cocos2d.h"
 #include "ISceneWelcome.h"
@@ -15,14 +15,22 @@ public:
 
 	virtual bool init();
 
-	void addEventLayerLogoOver();
-	void removeEventLayerLogoOver();
-	void onEventLayerLogoOver(cocos2d::EventCustom* event);
-	void replaceSceneToGame();//切换为游戏场景
+	void update(float delta);
 
 	void setSceneWelcome(ISceneWelcome* val) { _sceneWelcome = val; }
 
 private:
+	void createLayer(const TypeLayerInWelcome& type);
+	void deleteLayer(const TypeLayerInWelcome& type);
+
+	void playLogo();
+	void addEventLayerLogoOver();
+	void removeEventLayerLogoOver();
+	void onEventLayerLogoOver(cocos2d::EventCustom* event);
+	void playedLogo();
+
+	void replaceSceneToGame();//切换为游戏场景
+
 	ISceneWelcome* _sceneWelcome;
 	ModelWelcome* _modelWelcome;
 

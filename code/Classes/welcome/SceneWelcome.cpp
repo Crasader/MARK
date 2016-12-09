@@ -1,13 +1,16 @@
 #include "SceneWelcome.h"
 
-SceneWelcome::SceneWelcome() : _handleWelcome(nullptr), _layerLogo(nullptr)
+USING_NS_CC;
+
+SceneWelcome::SceneWelcome() : _handleWelcome(nullptr)
 {
 }
 
 SceneWelcome::~SceneWelcome()
 {
+	unscheduleUpdate();
+
 	CC_SAFE_RELEASE_NULL(_handleWelcome);
-	layerLogoRemove();
 }
 
 bool SceneWelcome::init()
@@ -22,7 +25,7 @@ bool SceneWelcome::init()
 		_handleWelcome->retain();
 		_handleWelcome->setSceneWelcome(this);
 
-		layerLogoAdd();
+		scheduleUpdate();
 
 		isInit = true;
 	} while (0);
@@ -30,20 +33,17 @@ bool SceneWelcome::init()
 	return isInit;
 }
 
-void SceneWelcome::layerLogoAdd()
+void SceneWelcome::update(float delta)
 {
-	if (!_layerLogo)
-	{
-		_layerLogo = LayerLogo::create();
-		addChild(_layerLogo);
-	}
+	_handleWelcome->update(delta);
 }
 
-void SceneWelcome::layerLogoRemove()
+void SceneWelcome::addLayer(Layer* layer)
 {
-	if (_layerLogo)
-	{
-		_layerLogo->removeFromParent();
-		_layerLogo = nullptr;
-	}
+	addChild(layer);
+}
+
+void SceneWelcome::removeLayer(Layer* layer)
+{
+	layer->removeFromParent();
 }

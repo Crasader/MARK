@@ -13,6 +13,8 @@ LayerResLoad::LayerResLoad() : _handleImageLoad(nullptr)
 
 LayerResLoad::~LayerResLoad()
 {
+	unscheduleUpdate();
+
 	CC_SAFE_RELEASE_NULL(_handleImageLoad);
 }
 

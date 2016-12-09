@@ -1,19 +1,15 @@
 #include "LayerLogo.h"
-#include "ui/CocosGUI.h"
-#include "cocostudio/CocoStudio.h"
-#include "common/define/DefinesRes.h"
 
 USING_NS_CC;
 using namespace ui;
 
-LayerLogo::LayerLogo() : _handleLogo(nullptr), _skin(nullptr)
+LayerLogo::LayerLogo() : _handleLogo(nullptr)
 {
 }
 
 LayerLogo::~LayerLogo()
 {
 	CC_SAFE_RELEASE_NULL(_handleLogo);
-	_skin = nullptr;
 }
 
 bool LayerLogo::init()
@@ -41,15 +37,12 @@ void LayerLogo::update(float delta)
 	_handleLogo->update(delta);
 }
 
-void LayerLogo::createSkin()
+void LayerLogo::addSkin(cocos2d::Layer* skin)
 {
-	_skin = (Layer*)CSLoader::createNode(RES_WELCOME_LOGO_LAYER_LOGO_CSB);
-	addChild(_skin);
+	addChild(skin);
 }
 
-void LayerLogo::playAnimation()
+void LayerLogo::playAnimation(cocos2d::Layer* skin, cocos2d::Action* action)
 {
-	auto actionTimeline = CSLoader::createTimeline(RES_WELCOME_LOGO_LAYER_LOGO_CSB);
-	actionTimeline->play(ANIMATION_NAME, false);
-	_skin->runAction(actionTimeline);
+	skin->runAction(action);
 }

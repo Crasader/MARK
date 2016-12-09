@@ -1,10 +1,9 @@
-#ifndef __WELCOME_SCENE_WELCOME_H__
-#define __WELCOME_SCENE_WELCOME_H__
+#ifndef __SCENE_WELCOME_H__
+#define __SCENE_WELCOME_H__
 
 #include "cocos2d.h"
 #include "ISceneWelcome.h"
 #include "HandleWelcome.h"
-#include "logo/LayerLogo.h"
 
 class SceneWelcome : public cocos2d::Scene,ISceneWelcome
 {
@@ -16,13 +15,13 @@ public:
 
 	virtual bool init();
 
-	virtual void layerLogoAdd();
-	virtual void layerLogoRemove();
+	virtual void update(float delta);
+
+	virtual void addLayer(cocos2d::Layer* layer);
+	virtual void removeLayer(cocos2d::Layer* layer);
 
 private:
 	HandleWelcome* _handleWelcome;
-
-	LayerLogo* _layerLogo;
 
 };
 

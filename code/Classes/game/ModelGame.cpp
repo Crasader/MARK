@@ -41,7 +41,7 @@ void ModelGame::getDatabase()
 	dbHelper->dataBaseClose();
 }
 
-Layer* ModelGame::getLayer(const TypeLayer& type)
+Layer* ModelGame::getLayer(const TypeLayerInGame& type)
 {
 	auto layer = getLayerByType(type);
 	if (layer == nullptr)
@@ -52,12 +52,12 @@ Layer* ModelGame::getLayer(const TypeLayer& type)
 	return layer;
 }
 
-void ModelGame::setLayerNullptr(const TypeLayer& type)
+void ModelGame::setLayerNullptr(const TypeLayerInGame& type)
 {
 	eraseLayerByType(type);
 }
 
-bool ModelGame::insertLayerByType(const TypeLayer& type, Layer* layer)
+bool ModelGame::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
 {
 	auto layerInDic = getLayerByType(type);
 	if (layerInDic != nullptr)
@@ -68,26 +68,26 @@ bool ModelGame::insertLayerByType(const TypeLayer& type, Layer* layer)
 	return true;
 }
 
-Layer* ModelGame::createLayerByType(const TypeLayer& type)
+Layer* ModelGame::createLayerByType(const TypeLayerInGame& type)
 {
 	switch (type)
 	{
-	case TypeLayer::RESLOAD:
+	case TypeLayerInGame::RESLOAD:
 		return LayerResLoad::create();
-	case TypeLayer::ENTITY:
+	case TypeLayerInGame::ENTITY:
 		return LayerEntity::create();
-	case TypeLayer::ACROSS:
+	case TypeLayerInGame::ACROSS:
 		return LayerAcross::create();
-	case TypeLayer::MENU_START:
+	case TypeLayerInGame::MENU_START:
 		return LayerMenuStart::create();
-	case TypeLayer::MENU_SYSTEM:
+	case TypeLayerInGame::MENU_SYSTEM:
 		return LayerMenuSystem::create();
 	default:
 		return nullptr;
 	}
 }
 
-bool ModelGame::eraseLayerByType(const TypeLayer& type)
+bool ModelGame::eraseLayerByType(const TypeLayerInGame& type)
 {
 	auto layer = getLayerByType(type);
 	if (layer == nullptr)
@@ -98,7 +98,7 @@ bool ModelGame::eraseLayerByType(const TypeLayer& type)
 	return true;
 }
 
-Layer* ModelGame::getLayerByType(const TypeLayer& type)
+Layer* ModelGame::getLayerByType(const TypeLayerInGame& type)
 {
 	auto layer = _dicLayers.at(type);
 	return layer;

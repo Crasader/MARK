@@ -14,7 +14,7 @@ enum class StateGame
 	LOADED_RES
 };
 
-enum class TypeLayer
+enum class TypeLayerInGame
 {
 	RESLOAD,
 	ENTITY,
@@ -35,19 +35,19 @@ public:
 
 	void getDatabase();//获取（构建）数据库
 
-	cocos2d::Layer* getLayer(const TypeLayer& type);
-	void setLayerNullptr(const TypeLayer& type);
+	cocos2d::Layer* getLayer(const TypeLayerInGame& type);
+	void setLayerNullptr(const TypeLayerInGame& type);
 
 	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listenerLayerResLoadLoaded, ListenerLayerResLoadLoaded);
 	CC_SYNTHESIZE(StateGame, _state, StateGame);
 
 private:
-	cocos2d::Layer* createLayerByType(const TypeLayer& type);
-	bool insertLayerByType(const TypeLayer& type, cocos2d::Layer* layer);
-	bool eraseLayerByType(const TypeLayer& type);
-	cocos2d::Layer* getLayerByType(const TypeLayer& type);
+	cocos2d::Layer* createLayerByType(const TypeLayerInGame& type);
+	bool insertLayerByType(const TypeLayerInGame& type, cocos2d::Layer* layer);
+	bool eraseLayerByType(const TypeLayerInGame& type);
+	cocos2d::Layer* getLayerByType(const TypeLayerInGame& type);
 
-	cocos2d::Map<TypeLayer, cocos2d::Layer*> _dicLayers;
+	cocos2d::Map<TypeLayerInGame, cocos2d::Layer*> _dicLayers;
 
 };
 

@@ -85,28 +85,28 @@ void HandleGame::updateBySubject(va_list values)
 	switch (type)
 	{
 	case TO_HANDLE_SCENE_GAME::LAYER_RES_LOAD_ADD:
-		createLayer(TypeLayer::RESLOAD);
+		createLayer(TypeLayerInGame::RESLOAD);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_RES_LOAD_REMOVE:
-		deleteLayer(TypeLayer::RESLOAD);
+		deleteLayer(TypeLayerInGame::RESLOAD);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_ENTITY_ADD:
-		createLayer(TypeLayer::ENTITY);
+		createLayer(TypeLayerInGame::ENTITY);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_ENTITY_REMOVE:
-		deleteLayer(TypeLayer::ENTITY);
+		deleteLayer(TypeLayerInGame::ENTITY);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_ADD:
-		createLayer(TypeLayer::MENU_START);
+		createLayer(TypeLayerInGame::MENU_START);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_REMOVE:
-		deleteLayer(TypeLayer::MENU_START);
+		deleteLayer(TypeLayerInGame::MENU_START);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_ADD:
-		createLayer(TypeLayer::MENU_SYSTEM);
+		createLayer(TypeLayerInGame::MENU_SYSTEM);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_REMOVE:
-		deleteLayer(TypeLayer::MENU_SYSTEM);
+		deleteLayer(TypeLayerInGame::MENU_SYSTEM);
 		break;
 	default:
 		break;
@@ -132,13 +132,13 @@ void HandleGame::getDatabase()
 	_modelGame->setStateGame(StateGame::UNLOAD_RES);
 }
 
-void HandleGame::createLayer(const TypeLayer& type)
+void HandleGame::createLayer(const TypeLayerInGame& type)
 {
 	auto layer = _modelGame->getLayer(type);
 	_sceneGame->addLayer(layer);
 }
 
-void HandleGame::deleteLayer(const TypeLayer& type)
+void HandleGame::deleteLayer(const TypeLayerInGame& type)
 {
 	auto layer = _modelGame->getLayer(type);
 	_sceneGame->removeLayer(layer);
@@ -147,7 +147,7 @@ void HandleGame::deleteLayer(const TypeLayer& type)
 
 void HandleGame::loadRes()
 {
-	createLayer(TypeLayer::RESLOAD);
+	createLayer(TypeLayerInGame::RESLOAD);
 
 	addEventLayerResLoadLoaded();
 
@@ -175,9 +175,9 @@ void HandleGame::onEventLayerResLoadLoaded(cocos2d::EventCustom* event)
 
 void HandleGame::loadedRes()
 {
-	deleteLayer(TypeLayer::RESLOAD);
-	createLayer(TypeLayer::ENTITY);
-	createLayer(TypeLayer::MENU_START);
+	deleteLayer(TypeLayerInGame::RESLOAD);
+	createLayer(TypeLayerInGame::ENTITY);
+	createLayer(TypeLayerInGame::MENU_START);
 
 	removeEventLayerResLoadLoaded();
 

@@ -28,8 +28,8 @@ private:
 	void attachOvserver();
 	void getDatabase();
 
-	void createLayer(const TypeLayer& type);
-	void deleteLayer(const TypeLayer& type);
+	void createLayer(const TypeLayerInGame& type);
+	void deleteLayer(const TypeLayerInGame& type);
 
 	void loadRes();
 	void addEventLayerResLoadLoaded();

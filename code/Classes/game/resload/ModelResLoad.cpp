@@ -36,8 +36,7 @@ cocos2d::Node* ModelResLoad::getSkin()
 {
 	if (_skin == nullptr)
 	{
-		auto skin = CSLoader::createNode(RES_GAME_UI_COMMON_LAYER_RES_LOAD_CSB);
-		_skin = skin;
+		_skin = CSLoader::createNode(RES_GAME_UI_COMMON_LAYER_RES_LOAD_CSB);
 	}
 	return _skin;
 }

@@ -12,6 +12,8 @@ LayerEntity::LayerEntity() : _handleEntity(nullptr)
 
 LayerEntity::~LayerEntity()
 {
+	unscheduleUpdate();
+
 	CC_SAFE_RELEASE_NULL(_handleEntity);
 }
 

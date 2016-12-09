@@ -1,8 +1,7 @@
-#ifndef __WELCOME_LOGO_HANDLE_LOGO_H__
-#define __WELCOME_LOGO_HANDLE_LOGO_H__
+#ifndef __HANDLE_LOGO_H__
+#define __HANDLE_LOGO_H__
 
 #include "cocos2d.h"
-#include "welcome/ISceneWelcome.h"
 #include "ILayerLogo.h"
 #include "ModelLogo.h"
 
@@ -18,13 +17,13 @@ public:
 
 	void update(float delta);
 
-	bool isStateLogoBeLogoOver();
-
-	void setHandleWelcome(ISceneWelcome* val) { _sceneWelcome = val; }
 	void setLayerLogo(ILayerLogo* val) { _layerLogo = val; }
 	
 private:
-	ISceneWelcome* _sceneWelcome;
+	void createSkin();
+	void playLogo();
+	void playingLogo(float delta);
+	void playedLogo();
 
 	ILayerLogo* _layerLogo;
 	ModelLogo* _modelLogo;

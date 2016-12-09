@@ -9,6 +9,8 @@ SceneGame::SceneGame() : _handleGame(nullptr)
 
 SceneGame::~SceneGame()
 {
+	unscheduleUpdate();
+
 	CC_SAFE_RELEASE_NULL(_handleGame);
 }
 

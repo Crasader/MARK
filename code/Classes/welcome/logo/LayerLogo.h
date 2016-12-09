@@ -1,5 +1,5 @@
-#ifndef __WELCOME_LOGO_LAYER_LOGO_H__
-#define __WELCOME_LOGO_LAYER_LOGO_H__
+#ifndef __LAYER_LOGO_H__
+#define __LAYER_LOGO_H__
 
 #include "cocos2d.h"
 #include "ILayerLogo.h"
@@ -16,14 +16,11 @@ public:
 	virtual bool init();
 	virtual void update(float delta);
 
-	virtual void createSkin();
-	virtual void playAnimation();
+	virtual void addSkin(cocos2d::Layer* skin);
+	virtual void playAnimation(cocos2d::Layer* skin, cocos2d::Action* action);//²¥·Å¶¯»­
 
 private:
 	HandleLogo* _handleLogo;
-
-	cocos2d::Layer* _skin;
-	const std::string ANIMATION_NAME = "animation0";
 
 };
 
