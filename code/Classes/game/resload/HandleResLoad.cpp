@@ -199,19 +199,19 @@ void HandleResLoad::asyncLoadImage(const string &fileName)
 	}
 
 	auto bitData = _modelResLoad->getBitData();
-	auto totalBit = bitData->getTotalBit();
-	textureCache->addImageAsync(fileNamePic, CC_CALLBACK_1(HandleResLoad::asyncLoadImageCallback, this, fileName, totalBit));
-	bitData->modifyTotalBit(totalBit);
+	auto bitIndex = bitData->getTotalBit();
+	bitData->modifyTotalBit(bitIndex);
+	textureCache->addImageAsync(fileNamePic, CC_CALLBACK_1(HandleResLoad::asyncLoadImageCallback, this, fileName, bitIndex));
 }
 
-void HandleResLoad::asyncLoadImageCallback(Texture2D* texture, const string& fileName, const int& bit)
+void HandleResLoad::asyncLoadImageCallback(Texture2D* texture, const string& fileName, const int& bitIndex)
 {
 	if (fileName.find(".png") == std::string::npos)
 	{
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile(fileName, texture);
 	}
 	auto bitData = _modelResLoad->getBitData();
-	bitData->setBit(bit);
+	bitData->setBit(bitIndex);
 	if (bitData->isAllBitTrue())
 	{
 		_modelResLoad->setState(StateResLoad::LOADED_IMAGE);

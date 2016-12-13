@@ -37,7 +37,7 @@ private:
 	/*º”‘ÿplistªÚpng
 	fileName *.plistªÚ*.png*/
 	void asyncLoadImage(const std::string& fileName);
-	void asyncLoadImageCallback(cocos2d::Texture2D* texture, const std::string& fileName, const int& bit);
+	void asyncLoadImageCallback(cocos2d::Texture2D* texture, const std::string& fileName, const int& bitIndex);
 	void loadedImages();
 
 	ILayerResLoad* _layerResLoad;
