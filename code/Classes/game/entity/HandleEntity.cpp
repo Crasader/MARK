@@ -1,19 +1,18 @@
 #include "HandleEntity.h"
-#include "common/define/DefinesValue.h"
 #include "game/ManagerHandle.h"
+#include "common/define/DefinesValue.h"
 
+USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-HandleEntity::HandleEntity() : _layerEntity(nullptr), _modelEntity(nullptr)
+HandleEntity::HandleEntity() : _entity(nullptr), _model(nullptr)
 {
 }
 
 HandleEntity::~HandleEntity()
 {
-	ManagerHandle::getInstance()->detach(this);
-
-	_layerEntity = nullptr;
-	CC_SAFE_RELEASE_NULL(_modelEntity);
+	setEntity(nullptr);
+	CC_SAFE_RELEASE_NULL(_model);
 }
 
 bool HandleEntity::init()
@@ -22,8 +21,7 @@ bool HandleEntity::init()
 
 	do
 	{
-		_modelEntity = ModelEntity::create();
-		_modelEntity->retain();
+		_model = createModel();
 
 		isInit = true;
 	} while (0);
@@ -31,100 +29,62 @@ bool HandleEntity::init()
 	return isInit;
 }
 
-void HandleEntity::updateBySubject(va_list values)
+ModelEntity* HandleEntity::createModel()
 {
-	auto type = va_arg(values, TO_HANDLE_LAYER_ENTITY);
-	switch (type)
-	{
-	case TO_HANDLE_LAYER_ENTITY::ENTITY_CREATED:
-		setDataEntityCreatedBit(values);
-		break;
-	case TO_HANDLE_LAYER_ENTITY::GAME_START:
-		break;
-	case TO_HANDLE_LAYER_ENTITY::GAME_STOP:
-		break;
-	default:
-		break;
-	}
+	auto model = ModelEntity::create();
+	model->retain();
+	return model;
 }
 
 void HandleEntity::update(float delta)
 {
-	auto state = _modelEntity->getState();
-
-	if (StateLayerEntity::ATTACH_OBSERVER == state)
+	auto state = getModel()->getState();
+	if (StateEntity::DEFAULT == state)
 	{
-		attachObserver();
 		return;
 	}
 
-	if (StateLayerEntity::UNCREATE_WORLD == state)
+	if (StateEntity::UNCREATE_SKIN == state)
 	{
-		addEntity();
+		createSkin();
 		return;
 	}
 
-	if (StateLayerEntity::CREATING_WORLD == state)
+	if (StateEntity::CREATING_SKIN == state)
 	{
-		creatingEntity();
+		creatingSkin();
 		return;
 	}
 
-	if (StateLayerEntity::CREATED_WORLD == state)
+	if (StateEntity::CREATED_SKIN == state)
 	{
-
+		createdSkin();
 		return;
 	}
 }
 
-void HandleEntity::attachObserver()
+void HandleEntity::createSkin()
 {
-	idObserverSet((int)ID_OBSERVER::HANDLE_LAYER_ENTITY);
-	ManagerHandle::getInstance()->attach(this);
+	auto skin = getModel()->getSkin();
+	/*auto entity = getEntity();
+	entity->addSkin(skin);*/
+	_entity->addSkin(skin);
 
-	_modelEntity->setState(StateLayerEntity::UNCREATE_WORLD);
+	_entity->doSomething();
+
+	getModel()->setState(StateEntity::CREATING_SKIN);
 }
 
-void HandleEntity::addEntity()
+void HandleEntity::creatingSkin()
 {
-	addEntityByTypeNum(TypeEntity::REGION, 9);//从中心位置添加地图,添加地图至填满
-
-	addEntityByTypeNum(TypeEntity::CREATURE, 2);//添加主角及其他生物
-
-	_modelEntity->setState(StateLayerEntity::CREATING_WORLD);
+	getModel()->setState(StateEntity::CREATED_SKIN);
 }
 
-void HandleEntity::addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num)
+void HandleEntity::createdSkin()
 {
-	auto id = 1000;
-	for (auto i = 0; i < num; i++)
-	{
-		auto entity = _modelEntity->getEntity(type, id + i);
-		_layerEntity->addEntity(entity);
-		setEntityBitIndex(entity);
-	}
-}
+	auto bitIndex = getModel()->getBitIndex();
+	auto managerHandle = ManagerHandle::getInstance();
+	managerHandle->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::ENTITY_CREATED, bitIndex);
 
-void HandleEntity::setEntityBitIndex(Entity* entity)
-{
-	auto dataCreated = _modelEntity->getDataEntityCreated();
-	auto bitIndex = dataCreated->getTotalBit();
-	dataCreated->modifyTotalBit(bitIndex + 1);
-	entity->setBitIndex(bitIndex);
-}
-
-void HandleEntity::setDataEntityCreatedBit(va_list values)
-{
-	auto bitIndex = va_arg(values, int);
-	_modelEntity->getDataEntityCreated()->setBit(bitIndex);
-}
-
-void HandleEntity::creatingEntity()
-{
-	auto dataCreated = _modelEntity->getDataEntityCreated();
-	if (dataCreated->isAllBitTrue())//所有实体构造完成
-	{
-		_modelEntity->setState(StateLayerEntity::CREATED_WORLD);
-		return;
-	}
+	getModel()->setState(StateEntity::DEFAULT);
 }

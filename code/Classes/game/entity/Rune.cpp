@@ -23,3 +23,16 @@ bool Rune::init()
 
 	return isInit;
 }
+
+void game::entity::Rune::addSkin(cocos2d::Sprite* skin)
+{
+	Unit::addSkin(skin);
+}
+
+HandleRune* Rune::createHandle()
+{
+	auto handle = HandleRune::create();
+	handle->retain();
+	handle->setEntity(this);
+	return handle;
+}

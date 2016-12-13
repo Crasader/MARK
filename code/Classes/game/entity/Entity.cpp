@@ -1,21 +1,15 @@
 #include "Entity.h"
-#include "game/ManagerHandle.h"
-#include "common/define/DefinesValue.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-Entity::Entity() : 
-	_id(0), 
-	_bitIndex(0), 
-	_skin(nullptr), 
-	_state(StateEntity::UNINIT)
+Entity::Entity() : _handle(nullptr)
 {
 }
 
 Entity::~Entity()
 {
-	_skin = nullptr;
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool Entity::init()
@@ -26,6 +20,8 @@ bool Entity::init()
 	{
 		CC_BREAK_IF(!Node::init());
 		
+		_handle = createHandle();
+
 		scheduleUpdate();
 
 		isInit = true;
@@ -36,21 +32,18 @@ bool Entity::init()
 
 void Entity::update(float delta)
 {
-	if (_state == StateEntity::UNINIT)
-	{
-		createSkin();
-	}
-	else if (_state == StateEntity::STANDBY)
-	{
-
-	}
+	_handle->update(delta);
 }
 
-void Entity::createSkin()
+void Entity::addSkin(cocos2d::Sprite* skin)
 {
-	this->addChild(_skin);
-	_state = StateEntity::STANDBY;
+	this->addChild(skin);
+}
 
-	auto managerHandle = ManagerHandle::getInstance();
-	managerHandle->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::ENTITY_CREATED, _bitIndex);
+HandleEntity* Entity::createHandle()
+{
+	auto handle = HandleEntity::create();
+	handle->retain();
+	handle->setEntity(this);
+	return handle;
 }

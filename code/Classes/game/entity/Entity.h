@@ -3,24 +3,11 @@
 
 #include "cocos2d.h"
 #include "common/define/DefinesNamespace.h"
-#include "common/bitData/BitData.h"
+#include "HandleEntity.h"
 
 NS_BEGIN_GAME_ENTITY
 
-enum class StateEntity
-{
-	UNINIT,
-	STANDBY
-};
-
-enum class TypeEntity
-{
-	REGION,
-	CREATURE,
-	RUNE
-};
-
-class Entity : public cocos2d::Node
+class Entity : public cocos2d::Node, IEntity
 {
 public:
 	CREATE_FUNC(Entity);
@@ -30,17 +17,16 @@ public:
 
 	virtual bool init();
 	virtual void update(float delta);
+	
+	virtual void addSkin(cocos2d::Sprite* skin);
 
-	CC_SYNTHESIZE(TypeEntity, _type, Type);
-	CC_SYNTHESIZE(int, _id, Id);
-	CC_SYNTHESIZE(int, _bitIndex, BitIndex);
-	CC_SYNTHESIZE_READONLY(cocos2d::Node*, _skin, Skin);
-	CC_SYNTHESIZE(StateEntity, _state, StateEntity);
+	virtual HandleEntity* getHandle() const { return _handle; }
 
 protected:
-	virtual void createSkin();//add skin,set state standby
+	virtual HandleEntity* createHandle();
 
 private:
+	HandleEntity* _handle;
 
 };
 

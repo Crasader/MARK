@@ -2,13 +2,13 @@
 #define __HANDLE_ENTITY_H__
 
 #include "cocos2d.h"
-#include "common/observer/Observer.h"
-#include "ILayerEntity.h"
+#include "common/define/DefinesNamespace.h"
+#include "IEntity.h"
 #include "ModelEntity.h"
 
 NS_BEGIN_GAME_ENTITY
 
-class HandleEntity : public cocos2d::Ref, Observer
+class HandleEntity : public cocos2d::Ref
 {
 public:
 	CREATE_FUNC(HandleEntity);
@@ -17,22 +17,25 @@ public:
 	~HandleEntity();
 
 	virtual bool init();
+
 	void update(float delta);
-	
-	virtual void updateBySubject(va_list values);
-	
-	void setLayerEntity(ILayerEntity* val) { _layerEntity = val; }
+
+	virtual IEntity* getEntity() const { return _entity; }
+	virtual void setEntity(IEntity* val) { _entity = val; }
+
+	virtual ModelEntity* getModel() const { return _model; }
+
+protected:
+	virtual ModelEntity* createModel();
 
 private:
-	void attachObserver();
-	void addEntity();
-	void addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num);
-	void setEntityBitIndex(Entity* entity);
-	void setDataEntityCreatedBit(va_list values);
-	void creatingEntity();
+	void createSkin();
+	void creatingSkin();
+	void createdSkin();
 
-	ILayerEntity* _layerEntity;
-	ModelEntity* _modelEntity;
+	IEntity* _entity;
+	
+	ModelEntity* _model;
 
 };
 

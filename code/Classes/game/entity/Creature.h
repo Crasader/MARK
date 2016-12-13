@@ -2,11 +2,12 @@
 #define __CORE_ENTITY_CREATURE_H__
 
 #include "Unit.h"
-#include "common/define/DefinesNamespace.h"
+#include "ICreature.h"
+#include "HandleCreature.h"
 
 NS_BEGIN_GAME_ENTITY
 
-class Creature : public Unit
+class Creature : public Unit, ICreature
 {
 public:
 	CREATE_FUNC(Creature);
@@ -16,8 +17,12 @@ public:
 
 	virtual bool init();
 
+	virtual void addSkin(cocos2d::Sprite* skin);
+
+	virtual HandleCreature* getHandle() const { return dynamic_cast<HandleCreature*>(Unit::getHandle()); }
+	
 protected:
-	virtual void createSkin();
+	virtual HandleCreature* createHandle();
 
 private:
 

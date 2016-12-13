@@ -1,19 +1,26 @@
 #ifndef __MODEL_ENTITY_H__
 #define __MODEL_ENTITY_H__
 
-#include "common/define/DefinesNamespace.h"
 #include "cocos2d.h"
-#include "common/bitData/BitData.h"
-#include "Entity.h"
+#include "common/define/DefinesNamespace.h"
 
 NS_BEGIN_GAME_ENTITY
 
-enum class StateLayerEntity
+enum class StateEntity
 {
-	ATTACH_OBSERVER,
-	UNCREATE_WORLD,
-	CREATING_WORLD,
-	CREATED_WORLD
+	DEFAULT,
+	UNCREATE_SKIN,
+	CREATING_SKIN,
+	CREATED_SKIN,
+	UNINIT,
+	STANDBY
+};
+
+enum class TypeEntity
+{
+	REGION,
+	CREATURE,
+	RUNE
 };
 
 class ModelEntity : public cocos2d::Ref
@@ -26,18 +33,18 @@ public:
 
 	virtual bool init();
 
-	Entity* getEntity(const TypeEntity& type, const int& id);
+	cocos2d::Sprite* getSkin();
 
-	CC_SYNTHESIZE(StateLayerEntity, _state, State);
-	CC_SYNTHESIZE(BitData*, _dataEntityCreate, DataEntityCreated);
+	CC_SYNTHESIZE_PASS_BY_REF(StateEntity, _state, State);
+	CC_SYNTHESIZE_PASS_BY_REF(TypeEntity, _type, Type);
+	CC_SYNTHESIZE(int, _id, Id);
+	CC_SYNTHESIZE(int, _bitIndex, BitIndex);
+
+protected:
+	virtual cocos2d::Sprite* createSprite() { return nullptr; }//具体创建Sprite的方法，子类实现
 
 private:
-	const cocos2d::Map<int, Entity*>& getDicByTypeEntity(const TypeEntity& type);
-	Entity* createEntityByType(const TypeEntity& type);
-
-	cocos2d::Map<int, Entity*> _dicRegion;
-	cocos2d::Map<int, Entity*> _dicCreature;
-	cocos2d::Map<int, Entity*> _dicRune;
+	cocos2d::Sprite* _skin;
 
 };
 

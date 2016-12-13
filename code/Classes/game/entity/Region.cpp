@@ -6,12 +6,10 @@ USING_NS_GAME_ENTITY;
 
 Region::Region()
 {
-
 }
 
 Region::~Region()
 {
-
 }
 
 bool Region::init()
@@ -21,16 +19,22 @@ bool Region::init()
 	do
 	{
 		CC_BREAK_IF(!Unit::init());
+
 		isInit = true;
 	} while (0);
 
 	return isInit;
 }
 
-void Region::createSkin()
+void game::entity::Region::addSkin(cocos2d::Sprite* skin)
 {
-	auto spriteFrameName = "images/map/ground.png";
-	_skin = Sprite::createWithSpriteFrameName(spriteFrameName);
-	
-	Entity::createSkin();
+	Unit::addSkin(skin);
+}
+
+HandleRegion* Region::createHandle()
+{
+	auto handle = HandleRegion::create();
+	handle->retain();
+	handle->setEntity(this);
+	return handle;
 }

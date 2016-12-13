@@ -25,7 +25,7 @@ bool LayerEntity::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_handleEntity = HandleEntity::create();
+		_handleEntity = HandleLayerEntity::create();
 		_handleEntity->retain();
 		_handleEntity->setLayerEntity(this);
 
@@ -67,8 +67,9 @@ void LayerEntity::addEntity(Entity* entity)
 		}
 	};
 
-	auto type = entity->getType();
-	auto id = entity->getId();
+	auto model = entity->getHandle()->getModel();
+	auto type = model->getType();
+	auto id = model->getId();
 	entity->setPosition(dicDicPostion[type][id]);
 }
 

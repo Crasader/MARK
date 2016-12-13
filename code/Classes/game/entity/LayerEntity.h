@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "ILayerEntity.h"
-#include "HandleEntity.h"
+#include "HandleLayerEntity.h"
 
 NS_BEGIN_GAME_ENTITY
 
@@ -22,7 +22,7 @@ public:
 	virtual void removeEntity(Entity* entity);
 
 private:
-	HandleEntity* _handleEntity;
+	HandleLayerEntity* _handleEntity;
 
 };
 

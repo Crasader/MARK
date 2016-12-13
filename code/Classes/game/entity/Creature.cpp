@@ -25,10 +25,15 @@ bool Creature::init()
 	return isInit;
 }
 
-void Creature::createSkin()
+void game::entity::Creature::addSkin(cocos2d::Sprite* skin)
 {
-	auto spriteFrameName = "images/creature/creature.png";
-	_skin = Sprite::createWithSpriteFrameName(spriteFrameName);
+	Unit::addSkin(skin);
+}
 
-	Entity::createSkin();
+HandleCreature* Creature::createHandle()
+{
+	auto handle = HandleCreature::create();
+	handle->retain();
+	handle->setEntity(this);
+	return handle;
 }
