@@ -1,22 +1,23 @@
-#include "ModelLogo.h"
+#include "LayerLogo.h"
 #include "common/define/DefinesRes.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
 
-ModelLogo::ModelLogo() : 
+LayerLogoModel::LayerLogoModel() : 
 	_skin(nullptr),
-	_state(StateLogo::CREATE_SKIN), 
-	_duration(0.0f)
+	_duration(0.0f),
+	_stateCallback()
 {
+	_stateCallback.setState(StateLayerLogo::CREATE_SKIN);
 }
 
-ModelLogo::~ModelLogo()
+LayerLogoModel::~LayerLogoModel()
 {
 	_skin = nullptr;
 }
 
-bool ModelLogo::init()
+bool LayerLogoModel::init()
 {
 	auto isInit = false;
 
@@ -28,7 +29,7 @@ bool ModelLogo::init()
 	return isInit;
 }
 
-Layer* ModelLogo::getSkin()
+Layer* LayerLogoModel::getSkin()
 {
 	if (_skin == nullptr)
 	{
@@ -37,20 +38,19 @@ Layer* ModelLogo::getSkin()
 	return _skin;
 }
 
-ActionTimeline* ModelLogo::getAnimation(const std::string& animationName, const bool& isLoop)
+ActionTimeline* LayerLogoModel::getActionTimeline()
 {
 	/*cocostudio::timeline::ActionTimeline* actionTimeline;*/
 	auto actionTimeline = CSLoader::createTimeline(RES_WELCOME_LOGO_LAYER_LOGO_CSB);
-	actionTimeline->play(animationName, isLoop);
 	return actionTimeline;
 }
 
-void ModelLogo::addDuration(float val)
+void LayerLogoModel::addDuration(float val)
 {
 	_duration += val;
 }
 
-bool ModelLogo::isTimeOver()
+bool LayerLogoModel::isTimeOver()
 {
 	return _duration >= DURATION_TOTAL;
 }

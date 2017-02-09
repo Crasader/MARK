@@ -36,7 +36,8 @@ private:
 	void removeEventLayerResLoadLoaded();
 	void onEventLayerResLoadLoaded(cocos2d::EventCustom* event);
 	void loadedRes();
-	
+	void addAcross();//Ìí¼Ó¾Å¹¬¸ñ»¬¶¯²ã
+
 };
 
 #endif

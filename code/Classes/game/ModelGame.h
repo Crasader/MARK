@@ -11,7 +11,9 @@ enum class StateGame
 	GET_DATA_BASE,
 	UNLOAD_RES,
 	LOADING_RES,
-	LOADED_RES
+	LOADED_RES,
+	ADD_ACROSS,
+	REMOVE_ACROSS,
 };
 
 enum class TypeLayerInGame
@@ -36,7 +38,11 @@ public:
 	void getDatabase();//获取（构建）数据库
 
 	cocos2d::Layer* getLayer(const TypeLayerInGame& type);
+	void setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion);
 	void setLayerNullptr(const TypeLayerInGame& type);
+
+	void setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size);
+	void setLayerAcrossIsTest(const bool& isTest);
 
 	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listenerLayerResLoadLoaded, ListenerLayerResLoadLoaded);
 	CC_SYNTHESIZE(StateGame, _state, StateGame);

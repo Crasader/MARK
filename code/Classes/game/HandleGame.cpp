@@ -77,6 +77,13 @@ void HandleGame::update(float delta)
 		loadedRes();
 		return;
 	}
+
+	if (StateGame::ADD_ACROSS == state)
+	{
+		addAcross();
+		return;
+	}
+
 }
 
 void HandleGame::updateBySubject(va_list values)
@@ -107,6 +114,12 @@ void HandleGame::updateBySubject(va_list values)
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_REMOVE:
 		deleteLayer(TypeLayerInGame::MENU_SYSTEM);
+		break;
+	case TO_HANDLE_SCENE_GAME::LAYER_ACROSS_ADD:
+		_modelGame->setStateGame(StateGame::ADD_ACROSS);
+		break;
+	case TO_HANDLE_SCENE_GAME::LAYER_ACROSS_REMOVE:
+		deleteLayer(TypeLayerInGame::ACROSS);
 		break;
 	default:
 		break;
@@ -180,6 +193,16 @@ void HandleGame::loadedRes()
 	createLayer(TypeLayerInGame::MENU_START);
 
 	removeEventLayerResLoadLoaded();
+
+	_modelGame->setStateGame(StateGame::DEFAULT);
+}
+
+void HandleGame::addAcross()
+{
+	createLayer(TypeLayerInGame::ACROSS);
+	_modelGame->setLayerPostion(TypeLayerInGame::ACROSS, Vec2(320.0f, 480.0f));
+	_modelGame->setLayerAcrossNumSize(3, 3, Size(100.0f, 100.0f));
+	/*_modelGame->setLayerAcrossIsTest(true);*/
 
 	_modelGame->setStateGame(StateGame::DEFAULT);
 }

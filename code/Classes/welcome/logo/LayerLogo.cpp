@@ -1,15 +1,17 @@
 #include "LayerLogo.h"
 
 USING_NS_CC;
-using namespace ui;
+using namespace cocostudio::timeline;
+using namespace std;
 
-LayerLogo::LayerLogo() : _handleLogo(nullptr)
+LayerLogo::LayerLogo() : _handle(nullptr)
 {
 }
 
 LayerLogo::~LayerLogo()
 {
-	CC_SAFE_RELEASE_NULL(_handleLogo);
+	unscheduleUpdate();
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool LayerLogo::init()
@@ -20,9 +22,9 @@ bool LayerLogo::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_handleLogo = HandleLogo::create();
-		_handleLogo->retain();
-		_handleLogo->setLayerLogo(this);
+		_handle = LayerLogoHandle::create();
+		_handle->retain();
+		_handle->setView(this);
 
 		scheduleUpdate();
 
@@ -34,7 +36,7 @@ bool LayerLogo::init()
 
 void LayerLogo::update(float delta)
 {
-	_handleLogo->update(delta);
+	_handle->update(delta);
 }
 
 void LayerLogo::addSkin(cocos2d::Layer* skin)
@@ -42,7 +44,8 @@ void LayerLogo::addSkin(cocos2d::Layer* skin)
 	addChild(skin);
 }
 
-void LayerLogo::playAnimation(cocos2d::Layer* skin, cocos2d::Action* action)
+void LayerLogo::playAnimation(Layer* skin, ActionTimeline* action, const string& animationName, const bool& isLoop)
 {
+	action->play(animationName, isLoop);
 	skin->runAction(action);
 }

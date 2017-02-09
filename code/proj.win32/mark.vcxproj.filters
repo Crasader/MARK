@@ -103,6 +103,9 @@
     <Filter Include="src\game\entity\subs\unit\rune">
       <UniqueIdentifier>{ac3edc78-5a47-47a4-989a-472208712f5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\common\stateCallback">
+      <UniqueIdentifier>{4fa2701d-8b68-481a-89d4-4cd2cb0b489c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -276,28 +279,7 @@
     <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp">
       <Filter>src\welcome</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\welcome\HandleWelcome.cpp">
-      <Filter>src\welcome</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\welcome\ModelWelcome.cpp">
-      <Filter>src\welcome</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\welcome\logo\LayerLogo.cpp">
-      <Filter>src\welcome\logo</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\welcome\logo\HandleLogo.cpp">
-      <Filter>src\welcome\logo</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\welcome\logo\ModelLogo.cpp">
-      <Filter>src\welcome\logo</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\across\LayerAcross.cpp">
-      <Filter>src\game\across</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\across\ModelAcross.cpp">
-      <Filter>src\game\across</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\across\HandleAcross.cpp">
       <Filter>src\game\across</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\game\resload\HandleResLoad.cpp">
@@ -356,6 +338,30 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\entity\ModelRegion.cpp">
       <Filter>src\game\entity\subs\unit\Region</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\across\CricleDotLine.cpp">
+      <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\across\LayerAcrossModel.cpp">
+      <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\across\LayerAcrossHandle.cpp">
+      <Filter>src\game\across</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\SceneWelcomeModel.cpp">
+      <Filter>src\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\SceneWelcomeHandle.cpp">
+      <Filter>src\welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogo.cpp">
+      <Filter>src\welcome\logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogoHandle.cpp">
+      <Filter>src\welcome\logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogoModel.cpp">
+      <Filter>src\welcome\logo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -533,43 +539,10 @@
     <ClInclude Include="..\Classes\common\config\ManagerCfgDefines.h">
       <Filter>src\common\config</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\welcome\ISceneWelcome.h">
-      <Filter>src\welcome</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\welcome\SceneWelcome.h">
       <Filter>src\welcome</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\welcome\HandleWelcome.h">
-      <Filter>src\welcome</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\welcome\ModelWelcome.h">
-      <Filter>src\welcome</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\welcome\logo\ILayerLogo.h">
-      <Filter>src\welcome\logo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h">
-      <Filter>src\welcome\logo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\welcome\logo\HandleLogo.h">
-      <Filter>src\welcome\logo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\welcome\logo\ModelLogo.h">
-      <Filter>src\welcome\logo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\across\HandleAcross.h">
-      <Filter>src\game\across</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\across\IAcrossObject.h">
-      <Filter>src\game\across</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\across\ILayerAcross.h">
-      <Filter>src\game\across</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\across\LayerAcross.h">
-      <Filter>src\game\across</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\across\ModelAcross.h">
       <Filter>src\game\across</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\resload\HandleResLoad.h">
@@ -643,6 +616,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\ModelRegion.h">
       <Filter>src\game\entity\subs\unit\Region</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\across\CricleDotLine.h">
+      <Filter>src\game\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\stateCallback\StateCallback.h">
+      <Filter>src\common\stateCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h">
+      <Filter>src\welcome\logo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

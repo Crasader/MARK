@@ -157,9 +157,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\common\util\UtilHelper.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilRandom.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilString.cpp" />
-    <ClCompile Include="..\Classes\game\across\HandleAcross.cpp" />
+    <ClCompile Include="..\Classes\game\across\CricleDotLine.cpp" />
     <ClCompile Include="..\Classes\game\across\LayerAcross.cpp" />
-    <ClCompile Include="..\Classes\game\across\ModelAcross.cpp" />
+    <ClCompile Include="..\Classes\game\across\LayerAcrossHandle.cpp" />
+    <ClCompile Include="..\Classes\game\across\LayerAcrossModel.cpp" />
     <ClCompile Include="..\Classes\game\entity\Attribute.cpp" />
     <ClCompile Include="..\Classes\game\entity\Creature.cpp" />
     <ClCompile Include="..\Classes\game\entity\Entity.cpp" />
@@ -221,12 +222,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\model\data\HandleDataTraining.cpp" />
     <ClCompile Include="..\Classes\model\data\HandleDataUnlock.cpp" />
     <ClCompile Include="..\Classes\model\data\ManagerData.cpp" />
-    <ClCompile Include="..\Classes\welcome\HandleWelcome.cpp" />
-    <ClCompile Include="..\Classes\welcome\logo\HandleLogo.cpp" />
     <ClCompile Include="..\Classes\welcome\logo\LayerLogo.cpp" />
-    <ClCompile Include="..\Classes\welcome\logo\ModelLogo.cpp" />
-    <ClCompile Include="..\Classes\welcome\ModelWelcome.cpp" />
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogoHandle.cpp" />
+    <ClCompile Include="..\Classes\welcome\logo\LayerLogoModel.cpp" />
     <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp" />
+    <ClCompile Include="..\Classes\welcome\SceneWelcomeHandle.cpp" />
+    <ClCompile Include="..\Classes\welcome\SceneWelcomeModel.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -244,15 +245,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\sqlite\DbHelper.h" />
     <ClInclude Include="..\Classes\common\sqlite\sqlite3.h" />
     <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h" />
+    <ClInclude Include="..\Classes\common\stateCallback\StateCallback.h" />
     <ClInclude Include="..\Classes\common\util\UtilDate.h" />
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\common\util\UtilString.h" />
-    <ClInclude Include="..\Classes\game\across\HandleAcross.h" />
-    <ClInclude Include="..\Classes\game\across\IAcrossObject.h" />
-    <ClInclude Include="..\Classes\game\across\ILayerAcross.h" />
+    <ClInclude Include="..\Classes\game\across\CricleDotLine.h" />
     <ClInclude Include="..\Classes\game\across\LayerAcross.h" />
-    <ClInclude Include="..\Classes\game\across\ModelAcross.h" />
     <ClInclude Include="..\Classes\game\entity\Attribute.h" />
     <ClInclude Include="..\Classes\game\entity\Creature.h" />
     <ClInclude Include="..\Classes\game\entity\Entity.h" />
@@ -316,13 +315,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\model\data\ManagerData.h" />
-    <ClInclude Include="..\Classes\welcome\HandleWelcome.h" />
-    <ClInclude Include="..\Classes\welcome\ISceneWelcome.h" />
-    <ClInclude Include="..\Classes\welcome\logo\HandleLogo.h" />
-    <ClInclude Include="..\Classes\welcome\logo\ILayerLogo.h" />
     <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h" />
-    <ClInclude Include="..\Classes\welcome\logo\ModelLogo.h" />
-    <ClInclude Include="..\Classes\welcome\ModelWelcome.h" />
     <ClInclude Include="..\Classes\welcome\SceneWelcome.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

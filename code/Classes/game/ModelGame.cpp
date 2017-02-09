@@ -52,20 +52,38 @@ Layer* ModelGame::getLayer(const TypeLayerInGame& type)
 	return layer;
 }
 
+void ModelGame::setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion)
+{
+	auto layer = getLayerByType(type);
+	if (layer != nullptr)
+	{
+		layer->setPosition(postion);
+	}
+}
+
 void ModelGame::setLayerNullptr(const TypeLayerInGame& type)
 {
 	eraseLayerByType(type);
 }
 
-bool ModelGame::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
+void ModelGame::setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size)
 {
-	auto layerInDic = getLayerByType(type);
-	if (layerInDic != nullptr)
+	auto layerAcross = (LayerAcross*)getLayer(TypeLayerInGame::ACROSS);
+	if (layerAcross)
 	{
-		return false;
+		auto model = layerAcross->getHandle()->getModel();
+		model->setAcrossObjectNumSize(numRow, numColumn, size);
 	}
-	_dicLayers.insert(type, layer);
-	return true;
+}
+
+void ModelGame::setLayerAcrossIsTest(const bool& isTest)
+{
+	auto layerAcross = (LayerAcross*)getLayer(TypeLayerInGame::ACROSS);
+	if (layerAcross)
+	{
+		auto model = layerAcross->getHandle()->getModel();
+		model->setTest(isTest);
+	}
 }
 
 Layer* ModelGame::createLayerByType(const TypeLayerInGame& type)
@@ -85,6 +103,17 @@ Layer* ModelGame::createLayerByType(const TypeLayerInGame& type)
 	default:
 		return nullptr;
 	}
+}
+
+bool ModelGame::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
+{
+	auto layerInDic = getLayerByType(type);
+	if (layerInDic != nullptr)
+	{
+		return false;
+	}
+	_dicLayers.insert(type, layer);
+	return true;
 }
 
 bool ModelGame::eraseLayerByType(const TypeLayerInGame& type)
