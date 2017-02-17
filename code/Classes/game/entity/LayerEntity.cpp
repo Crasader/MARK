@@ -6,7 +6,7 @@
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-LayerEntity::LayerEntity() : _handleEntity(nullptr)
+LayerEntity::LayerEntity() : _handle(nullptr)
 {
 }
 
@@ -14,7 +14,7 @@ LayerEntity::~LayerEntity()
 {
 	unscheduleUpdate();
 
-	CC_SAFE_RELEASE_NULL(_handleEntity);
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool LayerEntity::init()
@@ -25,9 +25,9 @@ bool LayerEntity::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_handleEntity = HandleLayerEntity::create();
-		_handleEntity->retain();
-		_handleEntity->setLayerEntity(this);
+		_handle = LayerEntityHandle::create();
+		_handle->retain();
+		_handle->setView(this);
 
 		scheduleUpdate();
 
@@ -39,7 +39,7 @@ bool LayerEntity::init()
 
 void LayerEntity::update(float delta)
 {
-	_handleEntity->update(delta);
+	_handle->update(delta);
 }
 
 void LayerEntity::addEntity(Entity* entity)

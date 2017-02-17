@@ -3,7 +3,7 @@
 
 USING_NS_CC;
 
-SceneGame::SceneGame() : _handleGame(nullptr)
+SceneGame::SceneGame() : _handle(nullptr)
 {
 }
 
@@ -11,7 +11,7 @@ SceneGame::~SceneGame()
 {
 	unscheduleUpdate();
 
-	CC_SAFE_RELEASE_NULL(_handleGame);
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool SceneGame::init()
@@ -22,9 +22,9 @@ bool SceneGame::init()
 	{
 		CC_BREAK_IF(!Scene::init());
 
-		_handleGame = HandleGame::create();
-		_handleGame->retain();
-		_handleGame->setSceneGame(this);
+		_handle = SceneGameHandle::create();
+		_handle->retain();
+		_handle->setView(this);
 
 		isInit = true;
 	} while (0);
@@ -34,7 +34,7 @@ bool SceneGame::init()
 
 void SceneGame::update(float delta)
 {
-	_handleGame->update(delta);
+	_handle->update(delta);
 }
 
 void SceneGame::addLayer(cocos2d::Layer* layer)

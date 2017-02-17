@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "CricleDotLine.h"
+#include "common/stateCallback/StateCallback.h"
 
 enum class StateLayerAcross
 {
@@ -22,9 +23,12 @@ public:
 
 	virtual bool init();
 
-	//state
+public://state
+	const StateLayerAcross & getState() const { return _stateCallback.getState(); }
+	void setState(const StateLayerAcross& val) { _stateCallback.setState(val); }
+	StateCallback<StateLayerAcross>& getStateCallback() { return _stateCallback; }
 private:
-	CC_SYNTHESIZE_PASS_BY_REF(StateLayerAcross, _state, State);
+	StateCallback<StateLayerAcross> _stateCallback;
 	
 	//listener
 public:
@@ -38,23 +42,22 @@ public:
 	CricleDotLine* getCricleDotLine();
 	void createCricleDotLine();
 	void deleteCricleDotLine();
+	void clearCricleDotLine();
 private:
-	void pushCricleDotLine(CricleDotLine* cdl);
-	void popCricleDotLine();
-
 	cocos2d::Vector<CricleDotLine*> _vecCricleDotLine;
 
 	//acrossobject
 public:
-	CC_SYNTHESIZE(bool, _isTest, Test);
-	CC_SYNTHESIZE_READONLY(bool, _isNumSizeSet, IsNumSizeSet);
-	CC_SYNTHESIZE_READONLY(int, _numRowAcrossObject, NumRowAcrossObject);
-	CC_SYNTHESIZE_READONLY(int, _numColumnAcrossObject, NumColumnAcrossObject);
-	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Size, _sizeAcrossObject, SizeAcrossObject);
-	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Vector<cocos2d::Node*>, _vecAcrossObject, AcrossObjects);
 	void setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size);
 	void createAcorssObjects();
 	void clearAcrossObjects();
+
+	CC_SYNTHESIZE(bool, _isTest, Test);
+	CC_SYNTHESIZE_READONLY(int, _numRowAcrossObject, NumRowAcrossObject);
+	CC_SYNTHESIZE_READONLY(int, _numColumnAcrossObject, NumColumnAcrossObject);
+	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Size, _sizeAcrossObject, SizeAcrossObject);
+	CC_SYNTHESIZE_READONLY(bool, _isNumSizeSet, IsNumSizeSet);
+	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Vector<cocos2d::Node*>, _vecAcrossObject, AcrossObjects);
 private:
 
 };
@@ -80,11 +83,13 @@ public:
 
 	virtual bool init();
 
+	void attachStateCallback();
+
 	void update(float delta);
 
-	//uninitialized
+	//initialize
 public:
-	void addEvent();
+	void initialize();
 private:
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -93,6 +98,7 @@ private:
 
 	//initialized
 public:
+	bool initializedCheck(float delta);
 	void initialized();
 	
 	//creating

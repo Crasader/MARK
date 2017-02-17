@@ -38,10 +38,9 @@ void SceneWelcomeHandle::attachStateCallback()
 {
 	auto& stateCallback = _model->getStateCallback();
 	stateCallback.insertCallback(StateWelcome::DEFAULT, nullptr);
-	stateCallback.insertCallback(StateWelcome::UNPLAY_LOGO, CC_CALLBACK_1(SceneWelcomeHandle::playLogo, this));
-	stateCallback.insertCallback(StateWelcome::PLAYING_LOGO, nullptr);
-	stateCallback.insertCallback(StateWelcome::PLAYED_LOGO, CC_CALLBACK_1(SceneWelcomeHandle::playedLogo, this));
-	stateCallback.insertCallback(StateWelcome::REPLACE_SCENE, CC_CALLBACK_1(SceneWelcomeHandle::replaceScene, this));
+	stateCallback.insertCallback(StateWelcome::UNPLAY_LOGO, CC_CALLBACK_0(SceneWelcomeHandle::playLogo, this));
+	stateCallback.insertCallback(StateWelcome::PLAYED_LOGO, CC_CALLBACK_0(SceneWelcomeHandle::playedLogo, this), CC_CALLBACK_1(SceneWelcomeHandle::playedLogoCheck, this));
+	stateCallback.insertCallback(StateWelcome::REPLACE_SCENE, CC_CALLBACK_0(SceneWelcomeHandle::replaceScene, this));
 }
 
 void SceneWelcomeHandle::update(float delta)
@@ -63,13 +62,13 @@ void SceneWelcomeHandle::deleteLayer(const TypeLayerInWelcome& type)
 	_model->setLayerNullptr(type);
 }
 
-void SceneWelcomeHandle::playLogo(float delta)
+void SceneWelcomeHandle::playLogo()
 {
 	createLayer(TypeLayerInWelcome::LOGO);
 
 	addEventLayerLogoOver();
 
-	_model->setState(StateWelcome::PLAYING_LOGO);
+	_model->setState(StateWelcome::PLAYED_LOGO);
 }
 
 void SceneWelcomeHandle::addEventLayerLogoOver()
@@ -88,10 +87,16 @@ void SceneWelcomeHandle::removeEventLayerLogoOver()
 
 void SceneWelcomeHandle::onEventLayerLogoOver(EventCustom* event)
 {
-	_model->setState(StateWelcome::PLAYED_LOGO);
+	_model->setIsLogoPlayOver(true);
 }
 
-void SceneWelcomeHandle::playedLogo(float delta)
+bool SceneWelcomeHandle::playedLogoCheck(float delta)
+{
+	auto isLogoPlayOver = _model->getIsLogoPlayOver();
+	return isLogoPlayOver;
+}
+
+void SceneWelcomeHandle::playedLogo()
 {
 	deleteLayer(TypeLayerInWelcome::LOGO);
 
@@ -100,7 +105,7 @@ void SceneWelcomeHandle::playedLogo(float delta)
 	_model->setState(StateWelcome::REPLACE_SCENE);
 }
 
-void SceneWelcomeHandle::replaceScene(float delta)
+void SceneWelcomeHandle::replaceScene()
 {
 	_view->replaceSceneToGame();
 	_model->setState(StateWelcome::DEFAULT);

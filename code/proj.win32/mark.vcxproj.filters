@@ -177,9 +177,6 @@
     <ClCompile Include="..\Classes\common\sqlite\sqlite3.c">
       <Filter>src\common\sqlite</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\HandleGame.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\ManagerHandle.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
@@ -270,9 +267,6 @@
     <ClCompile Include="..\Classes\common\spriteBlur\SpriteBlur.cpp">
       <Filter>src\common\spriteBlur</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ModelGame.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\common\config\ManagerCfg.cpp">
       <Filter>src\common\config</Filter>
     </ClCompile>
@@ -290,12 +284,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\resload\ModelResLoad.cpp">
       <Filter>src\game\resload</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelLayerEntity.cpp">
-      <Filter>src\game\entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleLayerEntity.cpp">
-      <Filter>src\game\entity</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\game\entity\HandleEntity.cpp">
       <Filter>src\game\entity\subs</Filter>
@@ -363,6 +351,18 @@
     <ClCompile Include="..\Classes\welcome\logo\LayerLogoModel.cpp">
       <Filter>src\welcome\logo</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\game\SceneGameModel.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\SceneGameHandle.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\LayerEntityModel.cpp">
+      <Filter>src\game\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\LayerEntityHandle.cpp">
+      <Filter>src\game\entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -407,12 +407,6 @@
     <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h">
       <Filter>src\common\sqlite</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\HandleGame.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ISceneGame.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\ManagerHandle.h">
       <Filter>src\game</Filter>
     </ClInclude>
@@ -442,9 +436,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\temp\Scenery.h">
       <Filter>src\game\temp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ILayerEntity.h">
-      <Filter>src\game\entity</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\LayerEntity.h">
       <Filter>src\game\entity</Filter>
@@ -518,9 +509,6 @@
     <ClInclude Include="..\Classes\common\spriteBlur\SpriteBlur.h">
       <Filter>src\common\spriteBlur</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\ModelGame.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\define\DefinesNamespace.h">
       <Filter>src\common\define</Filter>
     </ClInclude>
@@ -556,12 +544,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\resload\ModelResLoad.h">
       <Filter>src\game\resload</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelLayerEntity.h">
-      <Filter>src\game\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleLayerEntity.h">
-      <Filter>src\game\entity</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\IEntity.h">
       <Filter>src\game\entity\subs</Filter>

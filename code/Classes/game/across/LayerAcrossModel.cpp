@@ -2,18 +2,24 @@
 
 USING_NS_CC;
 
-LayerAcrossModel::LayerAcrossModel() : 
-	_state(StateLayerAcross::UNINITIALIZED),
-	_listener(nullptr)
+LayerAcrossModel::LayerAcrossModel() :
+	_stateCallback(),
+	_listener(nullptr),
+	_vecCricleDotLine(),
+	_isTest(false),
+	_isNumSizeSet(false),
+	_vecAcrossObject()
 {
+	setState(StateLayerAcross::UNINITIALIZED);
 }
 
 LayerAcrossModel::~LayerAcrossModel()
 {
-	_state = StateLayerAcross::DEFAULT;
+	setState(StateLayerAcross::DEFAULT);
+	_stateCallback.clearDic();
 	setListenerNullptr();
-	_vecCricleDotLine.clear();
-	_vecAcrossObject.clear();
+	clearCricleDotLine();
+	clearAcrossObjects();
 }
 
 bool LayerAcrossModel::init()
@@ -56,22 +62,17 @@ CricleDotLine* LayerAcrossModel::getCricleDotLine()
 void LayerAcrossModel::createCricleDotLine()
 {
 	auto cdl = CricleDotLine::create();
-	pushCricleDotLine(cdl);
+	_vecCricleDotLine.pushBack(cdl);
 }
 
 void LayerAcrossModel::deleteCricleDotLine()
 {
-	popCricleDotLine();
-}
-
-void LayerAcrossModel::pushCricleDotLine(CricleDotLine* cdl)
-{
-	_vecCricleDotLine.pushBack(cdl);
-}
-
-void LayerAcrossModel::popCricleDotLine()
-{
 	_vecCricleDotLine.popBack();
+}
+
+void LayerAcrossModel::clearCricleDotLine()
+{
+	_vecCricleDotLine.clear();
 }
 
 void LayerAcrossModel::setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size)

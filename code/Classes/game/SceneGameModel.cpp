@@ -1,4 +1,4 @@
-#include "ModelGame.h"
+#include "SceneGame.h"
 #include "common/sqlite/DbHelper.h"
 #include "resload/LayerResLoad.h"
 #include "entity/LayerEntity.h"
@@ -9,19 +9,24 @@
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelGame::ModelGame() : 
-	_listenerLayerResLoadLoaded(nullptr), 
-	_state(StateGame::INIT_RODOM_SEED)
+SceneGameModel::SceneGameModel() : 
+	_stateCallback(),
+	_isLoadedRes(false),
+	_dicLayers(),
+	_listener(nullptr)
 {
+	setState(StateGame::INIT_RODOM_SEED);
 }
 
-ModelGame::~ModelGame()
+SceneGameModel::~SceneGameModel()
 {
+	_listener = nullptr;
 	_dicLayers.clear();
-	_listenerLayerResLoadLoaded = nullptr;
+	_isLoadedRes = false;
+	_stateCallback.clearDic();
 }
 
-bool ModelGame::init()
+bool SceneGameModel::init()
 {
 	auto isInit = false;
 
@@ -33,7 +38,7 @@ bool ModelGame::init()
 	return isInit;
 }
 
-void ModelGame::getDatabase()
+void SceneGameModel::dealDatabase()
 {
 	auto dbHelper = DbHelper::getInstance();
 	dbHelper->dataBaseOpen();
@@ -41,7 +46,7 @@ void ModelGame::getDatabase()
 	dbHelper->dataBaseClose();
 }
 
-Layer* ModelGame::getLayer(const TypeLayerInGame& type)
+Layer* SceneGameModel::getLayer(const TypeLayerInGame& type)
 {
 	auto layer = getLayerByType(type);
 	if (layer == nullptr)
@@ -52,7 +57,7 @@ Layer* ModelGame::getLayer(const TypeLayerInGame& type)
 	return layer;
 }
 
-void ModelGame::setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion)
+void SceneGameModel::setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion)
 {
 	auto layer = getLayerByType(type);
 	if (layer != nullptr)
@@ -61,32 +66,23 @@ void ModelGame::setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2
 	}
 }
 
-void ModelGame::setLayerNullptr(const TypeLayerInGame& type)
+void SceneGameModel::setLayerNullptr(const TypeLayerInGame& type)
 {
 	eraseLayerByType(type);
 }
 
-void ModelGame::setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size)
+void SceneGameModel::setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const bool& isTest/* = false*/)
 {
 	auto layerAcross = (LayerAcross*)getLayer(TypeLayerInGame::ACROSS);
 	if (layerAcross)
 	{
 		auto model = layerAcross->getHandle()->getModel();
 		model->setAcrossObjectNumSize(numRow, numColumn, size);
-	}
-}
-
-void ModelGame::setLayerAcrossIsTest(const bool& isTest)
-{
-	auto layerAcross = (LayerAcross*)getLayer(TypeLayerInGame::ACROSS);
-	if (layerAcross)
-	{
-		auto model = layerAcross->getHandle()->getModel();
 		model->setTest(isTest);
 	}
 }
 
-Layer* ModelGame::createLayerByType(const TypeLayerInGame& type)
+Layer* SceneGameModel::createLayerByType(const TypeLayerInGame& type)
 {
 	switch (type)
 	{
@@ -105,7 +101,7 @@ Layer* ModelGame::createLayerByType(const TypeLayerInGame& type)
 	}
 }
 
-bool ModelGame::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
+bool SceneGameModel::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
 {
 	auto layerInDic = getLayerByType(type);
 	if (layerInDic != nullptr)
@@ -116,7 +112,7 @@ bool ModelGame::insertLayerByType(const TypeLayerInGame& type, Layer* layer)
 	return true;
 }
 
-bool ModelGame::eraseLayerByType(const TypeLayerInGame& type)
+bool SceneGameModel::eraseLayerByType(const TypeLayerInGame& type)
 {
 	auto layer = getLayerByType(type);
 	if (layer == nullptr)
@@ -127,7 +123,7 @@ bool ModelGame::eraseLayerByType(const TypeLayerInGame& type)
 	return true;
 }
 
-Layer* ModelGame::getLayerByType(const TypeLayerInGame& type)
+Layer* SceneGameModel::getLayerByType(const TypeLayerInGame& type)
 {
 	auto layer = _dicLayers.at(type);
 	return layer;

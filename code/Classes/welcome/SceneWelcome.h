@@ -8,7 +8,6 @@ enum class StateWelcome
 {
 	DEFAULT,
 	UNPLAY_LOGO,
-	PLAYING_LOGO,
 	PLAYED_LOGO,
 	REPLACE_SCENE
 };
@@ -29,6 +28,16 @@ public:
 
 	virtual bool init();
 
+public://StateWelcomeCallback
+	const StateWelcome& getState() const { return _stateCallback.getState(); }
+	void setState(const StateWelcome& state) { _stateCallback.setState(state); }
+	StateCallback<StateWelcome>& getStateCallback() { return _stateCallback; }
+private:
+	StateCallback<StateWelcome> _stateCallback;
+
+public://isLogoPlayOver
+	CC_SYNTHESIZE(bool, _isLogoPlayOver, IsLogoPlayOver);
+
 public://layers
 	cocos2d::Layer* getLayer(const TypeLayerInWelcome& type);
 	void setLayerNullptr(const TypeLayerInWelcome& type);
@@ -42,13 +51,6 @@ private:
 
 public://ListenerLayerLogoOver
 	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listener, ListenerLayerLogoOver);
-	
-public://StateWelcomeCallback
-	const StateWelcome& getState() const { return _stateCallback.getState(); }
-	void setState(const StateWelcome& state) { _stateCallback.setState(state); }
-	StateCallback<StateWelcome>& getStateCallback() { return _stateCallback; }
-private:
-	StateCallback<StateWelcome> _stateCallback;
 	
 };
 
@@ -81,12 +83,15 @@ private:
 	void createLayer(const TypeLayerInWelcome& type);
 	void deleteLayer(const TypeLayerInWelcome& type);
 
-	void playLogo(float delta);
+	void playLogo();
 	void addEventLayerLogoOver();
 	void removeEventLayerLogoOver();
 	void onEventLayerLogoOver(cocos2d::EventCustom* event);
-	void playedLogo(float delta);
-	void replaceScene(float delta);
+
+	bool playedLogoCheck(float delta);
+	void playedLogo();
+
+	void replaceScene();
 
 	ISceneWelcome* _view;
 	SceneWelcomeModel* _model;

@@ -25,13 +25,13 @@ enum class TypeLayerInGame
 	MENU_SYSTEM
 };
 
-class ModelGame : public cocos2d::Ref
+class SceneGameModel : public cocos2d::Ref
 {
 public:
-	CREATE_FUNC(ModelGame);
+	CREATE_FUNC(SceneGameModel);
 
-	ModelGame();
-	~ModelGame();
+	SceneGameModel();
+	~SceneGameModel();
 
 	virtual bool init();
 

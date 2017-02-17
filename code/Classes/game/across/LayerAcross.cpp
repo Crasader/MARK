@@ -9,6 +9,8 @@ LayerAcross::LayerAcross() : _handle(nullptr)
 
 LayerAcross::~LayerAcross()
 {
+	unscheduleUpdate();
+
 	CC_SAFE_RELEASE_NULL(_handle);
 }
 

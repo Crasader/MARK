@@ -1,4 +1,4 @@
-#include "ModelLayerEntity.h"
+#include "LayerEntity.h"
 #include "Region.h"
 #include "Creature.h"
 #include "Rune.h"
@@ -6,19 +6,28 @@
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelLayerEntity::ModelLayerEntity() : _state(StateLayerEntity::ATTACH_OBSERVER), _dataEntityCreate(nullptr)
+LayerEntityModel::LayerEntityModel() : 
+	_stateCallback(), 
+	_dataEntityCreate(nullptr), 
+	_dicNone(),
+	_dicRegion(),
+	_dicCreature(),
+	_dicRune()
 {
+	setState(StateLayerEntity::ATTACH_OBSERVER);
 }
 
-ModelLayerEntity::~ModelLayerEntity()
+LayerEntityModel::~LayerEntityModel()
 {
-	_dicRegion.clear();
-	_dicCreature.clear();
 	_dicRune.clear();
+	_dicCreature.clear();
+	_dicRegion.clear();
+	_dicNone.clear();
 	CC_SAFE_RELEASE_NULL(_dataEntityCreate);
+	_stateCallback.clearDic();
 }
 
-bool ModelLayerEntity::init()
+bool LayerEntityModel::init()
 {
 	auto isInit = false;
 
@@ -33,7 +42,7 @@ bool ModelLayerEntity::init()
 	return isInit;
 }
 
-Entity* ModelLayerEntity::getEntity(const TypeEntity& type, const int& id)
+Entity* LayerEntityModel::getEntity(const NS_GAME_ENTITY(TypeEntity)& type, const int& id)
 {
 	Entity* entity = nullptr;
 	auto dicEntity = getDicByTypeEntity(type);
@@ -52,7 +61,7 @@ Entity* ModelLayerEntity::getEntity(const TypeEntity& type, const int& id)
 	return entity;
 }
 
-const Map<int, Entity*>& ModelLayerEntity::getDicByTypeEntity(const TypeEntity& type)
+const Map<int, Entity*>& LayerEntityModel::getDicByTypeEntity(const NS_GAME_ENTITY(TypeEntity)& type)
 {
 	switch (type)
 	{
@@ -67,7 +76,7 @@ const Map<int, Entity*>& ModelLayerEntity::getDicByTypeEntity(const TypeEntity& 
 	}
 }
 
-Entity* ModelLayerEntity::createEntityByType(const TypeEntity& type)
+Entity* LayerEntityModel::createEntityByType(const NS_GAME_ENTITY(TypeEntity)& type)
 {
 	switch (type)
 	{

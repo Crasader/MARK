@@ -6,13 +6,13 @@
 #include "ISceneGame.h"
 #include "ModelGame.h"
 
-class HandleGame : public cocos2d::Ref, Observer
+class SceneGameHandle : public cocos2d::Ref, Observer
 {
 public:
-	CREATE_FUNC(HandleGame);
+	CREATE_FUNC(SceneGameHandle);
 
-	HandleGame();
-	~HandleGame();
+	SceneGameHandle();
+	~SceneGameHandle();
 
 	virtual bool init();
 
@@ -21,7 +21,7 @@ public:
 	virtual void updateBySubject(va_list values);
 
 	CC_SYNTHESIZE(ISceneGame*, _sceneGame, SceneGame);
-	CC_SYNTHESIZE_READONLY(ModelGame*, _modelGame, ModelGame);
+	CC_SYNTHESIZE_READONLY(SceneGameModel*, _modelGame, SceneGameModel);
 
 private:
 	void initRandomSeed();

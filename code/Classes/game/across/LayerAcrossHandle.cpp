@@ -21,40 +21,30 @@ bool LayerAcrossHandle::init()
 		_model = LayerAcrossModel::create();
 		_model->retain();
 
+		attachStateCallback();
+
 		isInit = true;
 	} while (0);
 
 	return isInit;
 }
 
-void LayerAcrossHandle::update(float delta)
+void LayerAcrossHandle::attachStateCallback()
 {
-	auto state = _model->getState();
-	if (StateLayerAcross::DEFAULT == state)
-	{
-		return;
-	}
-
-	if (StateLayerAcross::UNINITIALIZED == state)
-	{
-		addEvent();
-		return;
-	}
-
-	if (StateLayerAcross::INITIALIZED == state)
-	{
-		initialized();
-		return;
-	}
-
-	if (StateLayerAcross::CREATEING == state)
-	{
-		creating();
-		return;
-	}
+	auto& stateCallback = _model->getStateCallback();
+	stateCallback.insertCallback(StateLayerAcross::DEFAULT, nullptr);
+	stateCallback.insertCallback(StateLayerAcross::UNINITIALIZED, CC_CALLBACK_0(LayerAcrossHandle::initialize, this));
+	stateCallback.insertCallback(StateLayerAcross::INITIALIZED, CC_CALLBACK_0(LayerAcrossHandle::initialized, this), CC_CALLBACK_1(LayerAcrossHandle::initializedCheck, this));
+	stateCallback.insertCallback(StateLayerAcross::CREATEING, CC_CALLBACK_0(LayerAcrossHandle::creating, this));
 }
 
-void LayerAcrossHandle::addEvent()
+void LayerAcrossHandle::update(float delta)
+{
+	auto& stateCallback = _model->getStateCallback();
+	stateCallback.doCallbackByCurrentState(delta);
+}
+
+void LayerAcrossHandle::initialize()
 {
 	auto listener = _model->getListener();
 	listener->setSwallowTouches(true);
@@ -65,36 +55,6 @@ void LayerAcrossHandle::addEvent()
 	_view->addEvent(listener);
 
 	_model->setState(StateLayerAcross::INITIALIZED);
-}
-
-void LayerAcrossHandle::initialized()
-{
-	auto isNumSizeSet = _model->getIsNumSizeSet();
-	if (isNumSizeSet)
-	{
-		_model->setState(StateLayerAcross::CREATEING);
-	}
-}
-
-void LayerAcrossHandle::creating()
-{
-	_model->createAcorssObjects();
-	auto vector = _model->getAcrossObjects();
-	auto length = vector.size();
-
-	auto column = _model->getNumColumnAcrossObject();
-	auto row = _model->getNumRowAcrossObject();
-	auto size = _model->getSizeAcrossObject();
-
-	for (auto i = 0; i < length; i++)
-	{
-		auto postion = Vec2((0.5f + int(i % column)) * size.width, (0.5f + int(i / row)) * size.height);
-		_view->addNodeTo(vector.at(i), postion);
-	}
-
-	_view->setContentSizeByAcrossObject(Size(column * size.width, row * size.height));
-
-	_model->setState(StateLayerAcross::DEFAULT);
 }
 
 bool LayerAcrossHandle::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
@@ -162,4 +122,36 @@ void LayerAcrossHandle::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* even
 void LayerAcrossHandle::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 
+}
+
+bool LayerAcrossHandle::initializedCheck(float delta)
+{
+	auto isNumSizeSet = _model->getIsNumSizeSet();
+	return isNumSizeSet;
+}
+
+void LayerAcrossHandle::initialized()
+{
+	_model->setState(StateLayerAcross::CREATEING);
+}
+
+void LayerAcrossHandle::creating()
+{
+	_model->createAcorssObjects();
+	auto vector = _model->getAcrossObjects();
+	auto length = vector.size();
+
+	auto column = _model->getNumColumnAcrossObject();
+	auto row = _model->getNumRowAcrossObject();
+	auto size = _model->getSizeAcrossObject();
+
+	for (auto i = 0; i < length; i++)
+	{
+		auto postion = Vec2((0.5f + int(i % column)) * size.width, (0.5f + int(i / row)) * size.height);
+		_view->addNodeTo(vector.at(i), postion);
+	}
+
+	_view->setContentSizeByAcrossObject(Size(column * size.width, row * size.height));
+
+	_model->setState(StateLayerAcross::DEFAULT);
 }

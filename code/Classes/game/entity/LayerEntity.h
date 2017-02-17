@@ -2,10 +2,98 @@
 #define __LAYER_ENTITY_H__
 
 #include "cocos2d.h"
-#include "ILayerEntity.h"
-#include "HandleLayerEntity.h"
+#include "common/define/DefinesNamespace.h"
+#include "common/stateCallback/StateCallback.h"
+#include "common/bitData/BitData.h"
+#include "common/observer/Observer.h"
+#include "Entity.h"
 
 NS_BEGIN_GAME_ENTITY
+
+enum class StateLayerEntity
+{
+	DEFAULT,
+	ATTACH_OBSERVER,
+	UNCREATE_WORLD,
+	CREATING_WORLD,
+	CREATED_WORLD
+};
+
+class LayerEntityModel : public cocos2d::Ref
+{
+public:
+	CREATE_FUNC(LayerEntityModel);
+
+	LayerEntityModel();
+	~LayerEntityModel();
+
+	virtual bool init();
+
+public://state
+	const StateLayerEntity & getState() const { return _stateCallback.getState(); }
+	void setState(const StateLayerEntity& val) { _stateCallback.setState(val); }
+	StateCallback<StateLayerEntity>& getStateCallback() { return _stateCallback; }
+private:
+	StateCallback<StateLayerEntity> _stateCallback;
+
+public://entity
+	Entity* getEntity(const NS_GAME_ENTITY(TypeEntity)& type, const int& id);
+
+	CC_SYNTHESIZE(BitData*, _dataEntityCreate, DataEntityCreated);
+
+private:
+	const cocos2d::Map<int, Entity*>& getDicByTypeEntity(const NS_GAME_ENTITY(TypeEntity)& type);
+	Entity* createEntityByType(const NS_GAME_ENTITY(TypeEntity)& type);
+
+	cocos2d::Map<int, Entity*> _dicNone;
+	cocos2d::Map<int, Entity*> _dicRegion;
+	cocos2d::Map<int, Entity*> _dicCreature;
+	cocos2d::Map<int, Entity*> _dicRune;
+
+};
+
+class ILayerEntity
+{
+public:
+	virtual void addEntity(Entity* entity) {}
+	virtual void removeEntity(Entity* entity) {}
+
+};
+
+class LayerEntityHandle : public cocos2d::Ref, Observer
+{
+public:
+	CREATE_FUNC(LayerEntityHandle);
+
+	LayerEntityHandle();
+	~LayerEntityHandle();
+
+	virtual bool init();
+
+	void attachStateCallback();
+
+	void update(float delta);
+
+private://
+	void attachObserver();
+
+private://
+	void addEntity();
+	void addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num);
+	void setEntityBitIndex(Entity* entity);
+	void setDataEntityCreatedBit(va_list values);
+	void creatingEntity();
+
+public://obverver
+	virtual void updateBySubject(va_list values);
+
+public://view
+	CC_SYNTHESIZE(ILayerEntity*, _view, View);
+	
+public://model
+	CC_SYNTHESIZE_READONLY(LayerEntityModel*, _model, Model);
+
+};
 
 class LayerEntity : public cocos2d::Layer, ILayerEntity
 {
@@ -22,7 +110,7 @@ public:
 	virtual void removeEntity(Entity* entity);
 
 private:
-	HandleLayerEntity* _handleEntity;
+	LayerEntityHandle* _handle;
 
 };
 

@@ -4,15 +4,18 @@
 USING_NS_CC;
 
 SceneWelcomeModel::SceneWelcomeModel() :
+	_stateCallback(),
+	_isLogoPlayOver(false),
 	_dicLayers(),
-	_listener(nullptr),
-	_stateCallback()
+	_listener(nullptr)
 {
 	_stateCallback.setState(StateWelcome::UNPLAY_LOGO);
 }
 
 SceneWelcomeModel::~SceneWelcomeModel()
 {
+	_stateCallback.clearDic();
+	_isLogoPlayOver = false;
 	_dicLayers.clear();
 	_listener = nullptr;
 }

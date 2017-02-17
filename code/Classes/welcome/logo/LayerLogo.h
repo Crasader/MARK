@@ -73,10 +73,11 @@ public:
 	void setView(ILayerLogo* val) { _view = val; }
 
 private:
-	void createSkin(float delta);
-	void playLogo(float delta);
-	void playingLogo(float delta);
-	void playedLogo(float delta);
+	void createSkin();
+	void playLogo();
+	bool playingLogoCheck(float delta);
+	void playingLogo();
+	void playedLogo();
 
 	ILayerLogo* _view;
 	LayerLogoModel* _model;
