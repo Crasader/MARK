@@ -67,7 +67,7 @@
               <Project Name="LayerResLoad.csd" Type="Layer" />
             </Folder>
             <Folder Name="menu">
-              <Project Name="LayerMenuStart.csd" Type="Layer" />
+              <Project Name="LayerMenuSet.csd" Type="Layer" />
               <Project Name="LayerMenuSystem.csd" Type="Layer" />
             </Folder>
           </Folder>

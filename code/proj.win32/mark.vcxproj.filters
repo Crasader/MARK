@@ -67,9 +67,6 @@
     <Filter Include="src\game\ui\menu">
       <UniqueIdentifier>{9fec7203-a350-41ed-944b-f37d3b819e28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\ui\menu\start">
-      <UniqueIdentifier>{75d4c44a-984f-463f-a9e9-0f439db9108f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game\ui\menu\system">
       <UniqueIdentifier>{efb47d78-93ae-4999-a49e-4306cad7be3a}</UniqueIdentifier>
     </Filter>
@@ -105,6 +102,9 @@
     </Filter>
     <Filter Include="src\common\stateCallback">
       <UniqueIdentifier>{4fa2701d-8b68-481a-89d4-4cd2cb0b489c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\menu\set">
+      <UniqueIdentifier>{75d4c44a-984f-463f-a9e9-0f439db9108f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -252,9 +252,6 @@
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp">
       <Filter>src\game\ui\battle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp">
-      <Filter>src\game\ui\menu\start</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp">
       <Filter>src\game\ui\menu\system</Filter>
     </ClCompile>
@@ -363,11 +360,14 @@
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp">
       <Filter>src\game\ui\menu\system</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStartHandle.cpp">
-      <Filter>src\game\ui\menu\start</Filter>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSet.cpp">
+      <Filter>src\game\ui\menu\set</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStartModel.cpp">
-      <Filter>src\game\ui\menu\start</Filter>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSetHandle.cpp">
+      <Filter>src\game\ui\menu\set</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSetModel.cpp">
+      <Filter>src\game\ui\menu\set</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -494,9 +494,6 @@
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h">
       <Filter>src\game\ui\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h">
-      <Filter>src\game\ui\menu\start</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h">
       <Filter>src\game\ui\menu\system</Filter>
     </ClInclude>
@@ -592,6 +589,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h">
       <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\LayerMenuSet.h">
+      <Filter>src\game\ui\menu\set</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

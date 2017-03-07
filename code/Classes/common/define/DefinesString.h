@@ -3,7 +3,7 @@
 #ifndef __COMMON_DEFINE_DEFINES_STRING_H__
 #define __COMMON_DEFINE_DEFINES_STRING_H__
 
-#define STR_MENU_START "开始"
+#define STR_MENU_CONTINUE "继续"
 #define STR_MENU_SAVE_LOAD "存取"
 #define STR_MENU_SETTING "设置"
 

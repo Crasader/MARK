@@ -3,7 +3,7 @@
 #include "resload/LayerResLoad.h"
 #include "entity/LayerEntity.h"
 #include "across/LayerAcross.h"
-#include "ui/LayerMenuStart.h"
+#include "ui/LayerMenuSet.h"
 #include "ui/LayerMenuSystem.h"
 
 USING_NS_CC;
@@ -91,8 +91,8 @@ Layer* SceneGameModel::createLayerByType(const TypeLayerInGame& type)
 		return LayerEntity::create();
 	case TypeLayerInGame::ACROSS:
 		return LayerAcross::create();
-	case TypeLayerInGame::MENU_START:
-		return LayerMenuStart::create();
+	case TypeLayerInGame::MENU_SET:
+		return LayerMenuSet::create();
 	case TypeLayerInGame::MENU_SYSTEM:
 		return LayerMenuSystem::create();
 	default:

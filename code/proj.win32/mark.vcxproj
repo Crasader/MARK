@@ -207,10 +207,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\game\ui\battle\LayerGridSelect.cpp" />
     <ClCompile Include="..\Classes\game\ui\battle\NodeCircleLine.cpp" />
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp" />
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStartHandle.cpp" />
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStartModel.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSetHandle.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSetModel.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp" />
-    <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSet.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystemModel.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
@@ -300,7 +300,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\ui\battle\NodeCircleLine.h" />
     <ClInclude Include="..\Classes\game\ui\battle\NodeHead.h" />
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h" />
-    <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h" />
+    <ClInclude Include="..\Classes\game\ui\LayerMenuSet.h" />
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\model\data\ManagerData.h" />

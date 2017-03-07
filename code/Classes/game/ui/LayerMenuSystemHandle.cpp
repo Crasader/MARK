@@ -85,7 +85,7 @@ void LayerMenuSystemHandle::onTouchBtnSetting(cocos2d::Ref* ref, cocos2d::ui::Wi
 	{
 		auto btn = (Button*)ref;
 		auto manager = ManagerHandle::getInstance();
-		manager->notify((int)ID_OBSERVER::HANDLE_SCENE_GAME, TO_HANDLE_SCENE_GAME::LAYER_MENU_START_SWITCH);
+		manager->notify((int)ID_OBSERVER::HANDLE_SCENE_GAME, TO_HANDLE_SCENE_GAME::LAYER_MENU_SET_SWITCH);
 	}
 }
 

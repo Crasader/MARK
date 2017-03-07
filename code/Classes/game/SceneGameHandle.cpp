@@ -174,14 +174,14 @@ void SceneGameHandle::updateBySubject(va_list values)
 	case TO_HANDLE_SCENE_GAME::LAYER_ENTITY_REMOVE:
 		deleteLayer(TypeLayerInGame::ENTITY);
 		break;
-	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_ADD:
-		createLayer(TypeLayerInGame::MENU_START);
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SET_ADD:
+		createLayer(TypeLayerInGame::MENU_SET);
 		break;
-	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_REMOVE:
-		deleteLayer(TypeLayerInGame::MENU_START);
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SET_REMOVE:
+		deleteLayer(TypeLayerInGame::MENU_SET);
 		break;
-	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_SWITCH:
-		switchLayer(TypeLayerInGame::MENU_START);
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SET_SWITCH:
+		switchLayer(TypeLayerInGame::MENU_SET);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_ADD:
 		createLayer(TypeLayerInGame::MENU_SYSTEM);

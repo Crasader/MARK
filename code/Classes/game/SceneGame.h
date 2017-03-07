@@ -24,7 +24,7 @@ enum class TypeLayerInGame
 	RESLOAD,
 	ENTITY,
 	ACROSS,
-	MENU_START,
+	MENU_SET,
 	MENU_SYSTEM
 };
 
