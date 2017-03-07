@@ -1,3 +1,5 @@
+#pragma execution_character_set("utf-8")
+
 #include "LayerMenuStart.h"
 #include "common/define/DefinesRes.h"
 #include "common/define/DefinesValue.h"

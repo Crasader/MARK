@@ -10,12 +10,11 @@ USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
 SceneGameModel::SceneGameModel() : 
-	_stateCallback(),
+	_stateCallback(StateGame::INIT_RODOM_SEED),
 	_isLoadedRes(false),
 	_dicLayers(),
 	_listener(nullptr)
 {
-	setState(StateGame::INIT_RODOM_SEED);
 }
 
 SceneGameModel::~SceneGameModel()
@@ -127,4 +126,11 @@ Layer* SceneGameModel::getLayerByType(const TypeLayerInGame& type)
 {
 	auto layer = _dicLayers.at(type);
 	return layer;
+}
+
+bool SceneGameModel::isMenuSystemAnimationPlayOver()
+{
+	auto layer = (LayerMenuSystem*)getLayerByType(TypeLayerInGame::MENU_SYSTEM);
+	auto isOver = layer->getHandle()->getModel()->getAnimationPlayOver();
+	return isOver;
 }

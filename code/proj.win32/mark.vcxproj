@@ -184,9 +184,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\game\SceneGameHandle.cpp" />
     <ClCompile Include="..\Classes\game\ManagerHandle.cpp" />
     <ClCompile Include="..\Classes\game\SceneGameModel.cpp" />
-    <ClCompile Include="..\Classes\game\resload\HandleResLoad.cpp" />
+    <ClCompile Include="..\Classes\game\resload\LayerResLoadHandle.cpp" />
     <ClCompile Include="..\Classes\game\resload\LayerResLoad.cpp" />
-    <ClCompile Include="..\Classes\game\resload\ModelResLoad.cpp" />
+    <ClCompile Include="..\Classes\game\resload\LayerResLoadModel.cpp" />
     <ClCompile Include="..\Classes\game\SceneGame.cpp" />
     <ClCompile Include="..\Classes\game\temp\EntityTemp.cpp" />
     <ClCompile Include="..\Classes\game\temp\Grid.cpp" />
@@ -208,9 +208,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\game\ui\battle\NodeCircleLine.cpp" />
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp" />
     <ClCompile Include="..\Classes\game\ui\HandleMenuStart.cpp" />
-    <ClCompile Include="..\Classes\game\ui\HandleMenuSystem.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSystemModel.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\model\data\HandleDataEntity.cpp" />
     <ClCompile Include="..\Classes\model\data\HandleDataGrade.cpp" />
@@ -276,10 +277,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\entity\Terms.h" />
     <ClInclude Include="..\Classes\game\entity\Unit.h" />
     <ClInclude Include="..\Classes\game\ManagerHandle.h" />
-    <ClInclude Include="..\Classes\game\resload\HandleResLoad.h" />
-    <ClInclude Include="..\Classes\game\resload\ILayerResLoad.h" />
     <ClInclude Include="..\Classes\game\resload\LayerResLoad.h" />
-    <ClInclude Include="..\Classes\game\resload\ModelResLoad.h" />
     <ClInclude Include="..\Classes\game\SceneGame.h" />
     <ClInclude Include="..\Classes\game\temp\EntityTemp.h" />
     <ClInclude Include="..\Classes\game\temp\Grid.h" />
@@ -301,10 +299,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\ui\battle\NodeCircleLine.h" />
     <ClInclude Include="..\Classes\game\ui\battle\NodeHead.h" />
     <ClInclude Include="..\Classes\game\ui\HandleMenuStart.h" />
-    <ClInclude Include="..\Classes\game\ui\HandleMenuSystem.h" />
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h" />
     <ClInclude Include="..\Classes\game\ui\ILayerMenuStart.h" />
-    <ClInclude Include="..\Classes\game\ui\ILayerMenuSystem.h" />
     <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h" />
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />

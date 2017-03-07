@@ -261,9 +261,6 @@
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp">
       <Filter>src\game\ui\menu\system</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\HandleMenuSystem.cpp">
-      <Filter>src\game\ui\menu\system</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\common\spriteBlur\SpriteBlur.cpp">
       <Filter>src\common\spriteBlur</Filter>
     </ClCompile>
@@ -276,13 +273,7 @@
     <ClCompile Include="..\Classes\game\across\LayerAcross.cpp">
       <Filter>src\game\across</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\resload\HandleResLoad.cpp">
-      <Filter>src\game\resload</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\resload\LayerResLoad.cpp">
-      <Filter>src\game\resload</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\resload\ModelResLoad.cpp">
       <Filter>src\game\resload</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\game\entity\HandleEntity.cpp">
@@ -362,6 +353,18 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\entity\LayerEntityHandle.cpp">
       <Filter>src\game\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\resload\LayerResLoadModel.cpp">
+      <Filter>src\game\resload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\resload\LayerResLoadHandle.cpp">
+      <Filter>src\game\resload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSystemModel.cpp">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp">
+      <Filter>src\game\ui\menu\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -500,12 +503,6 @@
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h">
       <Filter>src\game\ui\menu\system</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\HandleMenuSystem.h">
-      <Filter>src\game\ui\menu\system</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\ILayerMenuSystem.h">
-      <Filter>src\game\ui\menu\system</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\spriteBlur\SpriteBlur.h">
       <Filter>src\common\spriteBlur</Filter>
     </ClInclude>
@@ -533,16 +530,7 @@
     <ClInclude Include="..\Classes\game\across\LayerAcross.h">
       <Filter>src\game\across</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\resload\HandleResLoad.h">
-      <Filter>src\game\resload</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\resload\ILayerResLoad.h">
-      <Filter>src\game\resload</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\resload\LayerResLoad.h">
-      <Filter>src\game\resload</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\resload\ModelResLoad.h">
       <Filter>src\game\resload</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\IEntity.h">

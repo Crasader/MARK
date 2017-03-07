@@ -4,12 +4,11 @@
 USING_NS_CC;
 
 SceneWelcomeModel::SceneWelcomeModel() :
-	_stateCallback(),
+	_stateCallback(StateWelcome::UNPLAY_LOGO),
 	_isLogoPlayOver(false),
 	_dicLayers(),
 	_listener(nullptr)
 {
-	_stateCallback.setState(StateWelcome::UNPLAY_LOGO);
 }
 
 SceneWelcomeModel::~SceneWelcomeModel()

@@ -7,14 +7,13 @@ USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
 LayerEntityModel::LayerEntityModel() : 
-	_stateCallback(), 
+	_stateCallback(StateLayerEntity::ATTACH_OBSERVER),
 	_dataEntityCreate(nullptr), 
 	_dicNone(),
 	_dicRegion(),
 	_dicCreature(),
 	_dicRune()
 {
-	setState(StateLayerEntity::ATTACH_OBSERVER);
 }
 
 LayerEntityModel::~LayerEntityModel()

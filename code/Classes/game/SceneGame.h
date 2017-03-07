@@ -14,7 +14,9 @@ enum class StateGame
 	UNLOAD_RES,
 	LOADED_RES,
 	CREATE_ENTITY,
-	CREATED_ENTITY
+	CREATED_ENTITY,
+	CREATE_MENU_SYSTEM,
+	CREATED_MENU_SYSTEM
 };
 
 enum class TypeLayerInGame
@@ -68,6 +70,9 @@ private:
 public://listener
 	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listener, ListenerLayerResLoadLoaded);
 
+public://MenuSystem animation play over
+	bool isMenuSystemAnimationPlayOver();
+
 };
 
 class ISceneGame
@@ -105,17 +110,23 @@ private://res
 	bool loadedResCheck(float delta);
 	void loadedRes();
 
-private://
+private://entity
 	void createEntity();
 	bool createdEntityCheck(float delta);
 	void createdEntity();
+
+private://menu
+	void createMenuSystem();
+	bool createdMenuSystemCheck(float delta);
+	void createdMenuSystem();
 
 public://observer
 	virtual void updateBySubject(va_list values);
 private:
 	void createLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc = nullptr);
 	void deleteLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc = nullptr);
-	void extraFuncCreateLayerAcross(/*va_list values*/);//Ìí¼Ó¾Å¹¬¸ñ»¬¶¯²ã
+	void switchLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc = nullptr);
+	void extraFuncCreateLayerAcross();//Ìí¼Ó¾Å¹¬¸ñ»¬¶¯²ã
 
 public://view
 	CC_SYNTHESIZE(ISceneGame*, _view, View);
@@ -140,8 +151,7 @@ public:
 	virtual void addLayer(cocos2d::Layer* layer);
 	virtual void removeLayer(cocos2d::Layer* layer);
 
-private:
-	SceneGameHandle* _handle;
+	CC_SYNTHESIZE_READONLY(SceneGameHandle*, _handle, Handle);
 
 };
 

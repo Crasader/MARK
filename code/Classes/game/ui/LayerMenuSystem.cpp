@@ -1,19 +1,15 @@
 #include "LayerMenuSystem.h"
-#include "cocostudio/ActionTimeline/CSLoader.h"
-#include "common/define/DefinesRes.h"
-#include "ui/UIButton.h"
-#include "common/define/DefinesString.h"
 
 USING_NS_CC;
 using namespace ui;
 
-LayerMenuSystem::LayerMenuSystem() : _handleMenuSystem(nullptr)
+LayerMenuSystem::LayerMenuSystem() : _handle(nullptr)
 {
 }
 
 LayerMenuSystem::~LayerMenuSystem()
 {
-	CC_SAFE_RELEASE_NULL(_handleMenuSystem);
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool LayerMenuSystem::init()
@@ -24,20 +20,11 @@ bool LayerMenuSystem::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_skin = (Layer*)CSLoader::createNode(RES_GAME_UI_MENU_LAYER_MENU_SYSTEM_CSB);
-		addChild(_skin);
+		_handle = LayerMenuSystemHandle::create();
+		_handle->retain();
+		_handle->setView(this);
 
-		auto btn = (Button *)_skin->getChildByName(btn0);
-		btn->setTitleText(STR_MENU_SYSTEM);
-		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuSystem::onTouchBtn, this));
-
-		btn = (Button *)_skin->getChildByName(btn1);
-		btn->setTitleText(STR_MENU_SOUND);
-		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuSystem::onTouchBtn, this));
-
-		_handleMenuSystem = HandleMenuSystem::create();
-		_handleMenuSystem->retain();
-		_handleMenuSystem->setLayerMenuSystem(this);
+		scheduleUpdate();
 
 		isInit = true;
 	} while (0);
@@ -45,19 +32,23 @@ bool LayerMenuSystem::init()
 	return isInit;
 }
 
-void LayerMenuSystem::onTouchBtn(cocos2d::Ref* ref, cocos2d::ui::Widget::TouchEventType type)
+void LayerMenuSystem::update(float delta)
 {
-	if (type == Widget::TouchEventType::ENDED)
-	{
-		auto btn = (Button*)ref;
-		auto name = btn->getName();
-		if (name == btn0)//
-		{
-			_handleMenuSystem->gameSetting();
-		}
-		else if (name == btn1)//
-		{
-			_handleMenuSystem->gameSounds();
-		}
-	}
+	_handle->update(delta);
+}
+
+void LayerMenuSystem::addLayer(Layer* layer)
+{
+	addChild(layer);
+}
+
+void LayerMenuSystem::addEvent(Button* btn, const std::string& titleName, const Widget::ccWidgetTouchCallback& onTouch)
+{
+	btn->setTitleText(titleName);
+	btn->addTouchEventListener(onTouch);
+}
+
+void LayerMenuSystem::playAnimation(cocos2d::Layer* layer, cocos2d::Action* action)
+{
+	layer->runAction(action);
 }

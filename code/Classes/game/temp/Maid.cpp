@@ -1,3 +1,5 @@
+ï»¿#pragma execution_character_set("utf-8")
+
 #include "Maid.h"
 #include "cocostudio/CocoStudio.h"
 #include "common/define/DefinesString.h"
@@ -52,17 +54,17 @@ cocos2d::Vec2 Maid::getPostionEndAttack()
 
 void Maid::updateHp()
 {
-	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_HP, false);//½çÃæË¢ÐÂ*/
+	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_HP, false);//ç•Œé¢åˆ·æ–°*/
 }
 
 void Maid::updateHpAll()
 {
-	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_HP_ALL, false);//½çÃæË¢ÐÂ*/
+	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_HP_ALL, false);//ç•Œé¢åˆ·æ–°*/
 }
 
 void Maid::updateEnergy()
 {
-	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_ENERGY, false);//½çÃæË¢ÐÂ*/
+	/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::UPDATE_ENERGY, false);//ç•Œé¢åˆ·æ–°*/
 }
 
 void Maid::dealDead()
@@ -73,7 +75,7 @@ void Maid::dealDead()
 	auto isBattleOver = handleDataEntity->isBattleOver();
 	if (!isBattleOver)
 	{
-		/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::SWITCH_NODE_HEAD_TO, false, ENTITY_BATTLE_MAX);//²ÎÊý£º²»ÊÇ¹ÖÎï£¬ÇÐ»»ÏÂÒ»¸ö*/
+		/*ManagerHandle::getInstance()->notify((int)ID_OBSERVER::HANDLE_HEAD, TYPE_OBSERVER_HANDLE_HEAD::SWITCH_NODE_HEAD_TO, false, ENTITY_BATTLE_MAX);//å‚æ•°ï¼šä¸æ˜¯æ€ªç‰©ï¼Œåˆ‡æ¢ä¸‹ä¸€ä¸ª*/
 	}
 	else
 	{
@@ -88,7 +90,7 @@ void Maid::switchDataEntity(const int &indexSwitchTo, bool &isSwitchSuccess)
 		return;
 	}
 	auto handleDataEntity = ManagerData::getInstance()->getHandleDataEntity();
-	if (indexSwitchTo == ENTITY_BATTLE_MAX)//ÇÐ»»µ½ÏÂÒ»¸ö
+	if (indexSwitchTo == ENTITY_BATTLE_MAX)//åˆ‡æ¢åˆ°ä¸‹ä¸€ä¸ª
 	{
 		auto vecDataEntity = handleDataEntity->getVecDataEntityMaid();
 		for (auto i = 0; i < ENTITY_BATTLE_MAX; i++)

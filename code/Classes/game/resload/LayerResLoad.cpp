@@ -7,7 +7,7 @@ USING_NS_CC;
 using namespace ui;
 using namespace std;
 
-LayerResLoad::LayerResLoad() : _handleImageLoad(nullptr)
+LayerResLoad::LayerResLoad() : _handle(nullptr)
 {
 }
 
@@ -15,7 +15,7 @@ LayerResLoad::~LayerResLoad()
 {
 	unscheduleUpdate();
 
-	CC_SAFE_RELEASE_NULL(_handleImageLoad);
+	CC_SAFE_RELEASE_NULL(_handle);
 }
 
 bool LayerResLoad::init()
@@ -26,9 +26,9 @@ bool LayerResLoad::init()
 	{
 		CC_BREAK_IF(!Layer::init());
 
-		_handleImageLoad = HandleResLoad::create();
-		_handleImageLoad->retain();
-		_handleImageLoad->setLayerResLoad(this);
+		_handle = LayerResLoadHandle::create();
+		_handle->retain();
+		_handle->setView(this);
 
 		scheduleUpdate();
 
@@ -40,7 +40,7 @@ bool LayerResLoad::init()
 
 void LayerResLoad::update(float delta)
 {
-	_handleImageLoad->update(delta);
+	_handle->update(delta);
 }
 
 void LayerResLoad::addSkin(cocos2d::Node* skin)

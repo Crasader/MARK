@@ -49,6 +49,8 @@ void SceneGameHandle::attachStateCallback()
 	stateCallback.insertCallback(StateGame::LOADED_RES, CC_CALLBACK_0(SceneGameHandle::loadedRes, this), CC_CALLBACK_1(SceneGameHandle::loadedResCheck, this));
 	stateCallback.insertCallback(StateGame::CREATE_ENTITY, CC_CALLBACK_0(SceneGameHandle::createEntity, this));
 	stateCallback.insertCallback(StateGame::CREATED_ENTITY, CC_CALLBACK_0(SceneGameHandle::createdEntity, this), CC_CALLBACK_1(SceneGameHandle::createdEntityCheck, this));
+	stateCallback.insertCallback(StateGame::CREATE_MENU_SYSTEM, CC_CALLBACK_0(SceneGameHandle::createMenuSystem, this));
+	stateCallback.insertCallback(StateGame::CREATED_MENU_SYSTEM, CC_CALLBACK_0(SceneGameHandle::createdMenuSystem, this), CC_CALLBACK_1(SceneGameHandle::createdMenuSystemCheck, this));
 }
 
 void SceneGameHandle::update(float delta)
@@ -134,7 +136,25 @@ bool SceneGameHandle::createdEntityCheck(float delta)
 
 void SceneGameHandle::createdEntity()
 {
+	_model->setState(StateGame::CREATE_MENU_SYSTEM);
+}
 
+void SceneGameHandle::createMenuSystem()
+{
+	createLayer(TypeLayerInGame::MENU_SYSTEM);
+
+	_model->setState(StateGame::CREATED_MENU_SYSTEM);
+}
+
+bool SceneGameHandle::createdMenuSystemCheck(float delta)
+{
+	auto isTimeOver = _model->isMenuSystemAnimationPlayOver();
+	return isTimeOver;
+}
+
+void SceneGameHandle::createdMenuSystem()
+{
+	_model->setState(StateGame::DEFAULT);
 }
 
 void SceneGameHandle::updateBySubject(va_list values)
@@ -159,6 +179,9 @@ void SceneGameHandle::updateBySubject(va_list values)
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_REMOVE:
 		deleteLayer(TypeLayerInGame::MENU_START);
+		break;
+	case TO_HANDLE_SCENE_GAME::LAYER_MENU_START_SWITCH:
+		switchLayer(TypeLayerInGame::MENU_START);
 		break;
 	case TO_HANDLE_SCENE_GAME::LAYER_MENU_SYSTEM_ADD:
 		createLayer(TypeLayerInGame::MENU_SYSTEM);
@@ -200,6 +223,18 @@ void SceneGameHandle::deleteLayer(const TypeLayerInGame& type, const std::functi
 	_model->setLayerNullptr(type);
 }
 
+void SceneGameHandle::switchLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc /*= nullptr*/)
+{
+	auto layer = _model->getLayer(type);
+	if (layer->getParent() == nullptr)
+	{
+		createLayer(type, extraFunc);
+	}
+	else
+	{
+		deleteLayer(type, extraFunc);
+	}
+}
 void SceneGameHandle::extraFuncCreateLayerAcross(/*va_list values*/)
 {
 	auto postionX = 320.0f/*(float)va_arg(values, double)*/;

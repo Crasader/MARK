@@ -5,7 +5,7 @@ template <typename T>
 class StateCallback
 {
 public:
-	StateCallback();
+	StateCallback(const T& val);
 	~StateCallback();
 
 public://StateWelcomeCallback
@@ -24,8 +24,8 @@ private:
 
 
 template <typename T>
-StateCallback<T>::StateCallback() : 
-	_state(),
+StateCallback<T>::StateCallback(const T& val) :
+	_state(val),
 	_dicStateCallback(),
 	_dicStateCheck()
 {

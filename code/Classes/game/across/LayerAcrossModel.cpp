@@ -3,23 +3,21 @@
 USING_NS_CC;
 
 LayerAcrossModel::LayerAcrossModel() :
-	_stateCallback(),
+	_stateCallback(StateLayerAcross::UNINITIALIZED),
 	_listener(nullptr),
 	_vecCricleDotLine(),
 	_isTest(false),
 	_isNumSizeSet(false),
 	_vecAcrossObject()
 {
-	setState(StateLayerAcross::UNINITIALIZED);
 }
 
 LayerAcrossModel::~LayerAcrossModel()
 {
-	setState(StateLayerAcross::DEFAULT);
-	_stateCallback.clearDic();
-	setListenerNullptr();
-	clearCricleDotLine();
 	clearAcrossObjects();
+	clearCricleDotLine();
+	setListenerNullptr();
+	_stateCallback.clearDic();
 }
 
 bool LayerAcrossModel::init()

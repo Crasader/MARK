@@ -1,6 +1,6 @@
 #pragma execution_character_set("utf-8")
 
-#include "HandleResLoad.h"
+#include "LayerResLoad.h"
 #include "common/util/UtilString.h"
 #include "common/define/DefinesRes.h"
 #include "common/define/DefinesValue.h"
@@ -11,108 +11,77 @@
 USING_NS_CC;
 using namespace CocosDenshion;
 
-HandleResLoad::HandleResLoad() : _layerResLoad(nullptr), _modelResLoad(nullptr)
+LayerResLoadHandle::LayerResLoadHandle() : _view(nullptr), _model(nullptr)
 {
 }
 
-HandleResLoad::~HandleResLoad()
+LayerResLoadHandle::~LayerResLoadHandle()
 {
-	_layerResLoad = nullptr;
-	CC_SAFE_RELEASE_NULL(_modelResLoad);
+	_view = nullptr;
+	CC_SAFE_RELEASE_NULL(_model);
 }
 
-bool HandleResLoad::init()
+bool LayerResLoadHandle::init()
 {
 	auto isInit = false;
 	do 
 	{
-		_modelResLoad = ModelResLoad::create();
-		_modelResLoad->retain();
+		_model = LayerResLoadModel::create();
+		_model->retain();
+
+		attachStateCallback();
 
 		isInit = true;
 	} while (0);
 	return isInit;
 }
 
-void HandleResLoad::update(float delta)
+void LayerResLoadHandle::attachStateCallback()
 {
-	auto state = _modelResLoad->getState();
-
-	if (StateResLoad::DEFAULT == state)
-	{
-		return;
-	}
-
-	if (StateResLoad::CREATE_SKIN == state)
-	{
-		createSkin();
-		return;
-	}
-
-	//¼ÓÔØÉùÒô
-	if (StateResLoad::UNLOAD_SOUND == state)
-	{
-		loadSounds();
-		return;
-	}
-
-	if (StateResLoad::LOADING_SOUND == state)
-	{
-		loadingSounds();
-		return;
-	}
-
-	if (StateResLoad::LOADED_SOUND == state)
-	{
-		loadedSounds();
-		return;
-	}
-	//¼ÓÔØÍ¼Æ¬
-	if (StateResLoad::UNLOAD_IMAGE == state)
-	{
-		loadImages();
-		return;
-	}
-
-	if (StateResLoad::LOADING_IMAGE == state)
-	{
-		return;
-	}
-
-	if (StateResLoad::LOADED_IMAGE == state)
-	{
-		loadedImages();
-		return;
-	}
+	auto& stateCallback = _model->getStateCallback();
+	stateCallback.insertCallback(StateLayerResLoad::DEFAULT, nullptr);
+	stateCallback.insertCallback(StateLayerResLoad::CREATE_SKIN, CC_CALLBACK_0(LayerResLoadHandle::createSkin, this));
+	stateCallback.insertCallback(StateLayerResLoad::UNLOAD_SOUND, CC_CALLBACK_0(LayerResLoadHandle::loadSounds, this));
+	stateCallback.insertCallback(StateLayerResLoad::LOADING_SOUND, CC_CALLBACK_0(LayerResLoadHandle::loadingSounds, this));
+	stateCallback.insertCallback(StateLayerResLoad::LOADED_SOUND, CC_CALLBACK_0(LayerResLoadHandle::loadedSounds, this));
+	stateCallback.insertCallback(StateLayerResLoad::UNLOAD_IMAGE, CC_CALLBACK_0(LayerResLoadHandle::loadImages, this));
+	stateCallback.insertCallback(StateLayerResLoad::LOADING_IMAGE, nullptr);
+	stateCallback.insertCallback(StateLayerResLoad::LOADED_IMAGE, CC_CALLBACK_0(LayerResLoadHandle::loadedImages, this));
 }
 
-void HandleResLoad::createSkin()
+void LayerResLoadHandle::update(float delta)
+{
+	auto& stateCallback = _model->getStateCallback();
+	stateCallback.doCallbackByCurrentState(delta);
+}
+
+void LayerResLoadHandle::createSkin()
 {
 	/*auto actionTimeline = CSLoader::createTimeline(RES_MODULES_WELCOME_SCENE_WELCOME_CSB);
 	actionTimeline->gotoFrameAndPlay(0, true);
 	skin->runAction(actionTimeline);*/
-	auto skin = _modelResLoad->getSkin();
-	_layerResLoad->addSkin(skin);
+	auto skin = _model->getSkin();
+	_view->addSkin(skin);
 
-	_modelResLoad->setState(StateResLoad::UNLOAD_SOUND);
+	_model->setState(StateLayerResLoad::UNLOAD_SOUND);
 }
 
-void HandleResLoad::playLoadAnimation()
+void LayerResLoadHandle::playLoadAnimation()
 {
-	auto spriteLoad = _modelResLoad->getSpriteLoad();
-	_layerResLoad->playLoadAnimation(spriteLoad);
+	auto spriteLoad = _model->getSpriteLoad();
+	_view->playLoadAnimation(spriteLoad);
 }
 
-void HandleResLoad::stopLoadAnimation()
+void LayerResLoadHandle::stopLoadAnimation()
 {
-	auto spriteLoad = _modelResLoad->getSpriteLoad();
-	_layerResLoad->stopLoadAnimation(spriteLoad);
+	auto spriteLoad = _model->getSpriteLoad();
+	_view->stopLoadAnimation(spriteLoad);
 }
 
-void HandleResLoad::loadSounds()
+void LayerResLoadHandle::loadSounds()
 {
-	auto state = _modelResLoad->getState();
-	if (StateResLoad::UNLOAD_SOUND != state)
+	auto state = _model->getState();
+	if (StateLayerResLoad::UNLOAD_SOUND != state)
 	{
 		return;
 	}
@@ -145,24 +114,24 @@ void HandleResLoad::loadSounds()
 	SimpleAudioEngine::getInstance()->preloadEffect(((string)SOUND_EFFECT_SYSTEM_BTN_0_MP3).c_str());
 	SimpleAudioEngine::getInstance()->preloadEffect(((string)SOUND_EFFECT_SYSTEM_BTN_1_MP3).c_str());
 
-	_modelResLoad->setState(StateResLoad::LOADING_SOUND);
+	_model->setState(StateLayerResLoad::LOADING_SOUND);
 }
 
-void HandleResLoad::loadingSounds()
+void LayerResLoadHandle::loadingSounds()
 {
-	_modelResLoad->setState(StateResLoad::LOADED_SOUND);
+	_model->setState(StateLayerResLoad::LOADED_SOUND);
 }
 
-void HandleResLoad::loadedSounds()
+void LayerResLoadHandle::loadedSounds()
 {
 	stopLoadAnimation();
-	_modelResLoad->setState(StateResLoad::UNLOAD_IMAGE);
+	_model->setState(StateLayerResLoad::UNLOAD_IMAGE);
 }
 
-void HandleResLoad::loadImages()
+void LayerResLoadHandle::loadImages()
 {
-	auto state = _modelResLoad->getState();
-	if (StateResLoad::UNLOAD_IMAGE != state)
+	auto state = _model->getState();
+	if (StateLayerResLoad::UNLOAD_IMAGE != state)
 	{
 		return;
 	}
@@ -176,10 +145,10 @@ void HandleResLoad::loadImages()
 
 	asyncLoadImage(RES_GAME_UI_COMMON_PLIST_COMMON_PLIST);
 
-	_modelResLoad->setState(StateResLoad::LOADING_IMAGE);
+	_model->setState(StateLayerResLoad::LOADING_IMAGE);
 }
 
-void HandleResLoad::asyncLoadImage(const string &fileName)
+void LayerResLoadHandle::asyncLoadImage(const string &fileName)
 {
 	string fileNamePic = fileName;
 	if (fileName.find(".png") == std::string::npos)
@@ -198,34 +167,34 @@ void HandleResLoad::asyncLoadImage(const string &fileName)
 		return;
 	}
 
-	auto bitData = _modelResLoad->getBitData();
+	auto bitData = _model->getBitData();
 	auto bitIndex = bitData->getTotalBit();
 	bitData->modifyTotalBit(bitIndex);
-	textureCache->addImageAsync(fileNamePic, CC_CALLBACK_1(HandleResLoad::asyncLoadImageCallback, this, fileName, bitIndex));
+	textureCache->addImageAsync(fileNamePic, CC_CALLBACK_1(LayerResLoadHandle::asyncLoadImageCallback, this, fileName, bitIndex));
 }
 
-void HandleResLoad::asyncLoadImageCallback(Texture2D* texture, const string& fileName, const int& bitIndex)
+void LayerResLoadHandle::asyncLoadImageCallback(Texture2D* texture, const string& fileName, const int& bitIndex)
 {
 	if (fileName.find(".png") == std::string::npos)
 	{
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile(fileName, texture);
 	}
-	auto bitData = _modelResLoad->getBitData();
+	auto bitData = _model->getBitData();
 	bitData->setBit(bitIndex);
 	if (bitData->isAllBitTrue())
 	{
-		_modelResLoad->setState(StateResLoad::LOADED_IMAGE);
+		_model->setState(StateLayerResLoad::LOADED_IMAGE);
 	}
 }
 
-void HandleResLoad::loadedImages()
+void LayerResLoadHandle::loadedImages()
 {
 	stopLoadAnimation();
 
 	auto dispatcher = Director::getInstance()->getEventDispatcher();
 	dispatcher->dispatchCustomEvent(EVENT_LAYER_RES_LOAD_LOADED);
 
-	_modelResLoad->setState(StateResLoad::DEFAULT);
+	_model->setState(StateLayerResLoad::DEFAULT);
 	/*auto time = UtilDate::getSecond();
 	log("```````````````LayerWelcome::handleLoading loaded time:%s", Value(time).asString().c_str());
 	//

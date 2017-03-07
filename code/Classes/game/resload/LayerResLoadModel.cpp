@@ -1,26 +1,27 @@
-#include "ModelResLoad.h"
+#include "LayerResLoad.h"
 #include <string>
 #include "common/define/DefinesRes.h"
 #include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
-ModelResLoad::ModelResLoad() : 
-	_state(StateResLoad::CREATE_SKIN),
+LayerResLoadModel::LayerResLoadModel() : 
+	_stateCallback(StateLayerResLoad::CREATE_SKIN),
 	_skin(nullptr),
 	_spriteLoad(nullptr),
 	_bitData(nullptr)
 {
 }
 
-ModelResLoad::~ModelResLoad()
+LayerResLoadModel::~LayerResLoadModel()
 {
-	_skin = nullptr;
-	_spriteLoad = nullptr;
 	CC_SAFE_RELEASE_NULL(_bitData);
+	_spriteLoad = nullptr;
+	_skin = nullptr;
+	_stateCallback.clearDic();
 }
 
-bool ModelResLoad::init()
+bool LayerResLoadModel::init()
 {
 	auto isInit = false;
 
@@ -32,7 +33,7 @@ bool ModelResLoad::init()
 	return isInit;
 }
 
-cocos2d::Node* ModelResLoad::getSkin()
+cocos2d::Node* LayerResLoadModel::getSkin()
 {
 	if (_skin == nullptr)
 	{
@@ -41,7 +42,7 @@ cocos2d::Node* ModelResLoad::getSkin()
 	return _skin;
 }
 
-cocos2d::Node* ModelResLoad::getSpriteLoad()
+cocos2d::Node* LayerResLoadModel::getSpriteLoad()
 {
 	if (_spriteLoad == nullptr)
 	{
@@ -51,7 +52,7 @@ cocos2d::Node* ModelResLoad::getSpriteLoad()
 	return _spriteLoad;
 }
 
-BitData* ModelResLoad::getBitData()
+BitData* LayerResLoadModel::getBitData()
 {
 	if (_bitData == nullptr)
 	{

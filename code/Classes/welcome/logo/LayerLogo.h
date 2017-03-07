@@ -26,6 +26,13 @@ public:
 
 	virtual bool init();
 
+public://StateLayerLogoCallback
+	const StateLayerLogo& getState() const { return _stateCallback.getState(); }
+	void setState(const StateLayerLogo& state) { _stateCallback.setState(state); }
+	StateCallback<StateLayerLogo>& getStateCallback() { return _stateCallback; }
+private:
+	StateCallback<StateLayerLogo> _stateCallback;
+
 public://skin
 	cocos2d::Layer* getSkin();
 	cocostudio::timeline::ActionTimeline* getActionTimeline();
@@ -38,13 +45,6 @@ public://duration
 private:
 	float _duration;
 	const float DURATION_TOTAL = 3.0f;
-
-public://StateLayerLogoCallback
-	const StateLayerLogo& getState() const { return _stateCallback.getState(); }
-	void setState(const StateLayerLogo& state) { _stateCallback.setState(state); }
-	StateCallback<StateLayerLogo>& getStateCallback() { return _stateCallback; }
-private:
-	StateCallback<StateLayerLogo> _stateCallback;
 
 };
 

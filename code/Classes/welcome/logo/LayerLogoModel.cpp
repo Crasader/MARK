@@ -5,16 +5,17 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 
 LayerLogoModel::LayerLogoModel() : 
+	_stateCallback(StateLayerLogo::CREATE_SKIN),
 	_skin(nullptr),
-	_duration(0.0f),
-	_stateCallback()
+	_duration(0.0f)
+	
 {
-	_stateCallback.setState(StateLayerLogo::CREATE_SKIN);
 }
 
 LayerLogoModel::~LayerLogoModel()
 {
 	_skin = nullptr;
+	_stateCallback.clearDic();
 }
 
 bool LayerLogoModel::init()
