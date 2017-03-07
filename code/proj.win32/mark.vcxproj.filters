@@ -494,12 +494,6 @@
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h">
       <Filter>src\game\ui\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\HandleMenuStart.h">
-      <Filter>src\game\ui\menu\start</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\ui\ILayerMenuStart.h">
-      <Filter>src\game\ui\menu\start</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h">
       <Filter>src\game\ui\menu\start</Filter>
     </ClInclude>

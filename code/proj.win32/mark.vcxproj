@@ -299,9 +299,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\ui\battle\LayerGridSelect.h" />
     <ClInclude Include="..\Classes\game\ui\battle\NodeCircleLine.h" />
     <ClInclude Include="..\Classes\game\ui\battle\NodeHead.h" />
-    <ClInclude Include="..\Classes\game\ui\HandleMenuStart.h" />
     <ClInclude Include="..\Classes\game\ui\ILayerAppearDisappear.h" />
-    <ClInclude Include="..\Classes\game\ui\ILayerMenuStart.h" />
     <ClInclude Include="..\Classes\game\ui\LayerMenuStart.h" />
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
