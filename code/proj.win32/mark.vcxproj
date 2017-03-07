@@ -207,7 +207,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\game\ui\battle\LayerGridSelect.cpp" />
     <ClCompile Include="..\Classes\game\ui\battle\NodeCircleLine.cpp" />
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp" />
-    <ClCompile Include="..\Classes\game\ui\HandleMenuStart.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuStartHandle.cpp" />
+    <ClCompile Include="..\Classes\game\ui\LayerMenuStartModel.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp" />
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp" />

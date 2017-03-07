@@ -1,17 +1,17 @@
-#include "HandleMenuStart.h"
+#include "LayerMenuStart.h"
 #include "game/ManagerHandle.h"
 #include "common/define/DefinesValue.h"
 
-HandleMenuStart::HandleMenuStart() : _layerMenuStart(nullptr)
+LayerMenuStartHandle::LayerMenuStartHandle() : _layerMenuStart(nullptr)
 {
 }
 
-HandleMenuStart::~HandleMenuStart()
+LayerMenuStartHandle::~LayerMenuStartHandle()
 {
 	_layerMenuStart = nullptr;
 }
 
-bool HandleMenuStart::init()
+bool LayerMenuStartHandle::init()
 {
 	auto isInit = false;
 
@@ -23,7 +23,7 @@ bool HandleMenuStart::init()
 	return isInit;
 }
 
-void HandleMenuStart::gameStart()
+void LayerMenuStartHandle::gameStart()
 {
 	/*auto manager = ManagerHandle::getInstance();
 	manager->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::GAME_START);
@@ -31,13 +31,13 @@ void HandleMenuStart::gameStart()
 	manager->notify((int)ID_OBSERVER::HANDLE_SCENE_GAME, TO_HANDLE_SCENE_GAME::LAYER_ACROSS_ADD);*/
 }
 
-void HandleMenuStart::gameSaveLoad()
+void LayerMenuStartHandle::gameSaveLoad()
 {
 	/*auto manager = ManagerHandle::getInstance();
 	manager->notify((int)ID_OBSERVER::HANDLE_LAYER_ENTITY, TO_HANDLE_LAYER_ENTITY::CREATE_WORLD);*///fortest
 }
 
-void HandleMenuStart::gameSetting()
+void LayerMenuStartHandle::gameSetting()
 {
 
 }

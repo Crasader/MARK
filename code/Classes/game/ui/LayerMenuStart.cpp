@@ -43,7 +43,7 @@ bool LayerMenuStart::init()
 		btn->setTitleText(STR_MENU_SETTING);
 		btn->addTouchEventListener(CC_CALLBACK_2(LayerMenuStart::onTouchBtn, this));
 
-		_handleMenuStart = HandleMenuStart::create();
+		_handleMenuStart = LayerMenuStartHandle::create();
 		_handleMenuStart->retain();
 		_handleMenuStart->setLayerMenuStart(this);
 

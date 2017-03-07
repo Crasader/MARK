@@ -252,9 +252,6 @@
     <ClCompile Include="..\Classes\game\ui\battle\NodeHead.cpp">
       <Filter>src\game\ui\battle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\ui\HandleMenuStart.cpp">
-      <Filter>src\game\ui\menu\start</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\ui\LayerMenuStart.cpp">
       <Filter>src\game\ui\menu\start</Filter>
     </ClCompile>
@@ -365,6 +362,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystemHandle.cpp">
       <Filter>src\game\ui\menu\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuStartHandle.cpp">
+      <Filter>src\game\ui\menu\start</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\LayerMenuStartModel.cpp">
+      <Filter>src\game\ui\menu\start</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
