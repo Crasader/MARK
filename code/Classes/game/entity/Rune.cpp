@@ -29,10 +29,10 @@ void game::entity::Rune::addSkin(cocos2d::Sprite* skin)
 	Unit::addSkin(skin);
 }
 
-HandleRune* Rune::createHandle()
+RuneHandle* Rune::createHandle()
 {
-	auto handle = HandleRune::create();
+	auto handle = RuneHandle::create();
 	handle->retain();
-	handle->setEntity(this);
+	handle->setView(this);
 	return handle;
 }

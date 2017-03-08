@@ -1,22 +1,24 @@
-#include "ModelEntity.h"
+#include "Entity.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelEntity::ModelEntity() :
-	_state(StateEntity::UNCREATE_SKIN),
+EntityModel::EntityModel() :
+	_stateCallback(StateEntity::UNCREATE_SKIN),
 	_id(0),
+	_type(),
 	_bitIndex(0),
 	_skin(nullptr)
 {
 }
 
-ModelEntity::~ModelEntity()
+EntityModel::~EntityModel()
 {
 	_skin = nullptr;
+	_stateCallback.clearDic();
 }
 
-bool ModelEntity::init()
+bool EntityModel::init()
 {
 	auto isInit = false;
 
@@ -28,7 +30,7 @@ bool ModelEntity::init()
 	return isInit;
 }
 
-cocos2d::Sprite* ModelEntity::getSkin()
+cocos2d::Sprite* EntityModel::getSkin()
 {
 	if (_skin == nullptr)
 	{

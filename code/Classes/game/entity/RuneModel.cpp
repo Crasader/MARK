@@ -1,23 +1,23 @@
-#include "ModelRune.h"
+#include "Rune.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelRune::ModelRune()
+RuneModel::RuneModel()
 {
 }
 
-ModelRune::~ModelRune()
+RuneModel::~RuneModel()
 {
 }
 
-bool ModelRune::init()
+bool RuneModel::init()
 {
 	auto isInit = false;
 
 	do
 	{
-		CC_BREAK_IF(!ModelUnit::init());
+		CC_BREAK_IF(!UnitModel::init());
 
 		isInit = true;
 	} while (0);
@@ -25,7 +25,7 @@ bool ModelRune::init()
 	return isInit;
 }
 
-Sprite* ModelRune::createSprite()
+Sprite* RuneModel::createSprite()
 {
 	auto spriteFrameName = "";
 	auto sprite = Sprite::createWithSpriteFrameName(spriteFrameName);

@@ -1,5 +1,4 @@
 #include "Region.h"
-#include <vector>
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
@@ -31,10 +30,10 @@ void game::entity::Region::addSkin(cocos2d::Sprite* skin)
 	Unit::addSkin(skin);
 }
 
-HandleRegion* Region::createHandle()
+RegionHandle* Region::createHandle()
 {
-	auto handle = HandleRegion::create();
+	auto handle = RegionHandle::create();
 	handle->retain();
-	handle->setEntity(this);
+	handle->setView(this);
 	return handle;
 }

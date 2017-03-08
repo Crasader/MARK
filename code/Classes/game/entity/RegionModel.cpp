@@ -1,23 +1,23 @@
-#include "ModelRegion.h"
+#include "Region.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelRegion::ModelRegion()
+RegionModel::RegionModel()
 {
 }
 
-ModelRegion::~ModelRegion()
+RegionModel::~RegionModel()
 {
 }
 
-bool ModelRegion::init()
+bool RegionModel::init()
 {
 	auto isInit = false;
 
 	do
 	{
-		CC_BREAK_IF(!ModelUnit::init());
+		CC_BREAK_IF(!UnitModel::init());
 
 		isInit = true;
 	} while (0);
@@ -25,7 +25,7 @@ bool ModelRegion::init()
 	return isInit;
 }
 
-Sprite* ModelRegion::createSprite()
+Sprite* RegionModel::createSprite()
 {
 	auto spriteFrameName = "images/map/ground.png";
 	auto sprite = Sprite::createWithSpriteFrameName(spriteFrameName);

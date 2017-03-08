@@ -40,10 +40,10 @@ void Entity::addSkin(cocos2d::Sprite* skin)
 	this->addChild(skin);
 }
 
-HandleEntity* Entity::createHandle()
+EntityHandle* Entity::createHandle()
 {
-	auto handle = HandleEntity::create();
+	auto handle = EntityHandle::create();
 	handle->retain();
-	handle->setEntity(this);
+	handle->setView(this);
 	return handle;
 }

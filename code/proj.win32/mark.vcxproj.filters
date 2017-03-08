@@ -270,12 +270,6 @@
     <ClCompile Include="..\Classes\game\resload\LayerResLoad.cpp">
       <Filter>src\game\resload</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleEntity.cpp">
-      <Filter>src\game\entity\subs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelEntity.cpp">
-      <Filter>src\game\entity\subs</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\game\entity\Creature.cpp">
       <Filter>src\game\entity\subs\unit\creature</Filter>
     </ClCompile>
@@ -287,30 +281,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\entity\Unit.cpp">
       <Filter>src\game\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelUnit.cpp">
-      <Filter>src\game\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleUnit.cpp">
-      <Filter>src\game\entity\subs\unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleCreature.cpp">
-      <Filter>src\game\entity\subs\unit\creature</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelCreature.cpp">
-      <Filter>src\game\entity\subs\unit\creature</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleRune.cpp">
-      <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelRune.cpp">
-      <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\HandleRegion.cpp">
-      <Filter>src\game\entity\subs\unit\Region</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\entity\ModelRegion.cpp">
-      <Filter>src\game\entity\subs\unit\Region</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\game\across\CricleDotLine.cpp">
       <Filter>src\game\across</Filter>
@@ -368,6 +338,36 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\ui\LayerMenuSetModel.cpp">
       <Filter>src\game\ui\menu\set</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\EntityHandle.cpp">
+      <Filter>src\game\entity\subs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\EntityModel.cpp">
+      <Filter>src\game\entity\subs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\UnitModel.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\UnitHandle.cpp">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\CreatureHandle.cpp">
+      <Filter>src\game\entity\subs\unit\creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\CreatureModel.cpp">
+      <Filter>src\game\entity\subs\unit\creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\RegionHandle.cpp">
+      <Filter>src\game\entity\subs\unit\Region</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\RegionModel.cpp">
+      <Filter>src\game\entity\subs\unit\Region</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\RuneModel.cpp">
+      <Filter>src\game\entity\subs\unit\rune</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\entity\RuneHandle.cpp">
+      <Filter>src\game\entity\subs\unit\rune</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -527,19 +527,7 @@
     <ClInclude Include="..\Classes\game\resload\LayerResLoad.h">
       <Filter>src\game\resload</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\IEntity.h">
-      <Filter>src\game\entity\subs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelEntity.h">
-      <Filter>src\game\entity\subs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleEntity.h">
-      <Filter>src\game\entity\subs</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\game\entity\Creature.h">
-      <Filter>src\game\entity\subs\unit\creature</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelCreature.h">
       <Filter>src\game\entity\subs\unit\creature</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\Region.h">
@@ -547,39 +535,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\entity\Rune.h">
       <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleCreature.h">
-      <Filter>src\game\entity\subs\unit\creature</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleUnit.h">
-      <Filter>src\game\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\IUnit.h">
-      <Filter>src\game\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelUnit.h">
-      <Filter>src\game\entity\subs\unit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ICreature.h">
-      <Filter>src\game\entity\subs\unit\creature</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\IRune.h">
-      <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleRune.h">
-      <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelRune.h">
-      <Filter>src\game\entity\subs\unit\rune</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\HandleRegion.h">
-      <Filter>src\game\entity\subs\unit\Region</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\IRegion.h">
-      <Filter>src\game\entity\subs\unit\Region</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\entity\ModelRegion.h">
-      <Filter>src\game\entity\subs\unit\Region</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\across\CricleDotLine.h">
       <Filter>src\game\across</Filter>

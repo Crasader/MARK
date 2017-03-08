@@ -1,24 +1,24 @@
-#include "ModelUnit.h"
+#include "Unit.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelUnit::ModelUnit()
+UnitModel::UnitModel()
 {
 }
 
-ModelUnit::~ModelUnit()
+UnitModel::~UnitModel()
 {
 	_poolAttribute.clear();
 }
 
-bool ModelUnit::init()
+bool UnitModel::init()
 {
 	auto isInit = false;
 
 	do
 	{
-		CC_BREAK_IF(!ModelEntity::init());
+		CC_BREAK_IF(!EntityModel::init());
 
 		isInit = true;
 	} while (0);
@@ -26,25 +26,25 @@ bool ModelUnit::init()
 	return isInit;
 }
 
-void ModelUnit::insertAttribute(const int& id, const int& value, const int& min /*= 0*/, const int& max /*= INT_MAX*/)
+void UnitModel::insertAttribute(const int& id, const int& value, const int& min /*= 0*/, const int& max /*= INT_MAX*/)
 {
 	auto attribute = Attribute::create();
 	attribute->initData(id, value, min, max);
 	_poolAttribute.insert(id, attribute);
 }
 
-void ModelUnit::deleteAttribute(const int& id)
+void UnitModel::deleteAttribute(const int& id)
 {
 	_poolAttribute.erase(id);
 }
 
-Attribute* ModelUnit::getAttribute(const int& id) const
+Attribute* UnitModel::getAttribute(const int& id) const
 {
 	auto attribute = _poolAttribute.at(id);
 	return attribute;
 }
 
-void ModelUnit::modifyAttributeValue(const int& id, const int& val)
+void UnitModel::modifyAttributeValue(const int& id, const int& val)
 {
 	auto attribute = _poolAttribute.at(id);
 	if (attribute == nullptr)
@@ -54,7 +54,7 @@ void ModelUnit::modifyAttributeValue(const int& id, const int& val)
 	attribute->modifyValue(val);
 }
 
-void ModelUnit::modifyAttributeMin(const int& id, const int& val)
+void UnitModel::modifyAttributeMin(const int& id, const int& val)
 {
 	auto attribute = _poolAttribute.at(id);
 	if (attribute == nullptr)
@@ -64,7 +64,7 @@ void ModelUnit::modifyAttributeMin(const int& id, const int& val)
 	attribute->modifyMin(val);
 }
 
-void ModelUnit::modifyAttributeMax(const int& id, const int& val)
+void UnitModel::modifyAttributeMax(const int& id, const int& val)
 {
 	auto attribute = _poolAttribute.at(id);
 	if (attribute == nullptr)

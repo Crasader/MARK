@@ -1,23 +1,23 @@
-#include "ModelCreature.h"
+#include "Creature.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;
 
-ModelCreature::ModelCreature()
+CreatureModel::CreatureModel()
 {
 }
 
-ModelCreature::~ModelCreature()
+CreatureModel::~CreatureModel()
 {
 }
 
-bool ModelCreature::init()
+bool CreatureModel::init()
 {
 	auto isInit = false;
 
 	do
 	{
-		CC_BREAK_IF(!ModelUnit::init());
+		CC_BREAK_IF(!UnitModel::init());
 
 		isInit = true;
 	} while (0);
@@ -25,7 +25,7 @@ bool ModelCreature::init()
 	return isInit;
 }
 
-Sprite* ModelCreature::createSprite()
+Sprite* CreatureModel::createSprite()
 {
 	auto spriteFrameName = "images/creature/creature.png";
 	auto skin = Sprite::createWithSpriteFrameName(spriteFrameName);
