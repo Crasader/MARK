@@ -13,10 +13,12 @@ enum class StateGame
 	DEAL_DATA_BASE,
 	UNLOAD_RES,
 	LOADED_RES,
-	CREATE_ENTITY,
-	CREATED_ENTITY,
+	CREATE_LAYER_ENTITY,
+	CREATED_LAYER_ENTITY,
 	CREATE_MENU_SYSTEM,
-	CREATED_MENU_SYSTEM
+	CREATED_MENU_SYSTEM,
+	CREATE_LAYER_ACROSS,
+	CREATED_LAYER_ACROSS
 };
 
 enum class TypeLayerInGame
@@ -58,7 +60,7 @@ public://layers
 	void setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion);
 	void setLayerNullptr(const TypeLayerInGame& type);
 
-	void setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const bool& isTest = false);
+	void setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval = 1.0f, const float& columnInterval = 1.0f, const bool& isTest = false);
 private:
 	cocos2d::Layer* createLayerByType(const TypeLayerInGame& type);
 	bool insertLayerByType(const TypeLayerInGame& type, cocos2d::Layer* layer);
@@ -68,7 +70,9 @@ private:
 	cocos2d::Map<TypeLayerInGame, cocos2d::Layer*> _dicLayers;
 
 public://listener
-	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listener, ListenerLayerResLoadLoaded);
+	void addEventListenerResLoaded(const std::function<void (cocos2d::EventCustom*)>& callback);
+	void removeEventListenerResLoaded();
+	CC_SYNTHESIZE_READONLY(cocos2d::EventListenerCustom*, _listenerResLoaded, ListenerResLoaded);
 
 public://MenuSystem animation play over
 	bool isMenuSystemAnimationPlayOver();
@@ -110,15 +114,20 @@ private://res
 	bool loadedResCheck(float delta);
 	void loadedRes();
 
-private://entity
-	void createEntity();
-	bool createdEntityCheck(float delta);
-	void createdEntity();
+private://layer entity
+	void createLayerEntity();
+	bool createdLayerEntityCheck(float delta);
+	void createdLayerEntity();
 
-private://menu
+private://menu system
 	void createMenuSystem();
 	bool createdMenuSystemCheck(float delta);
 	void createdMenuSystem();
+
+private://layer across
+	void createLayerAcross();
+	bool createdLayerAcrossCheck(float delta);
+	void createdLayerAcross();
 
 public://observer
 	virtual void updateBySubject(va_list values);

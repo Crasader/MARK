@@ -26,6 +26,8 @@ bool LayerAcross::init()
 		_handle->retain();
 		_handle->setView(this);
 
+		ignoreAnchorPointForPosition(false);
+
 		scheduleUpdate();
 
 		isInit = true;
@@ -41,7 +43,6 @@ void LayerAcross::update(float delta)
 
 void LayerAcross::setContentSizeByAcrossObject(const cocos2d::Size& size)
 {
-	ignoreAnchorPointForPosition(false);
 	setContentSize(size);
 }
 
@@ -59,10 +60,4 @@ void LayerAcross::addNodeTo(cocos2d::Node* node, const cocos2d::Vec2& postion)
 {
 	node->setPosition(postion);
 	addChild(node);
-}
-
-void LayerAcross::refreshLine(cocos2d::Sprite* line, const float& rotation, const float& scaleX)
-{
-	line->setRotation(rotation);
-	line->setScaleX(scaleX);
 }

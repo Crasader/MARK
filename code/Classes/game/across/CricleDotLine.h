@@ -14,21 +14,32 @@ public:
 	virtual bool init();
 	virtual void update(float delta);
 
+	int getIndexOfAcrossObject() const { return _indexOfAcrossObject; }
+	void setIndexOfAcrossObject(int val) { _indexOfAcrossObject = val; }
+
+public://init cricle dot line
 	cocos2d::Sprite* getCricle();
 	cocos2d::Sprite* getDot();
 	cocos2d::Sprite* getLine();
-
-	const float& getLineOriginalWidth() const { return _lineOriginalWidth; }
-
 private:
 	void initCDl();
 	cocos2d::Sprite* createSprite(const std::string& spriteFrameName);
 
+	bool _isInitedCDL;
 	cocos2d::Sprite* _cricle;
 	cocos2d::Sprite* _dot;
 	cocos2d::Sprite* _line;
-	float _lineOriginalWidth;
 
+public://line refresh
+	void setLineLocationTarget(const cocos2d::Vec2& location);
+private:
+	void refreshLine();
+
+	float _lineOriginalWidth;
+	cocos2d::Vec2 _locationTarget;
+	bool _isLoactionTargetSet;
+
+	int _indexOfAcrossObject;
 };
 
 #endif

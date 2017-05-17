@@ -8,12 +8,14 @@ LayerAcrossModel::LayerAcrossModel() :
 	_vecCricleDotLine(),
 	_isTest(false),
 	_isNumSizeSet(false),
-	_vecAcrossObject()
+	_vecAcrossObject(),
+	_vecIsAcrossedAcrossObject()
 {
 }
 
 LayerAcrossModel::~LayerAcrossModel()
 {
+	_vecIsAcrossedAcrossObject.clear();
 	clearAcrossObjects();
 	clearCricleDotLine();
 	setListenerNullptr();
@@ -57,10 +59,22 @@ CricleDotLine* LayerAcrossModel::getCricleDotLine()
 	return cdl;
 }
 
-void LayerAcrossModel::createCricleDotLine()
+CricleDotLine* LayerAcrossModel::getCricleDotLinePrevious()
+{
+	CricleDotLine* cdl = nullptr;
+	auto length = _vecCricleDotLine.size();
+	if (!_vecCricleDotLine.empty() && length != 1)
+	{
+		cdl = _vecCricleDotLine.at(length - 2);
+	}
+	return cdl;
+}
+
+CricleDotLine* LayerAcrossModel::createCricleDotLine()
 {
 	auto cdl = CricleDotLine::create();
 	_vecCricleDotLine.pushBack(cdl);
+	return cdl;
 }
 
 void LayerAcrossModel::deleteCricleDotLine()
@@ -73,11 +87,13 @@ void LayerAcrossModel::clearCricleDotLine()
 	_vecCricleDotLine.clear();
 }
 
-void LayerAcrossModel::setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size)
+void LayerAcrossModel::setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval, const float& columnInterval)
 {
 	_numRowAcrossObject = numRow;
 	_numColumnAcrossObject = numColumn;
 	_sizeAcrossObject = size;
+	_rowInterval = rowInterval;
+	_columnInterval = columnInterval;
 	_isNumSizeSet = true;
 }
 
@@ -110,10 +126,34 @@ void LayerAcrossModel::createAcorssObjects()
 		acrossObject->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 		acrossObject->setContentSize(_sizeAcrossObject);
 		_vecAcrossObject.pushBack(acrossObject);
+		_vecIsAcrossedAcrossObject.push_back(false);
 	}
 }
 
 void LayerAcrossModel::clearAcrossObjects()
 {
 	_vecAcrossObject.clear();
+}
+int LayerAcrossModel::getIndexOfVecAcrossObjects(const cocos2d::Vec2& location)
+{
+	auto cricleDotLinePrevious = getCricleDotLinePrevious();
+	auto indexPrevious = cricleDotLinePrevious ? cricleDotLinePrevious->getIndexOfAcrossObject() : -1;
+	auto length = _vecAcrossObject.size();
+	for (auto i = 0; i < length; i++)
+	{
+		auto isAcrossed = _vecIsAcrossedAcrossObject.at(i);
+		if (i != indexPrevious && isAcrossed) continue;
+
+		auto acrossObject = _vecAcrossObject.at(i);
+		auto locationInAO = acrossObject->convertToNodeSpace(location);
+		/*log("locationInAO,X:%f Y:%f", locationInAO.x, locationInAO.y);*/
+		auto s = acrossObject->getContentSize();
+		auto rect = Rect(0, 0, s.width, s.height);
+		// µã»÷·¶Î§ÅÐ¶Ï¼ì²â
+		if (rect.containsPoint(locationInAO))
+		{
+			return i;
+		}
+	}
+	return -1;
 }

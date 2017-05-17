@@ -38,9 +38,8 @@ private:
 
 public://entity
 	Entity* getEntity(const NS_GAME_ENTITY(TypeEntity)& type, const int& id);
-
+	const cocos2d::Vec2& getEntityPostion(const NS_GAME_ENTITY(TypeEntity)& type, const int& id);
 	CC_SYNTHESIZE(BitData*, _dataEntityCreate, DataEntityCreated);
-
 private:
 	const cocos2d::Map<int, Entity*>& getDicByTypeEntity(const NS_GAME_ENTITY(TypeEntity)& type);
 	Entity* createEntityByType(const NS_GAME_ENTITY(TypeEntity)& type);
@@ -56,6 +55,7 @@ class ILayerEntity
 {
 public:
 	virtual void addEntity(Entity* entity) {}
+	virtual void addEntity(Entity* entity, const cocos2d::Vec2& postion) {}
 	virtual void removeEntity(Entity* entity) {}
 
 };
@@ -74,18 +74,23 @@ public:
 
 	void update(float delta);
 
-private://
+private://attach obverver
 	void attachObserver();
 
-private://
-	void addEntity();
+private://uncreate entity
+	void doAddEntity();
 	void addEntityByTypeNum(const NS_GAME_ENTITY(TypeEntity)& type, const int& num);
+	void setEntityPostion(Entity* entity);
 	void setEntityBitIndex(Entity* entity);
-	void setDataEntityCreatedBit(va_list values);
+
+private://creating entity
+	bool creatingEntityCheck(float delta);
 	void creatingEntity();
 
-public://obverver
+public://update obverver
 	virtual void updateBySubject(va_list values);
+private:
+	void setDataEntityCreatedBit(va_list values);
 
 public://view
 	CC_SYNTHESIZE(ILayerEntity*, _view, View);
@@ -107,6 +112,7 @@ public:
 	virtual void update(float delta);
 
 	virtual void addEntity(Entity* entity);
+	virtual void addEntity(Entity* entity, const cocos2d::Vec2& postion);
 	virtual void removeEntity(Entity* entity);
 
 private:

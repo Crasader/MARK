@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "CricleDotLine.h"
 #include "common/stateCallback/StateCallback.h"
+#include <vector>
 
 enum class StateLayerAcross
 {
@@ -40,7 +41,8 @@ private:
 	//cricledotline
 public:
 	CricleDotLine* getCricleDotLine();
-	void createCricleDotLine();
+	CricleDotLine* getCricleDotLinePrevious();
+	CricleDotLine* createCricleDotLine();
 	void deleteCricleDotLine();
 	void clearCricleDotLine();
 private:
@@ -48,17 +50,25 @@ private:
 
 	//acrossobject
 public:
-	void setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size);
+	void setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval, const float& columnInterval);
 	void createAcorssObjects();
 	void clearAcrossObjects();
+	int getIndexOfVecAcrossObjects(const cocos2d::Vec2& location);
 
 	CC_SYNTHESIZE(bool, _isTest, Test);
 	CC_SYNTHESIZE_READONLY(int, _numRowAcrossObject, NumRowAcrossObject);
 	CC_SYNTHESIZE_READONLY(int, _numColumnAcrossObject, NumColumnAcrossObject);
+	CC_SYNTHESIZE_READONLY(float, _rowInterval, RowInterval);
+	CC_SYNTHESIZE_READONLY(float, _columnInterval, ColumnInterval);
 	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Size, _sizeAcrossObject, SizeAcrossObject);
 	CC_SYNTHESIZE_READONLY(bool, _isNumSizeSet, IsNumSizeSet);
 	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Vector<cocos2d::Node*>, _vecAcrossObject, AcrossObjects);
 private:
+
+public:
+	std::vector<bool>& getIsAcrosseds() { return _vecIsAcrossedAcrossObject; }
+protected:
+	std::vector<bool> _vecIsAcrossedAcrossObject;
 
 };
 
@@ -69,7 +79,6 @@ public:
 	virtual void addEvent(cocos2d::EventListenerTouchOneByOne* listener) {}
 	virtual void removeEvent(cocos2d::EventListenerTouchOneByOne* listener) {}
 	virtual void addNodeTo(cocos2d::Node* node, const cocos2d::Vec2& postion) {}
-	virtual void refreshLine(cocos2d::Sprite* line, const float& rotation, const float& scaleX) {}
 
 };
 
@@ -95,6 +104,11 @@ private:
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event);
+	
+	void addCricleDotLine(const int& index, const cocos2d::Vec2& location);
+	void removeCricleDotLine(const bool& isRemoveAll = false);
+	void setLineLocationOfPreviousCDL();
+	bool getIsMoveToLast();
 
 	//initialized
 public:
@@ -134,7 +148,6 @@ public:
 	virtual void addEvent(cocos2d::EventListenerTouchOneByOne* listener);
 	virtual void removeEvent(cocos2d::EventListenerTouchOneByOne* listener);
 	virtual void addNodeTo(cocos2d::Node* node, const cocos2d::Vec2& postion);
-	virtual void refreshLine(cocos2d::Sprite* line, const float& rotation, const float& scaleX);
 
 	CC_SYNTHESIZE_READONLY(LayerAcrossHandle*, _handle, Handle);
 private:

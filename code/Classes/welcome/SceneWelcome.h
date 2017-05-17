@@ -50,7 +50,9 @@ private:
 	cocos2d::Map<TypeLayerInWelcome, cocos2d::Layer*> _dicLayers;
 
 public://ListenerLayerLogoOver
-	CC_SYNTHESIZE(cocos2d::EventListenerCustom*, _listener, ListenerLayerLogoOver);
+	void addEventListenerLogoOver(const std::function<void (cocos2d::EventCustom*)>& callback);
+	void removeEventLIstenerLogoOver();
+	CC_SYNTHESIZE_READONLY(cocos2d::EventListenerCustom*, _listenerLogoOver, ListenerLogoOver);
 	
 };
 

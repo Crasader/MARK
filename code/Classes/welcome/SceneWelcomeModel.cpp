@@ -7,7 +7,7 @@ SceneWelcomeModel::SceneWelcomeModel() :
 	_stateCallback(StateWelcome::UNPLAY_LOGO),
 	_isLogoPlayOver(false),
 	_dicLayers(),
-	_listener(nullptr)
+	_listenerLogoOver(nullptr)
 {
 }
 
@@ -16,7 +16,7 @@ SceneWelcomeModel::~SceneWelcomeModel()
 	_stateCallback.clearDic();
 	_isLogoPlayOver = false;
 	_dicLayers.clear();
-	_listener = nullptr;
+	_listenerLogoOver = nullptr;
 }
 
 bool SceneWelcomeModel::init()
@@ -84,5 +84,17 @@ Layer* SceneWelcomeModel::getLayerByType(const TypeLayerInWelcome& type)
 {
 	auto layer = _dicLayers.at(type);
 	return layer;
+}
+
+void SceneWelcomeModel::addEventListenerLogoOver(const std::function<void(cocos2d::EventCustom*)>& callback)
+{
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	_listenerLogoOver = dispatcher->addCustomEventListener(EVENT_LAYER_LOGO_OVER, callback);
+}
+
+void SceneWelcomeModel::removeEventLIstenerLogoOver()
+{
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->removeEventListener(_listenerLogoOver);
 }
 

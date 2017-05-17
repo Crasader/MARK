@@ -73,16 +73,12 @@ void SceneWelcomeHandle::playLogo()
 
 void SceneWelcomeHandle::addEventLayerLogoOver()
 {
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_LOGO_OVER, CC_CALLBACK_1(SceneWelcomeHandle::onEventLayerLogoOver, this));
-	_model->setListenerLayerLogoOver(listener);
+	_model->addEventListenerLogoOver(CC_CALLBACK_1(SceneWelcomeHandle::onEventLayerLogoOver, this));
 }
 
 void SceneWelcomeHandle::removeEventLayerLogoOver()
 {
-	auto listener = _model->getListenerLayerLogoOver();
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	dispatcher->removeEventListener(listener);
+	_model->removeEventLIstenerLogoOver();
 }
 
 void SceneWelcomeHandle::onEventLayerLogoOver(EventCustom* event)

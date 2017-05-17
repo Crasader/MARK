@@ -47,10 +47,12 @@ void SceneGameHandle::attachStateCallback()
 	stateCallback.insertCallback(StateGame::DEAL_DATA_BASE, CC_CALLBACK_0(SceneGameHandle::dealDatabase, this));
 	stateCallback.insertCallback(StateGame::UNLOAD_RES, CC_CALLBACK_0(SceneGameHandle::loadRes, this));
 	stateCallback.insertCallback(StateGame::LOADED_RES, CC_CALLBACK_0(SceneGameHandle::loadedRes, this), CC_CALLBACK_1(SceneGameHandle::loadedResCheck, this));
-	stateCallback.insertCallback(StateGame::CREATE_ENTITY, CC_CALLBACK_0(SceneGameHandle::createEntity, this));
-	stateCallback.insertCallback(StateGame::CREATED_ENTITY, CC_CALLBACK_0(SceneGameHandle::createdEntity, this), CC_CALLBACK_1(SceneGameHandle::createdEntityCheck, this));
+	stateCallback.insertCallback(StateGame::CREATE_LAYER_ENTITY, CC_CALLBACK_0(SceneGameHandle::createLayerEntity, this));
+	stateCallback.insertCallback(StateGame::CREATED_LAYER_ENTITY, CC_CALLBACK_0(SceneGameHandle::createdLayerEntity, this), CC_CALLBACK_1(SceneGameHandle::createdLayerEntityCheck, this));
 	stateCallback.insertCallback(StateGame::CREATE_MENU_SYSTEM, CC_CALLBACK_0(SceneGameHandle::createMenuSystem, this));
 	stateCallback.insertCallback(StateGame::CREATED_MENU_SYSTEM, CC_CALLBACK_0(SceneGameHandle::createdMenuSystem, this), CC_CALLBACK_1(SceneGameHandle::createdMenuSystemCheck, this));
+	stateCallback.insertCallback(StateGame::CREATE_LAYER_ACROSS, CC_CALLBACK_0(SceneGameHandle::createLayerAcross, this));
+	stateCallback.insertCallback(StateGame::CREATED_LAYER_ACROSS, CC_CALLBACK_0(SceneGameHandle::createdLayerAcross, this), CC_CALLBACK_1(SceneGameHandle::createdLayerAcrossCheck, this));
 }
 
 void SceneGameHandle::update(float delta)
@@ -89,16 +91,12 @@ void SceneGameHandle::loadRes()
 
 void SceneGameHandle::addEventLayerResLoadLoaded()
 {
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	auto listener = dispatcher->addCustomEventListener(EVENT_LAYER_RES_LOAD_LOADED, CC_CALLBACK_1(SceneGameHandle::onEventLayerResLoadLoaded, this));
-	_model->setListenerLayerResLoadLoaded(listener);
+	_model->addEventListenerResLoaded(CC_CALLBACK_1(SceneGameHandle::onEventLayerResLoadLoaded, this));
 }
 
 void SceneGameHandle::removeEventLayerResLoadLoaded()
 {
-	auto listener = _model->getListenerLayerResLoadLoaded();
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	dispatcher->removeEventListener(listener);
+	_model->removeEventListenerResLoaded();
 }
 
 void SceneGameHandle::onEventLayerResLoadLoaded(cocos2d::EventCustom* event)
@@ -118,23 +116,23 @@ void SceneGameHandle::loadedRes()
 	
 	removeEventLayerResLoadLoaded();
 
-	_model->setState(StateGame::CREATE_ENTITY);
+	_model->setState(StateGame::CREATE_LAYER_ENTITY);
 }
 
-void SceneGameHandle::createEntity()
+void SceneGameHandle::createLayerEntity()
 {
 	createLayer(TypeLayerInGame::ENTITY);
 
-	_model->setState(StateGame::CREATED_ENTITY);
+	_model->setState(StateGame::CREATED_LAYER_ENTITY);
 }
 
-bool SceneGameHandle::createdEntityCheck(float delta)
+bool SceneGameHandle::createdLayerEntityCheck(float delta)
 {
 	auto isCreatedEntity = _model->getIsCreatedEntity();
 	return isCreatedEntity;
 }
 
-void SceneGameHandle::createdEntity()
+void SceneGameHandle::createdLayerEntity()
 {
 	_model->setState(StateGame::CREATE_MENU_SYSTEM);
 }
@@ -153,6 +151,23 @@ bool SceneGameHandle::createdMenuSystemCheck(float delta)
 }
 
 void SceneGameHandle::createdMenuSystem()
+{
+	_model->setState(StateGame::CREATE_LAYER_ACROSS);
+}
+
+void SceneGameHandle::createLayerAcross()
+{
+	createLayer(TypeLayerInGame::ACROSS, CC_CALLBACK_0(SceneGameHandle::extraFuncCreateLayerAcross, this));
+
+	_model->setState(StateGame::CREATED_LAYER_ACROSS);
+}
+
+bool SceneGameHandle::createdLayerAcrossCheck(float delta)
+{
+	return true;
+}
+
+void SceneGameHandle::createdLayerAcross()
 {
 	_model->setState(StateGame::DEFAULT);
 }
@@ -241,9 +256,9 @@ void SceneGameHandle::extraFuncCreateLayerAcross(/*va_list values*/)
 	auto postionY = 480.0f/*(float)va_arg(values, double)*/;
 	auto numRow = 3/*va_arg(values, int)*/;
 	auto numColumn = 3/*va_arg(values, int)*/;
-	auto sizeWidth = 100.0f/*(float)va_arg(values, double)*/;
-	auto sizeHeight = 100.0f/*(float)va_arg(values, double)*/;
+	auto sizeWidth = 150.0f/*(float)va_arg(values, double)*/;
+	auto sizeHeight = 150.0f/*(float)va_arg(values, double)*/;
 
 	_model->setLayerPostion(TypeLayerInGame::ACROSS, Vec2(postionX, postionY));
-	_model->setLayerAcrossNumSize(numRow, numColumn, Size(sizeWidth, sizeHeight), true);
+	_model->setLayerAcrossNumSize(numRow, numColumn, Size(sizeWidth, sizeHeight), 60.0f, 60.0f, true);
 }

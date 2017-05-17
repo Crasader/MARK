@@ -8,7 +8,8 @@ using namespace ui;
 LayerMenuSystemModel::LayerMenuSystemModel() : 
 	_stateCallback(StateLayerMenuSystem::CREATE_SKIN),
 	_skin(nullptr),
-	_vecBtns()
+	_vecBtns(),
+	_isAnimationPlayOver(false)
 {
 }
 

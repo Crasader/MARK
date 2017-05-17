@@ -8,6 +8,8 @@
 #include "common/bitData/BitData.h"
 #include "common/stateCallback/StateCallback.h"
 
+#define EVENT_LAYER_RES_LOAD_LOADED "event_layer_res_load_loaded"
+
 enum class StateLayerResLoad
 {
 	DEFAULT,

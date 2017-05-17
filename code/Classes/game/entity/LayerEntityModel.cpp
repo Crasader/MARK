@@ -60,6 +60,31 @@ Entity* LayerEntityModel::getEntity(const NS_GAME_ENTITY(TypeEntity)& type, cons
 	return entity;
 }
 
+const cocos2d::Vec2& LayerEntityModel::getEntityPostion(const NS_GAME_ENTITY(TypeEntity)& type, const int& id)
+{
+	static std::map<TypeEntity, std::map<int, Vec2>> dicDicPostion =
+	{
+		{
+			TypeEntity::REGION,
+			{
+				{ 1000, Vec2(320.0f, 480.0f) },
+				{ 1001, Vec2(320.0f, 270.0f) },{ 1002, Vec2(320.0f, 690.0f) },//上下
+				{ 1003, Vec2(110.0f, 480.0f) },{ 1004, Vec2(530.0f, 480.0f) },//左右
+				{ 1005, Vec2(110.0f, 270.0f) },{ 1006, Vec2(530.0f, 690.0f) },//左上右下
+				{ 1007, Vec2(110.0f, 690.0f) },{ 1008, Vec2(530.0f, 270.0f) } //左下右上
+			}
+		},
+		{
+			TypeEntity::CREATURE,
+			{
+				{ 1000, Vec2(320.0f, 270.0f) },
+				{ 1001, Vec2(320.0f, 690.0f) }
+			}
+		}
+	};
+	return dicDicPostion.at(type).at(id);
+}
+
 const Map<int, Entity*>& LayerEntityModel::getDicByTypeEntity(const NS_GAME_ENTITY(TypeEntity)& type)
 {
 	switch (type)

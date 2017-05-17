@@ -5,6 +5,8 @@
 #include "cocostudio/CocoStudio.h"
 #include "common/stateCallback/StateCallback.h"
 
+#define EVENT_LAYER_LOGO_OVER "event_layer_logo_over"
+
 enum class StateLayerLogo
 {
 	DEFAULT,
