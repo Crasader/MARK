@@ -6,6 +6,8 @@
 #include "common/stateCallback/StateCallback.h"
 #include <vector>
 
+#define EVENT_LAYER_ACROSS_SELECTED "event_layer_across_selected"
+
 enum class StateLayerAcross
 {
 	DEFAULT,
@@ -53,6 +55,7 @@ public:
 	void setAcrossObjectNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval, const float& columnInterval);
 	void createAcorssObjects();
 	void clearAcrossObjects();
+	cocos2d::Node* getAcrossObject(const int& index);
 	int getIndexOfVecAcrossObjects(const cocos2d::Vec2& location);
 
 	CC_SYNTHESIZE(bool, _isTest, Test);
@@ -64,11 +67,16 @@ public:
 	CC_SYNTHESIZE_READONLY(bool, _isNumSizeSet, IsNumSizeSet);
 	CC_SYNTHESIZE_READONLY_PASS_BY_REF(cocos2d::Vector<cocos2d::Node*>, _vecAcrossObject, AcrossObjects);
 private:
-
+	//
 public:
-	std::vector<bool>& getIsAcrosseds() { return _vecIsAcrossedAcrossObject; }
+	bool getIsAcrossed(const int& index);//AcrossObject
+	void setIsAcrossed(const int& index, const bool& val);
 protected:
 	std::vector<bool> _vecIsAcrossedAcrossObject;
+	//Num of result
+public:
+	bool getIsResultConfirmed();
+	CC_SYNTHESIZE(int, _numOfResult, NumOfResult);
 
 };
 
@@ -107,8 +115,8 @@ private:
 	
 	void addCricleDotLine(const int& index, const cocos2d::Vec2& location);
 	void removeCricleDotLine(const bool& isRemoveAll = false);
-	void setLineLocationOfPreviousCDL();
-	bool getIsMoveToLast();
+	void setLineLocationByPreviousCDL();
+	void confirmCricleDotLine();
 
 	//initialized
 public:

@@ -45,7 +45,7 @@ void SceneGameModel::dealDatabase()
 	dbHelper->dataBaseClose();
 }
 
-Layer* SceneGameModel::getLayer(const TypeLayerInGame& type)
+Layer* SceneGameModel::getLayerAndCreateIfNull(const TypeLayerInGame& type)
 {
 	auto layer = getLayerByType(type);
 	if (layer == nullptr)
@@ -70,15 +70,33 @@ void SceneGameModel::setLayerNullptr(const TypeLayerInGame& type)
 	eraseLayerByType(type);
 }
 
-void SceneGameModel::setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval /*= 1.0f*/, const float& columnInterval /*= 1.0f*/, const bool& isTest /*= false*/)
+void SceneGameModel::queryAndSetDataOfLayerAcross()
 {
-	auto layerAcross = (LayerAcross*)getLayer(TypeLayerInGame::ACROSS);
-	if (layerAcross)
+	auto layer = (LayerAcross*)getLayerByType(TypeLayerInGame::ACROSS);
+	if (layer == nullptr)
 	{
-		auto model = layerAcross->getHandle()->getModel();
-		model->setAcrossObjectNumSize(numRow, numColumn, size, rowInterval, columnInterval);
-		model->setTest(isTest);
+		return;
 	}
+
+	//从数据库中获取数据
+	auto numRow = 3;
+	auto numColumn = 3;
+	auto sizeWidth = 150.0f;
+	auto sizeHeight = 150.0f;
+	auto rowInterval = 60.0f;
+	auto columnInterval = 60.0f;
+	auto numOfResult = 5;
+	
+	auto postionX = 320.0f;
+	auto postionY = 480.0f;
+
+	auto model = layer->getHandle()->getModel();
+
+	model->setAcrossObjectNumSize(numRow, numColumn, Size(sizeWidth, sizeHeight), rowInterval, columnInterval);
+	model->setTest(true);
+	model->setNumOfResult(numOfResult);
+
+	layer->setPosition(Vec2(postionX, postionY));
 }
 
 Layer* SceneGameModel::createLayerByType(const TypeLayerInGame& type)

@@ -90,8 +90,8 @@ void LayerAcrossHandle::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* even
 	auto location = touch->getLocation();
 	/*auto previousLocation = touch->getPreviousLocation();
 	auto startLocation = touch->getStartLocation();*/
-	auto target = static_cast<Node*>(event->getCurrentTarget());
-	Point locationInView = target->convertToNodeSpace(location);
+	/*auto target = static_cast<Node*>(event->getCurrentTarget());
+	Point locationInView = target->convertToNodeSpace(location);*/
 	/*log("////////////////////////");
 	log("location,X:%f Y:%f", location.x, location.y);
 	/ *log("previousLocation,X:%f Y:%f", previousLocation.x, previousLocation.y);
@@ -106,38 +106,52 @@ void LayerAcrossHandle::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* even
 	}
 	cricleDotLine->setLineLocationTarget(location);
 
+	auto isResultConfirmed = _model->getIsResultConfirmed();
+	if (isResultConfirmed)
+	{
+		return;
+	}
+
 	auto locationInCDL = cricleDotLine->convertToNodeSpace(location);
 	/*log("locationInCDL,X:%f Y:%f", locationInCDL.x, locationInCDL.y);*/
 	Size s = _model->getSizeAcrossObject();
 	Rect rect = Rect(s.width * -.5f, s.height * -0.5f, s.width, s.height);
-	if (rect.containsPoint(locationInCDL))//滑出当前区域
+	if (rect.containsPoint(locationInCDL))//若未滑出当前区域
 	{
 		return;
 	}
 
 	auto index = _model->getIndexOfVecAcrossObjects(location);
-	if (index == -1)
+	if (index == -1)//若未滑入某个区域
 	{
 		return;
 	}
 
 	auto cricleDotLinePrevious = _model->getCricleDotLinePrevious();
 	auto indexPrevious = cricleDotLinePrevious ? cricleDotLinePrevious->getIndexOfAcrossObject() : -1;
-	log("LayerAcrossHandle::onTouchMoved | indexPrevious:%d", indexPrevious);
-	if (indexPrevious == index)
+	/*log("LayerAcrossHandle::onTouchMoved | indexPrevious:%d", indexPrevious);*/
+	if (indexPrevious == index)//若滑到前一个区域
 	{
 		removeCricleDotLine();
 	}
 	else
 	{
 		addCricleDotLine(index, location);
-		setLineLocationOfPreviousCDL();
+		setLineLocationByPreviousCDL();
 	}
 }
 
 void LayerAcrossHandle::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	removeCricleDotLine(true);
+	auto isResultConfirmed = _model->getIsResultConfirmed();
+	if (isResultConfirmed)
+	{
+		confirmCricleDotLine();
+	}
+	else
+	{
+		removeCricleDotLine(true);
+	}
 }
 
 void LayerAcrossHandle::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event)
@@ -147,22 +161,20 @@ void LayerAcrossHandle::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* 
 
 void LayerAcrossHandle::addCricleDotLine(const int& index, const cocos2d::Vec2& location)
 {
-	auto& vecIsAcrossed = _model->getIsAcrosseds();
-	auto& isAcrossed = vecIsAcrossed.at(index);
-	isAcrossed = true;
+	_model->setIsAcrossed(index, true);
 
-	auto& vec = _model->getAcrossObjects();
-	auto acrossObject = vec.at(index);
-	auto postionAcrossObject = acrossObject->getPosition();
 	auto cricleDotLine = _model->createCricleDotLine();
 	cricleDotLine->setIndexOfAcrossObject(index);
 	cricleDotLine->setLineLocationTarget(location);
+
+	auto acrossObject = _model->getAcrossObject(index);
+	auto postionAcrossObject = acrossObject->getPosition();
+
 	_view->addNodeTo(cricleDotLine, postionAcrossObject);
 }
 
 void LayerAcrossHandle::removeCricleDotLine(const bool& isRemoveAll /*= false*/)
 {
-	auto& vecIsAcrossed = _model->getIsAcrosseds();
 	do 
 	{
 		auto cricleDotLine = _model->getCricleDotLine();
@@ -171,8 +183,8 @@ void LayerAcrossHandle::removeCricleDotLine(const bool& isRemoveAll /*= false*/)
 		auto index = cricleDotLine->getIndexOfAcrossObject();
 		if (index != -1)
 		{
-			auto& isAcrossed = vecIsAcrossed.at(index);
-			isAcrossed = false;
+			cricleDotLine->setIndexOfAcrossObject(-1);
+			_model->setIsAcrossed(index, false);
 		}
 
 		cricleDotLine->removeFromParent();
@@ -180,7 +192,7 @@ void LayerAcrossHandle::removeCricleDotLine(const bool& isRemoveAll /*= false*/)
 	} while (isRemoveAll);
 }
 
-void LayerAcrossHandle::setLineLocationOfPreviousCDL()
+void LayerAcrossHandle::setLineLocationByPreviousCDL()
 {
 	auto cricleDotLinePrevious = _model->getCricleDotLinePrevious();
 	if (cricleDotLinePrevious == nullptr)
@@ -195,44 +207,10 @@ void LayerAcrossHandle::setLineLocationOfPreviousCDL()
 	cricleDotLinePrevious->setLineLocationTarget(location);
 }
 
-bool LayerAcrossHandle::getIsMoveToLast()
+void LayerAcrossHandle::confirmCricleDotLine()
 {
-	auto cricleDotLine = _model->getCricleDotLine();
-	if (cricleDotLine == nullptr)
-	{
-		return false;
-	}
-
-	auto cricleDotLineLast = _model->getCricleDotLinePrevious();
-	if (cricleDotLineLast == nullptr)
-	{
-		return false;
-	}
-
-	auto rotation = cricleDotLine->getLine()->getRotation();
-	auto rotationToLast = cricleDotLineLast->getLine()->getRotation();
-	rotationToLast = rotationToLast > 0 ? rotationToLast - 180.0f : 180.0f + rotationToLast;
-	/*log("////////////////////////");
-	log("rotation:%f", rotation);
-	log("rotationToLast:%f", rotationToLast);
-	log("////////////////////////");*/
-	auto rotationToLastMax = rotationToLast + 22.5f;
-	auto rotationToLastMin = rotationToLast - 22.5f;
-
-	auto rotationTrue = rotation;
-	if (rotation < 0 && rotationToLast > 0)
-	{
-		rotationTrue = rotationTrue + 360.0f;
-	}
-	else if (rotation > 0 && rotationToLast < 0)
-	{
-		rotationTrue = rotationTrue - 360.0f;
-	}
-	if (rotationTrue < rotationToLastMax && rotationTrue > rotationToLastMin)
-	{
-		return true;
-	}
-	return false;
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	dispatcher->dispatchCustomEvent(EVENT_LAYER_ACROSS_SELECTED);
 }
 
 bool LayerAcrossHandle::initializedCheck(float delta)

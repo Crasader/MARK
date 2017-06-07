@@ -134,6 +134,13 @@ void LayerAcrossModel::clearAcrossObjects()
 {
 	_vecAcrossObject.clear();
 }
+
+cocos2d::Node* LayerAcrossModel::getAcrossObject(const int& index)
+{
+	auto acrossObject = _vecAcrossObject.at(index);
+	return acrossObject;
+}
+
 int LayerAcrossModel::getIndexOfVecAcrossObjects(const cocos2d::Vec2& location)
 {
 	auto cricleDotLinePrevious = getCricleDotLinePrevious();
@@ -141,7 +148,7 @@ int LayerAcrossModel::getIndexOfVecAcrossObjects(const cocos2d::Vec2& location)
 	auto length = _vecAcrossObject.size();
 	for (auto i = 0; i < length; i++)
 	{
-		auto isAcrossed = _vecIsAcrossedAcrossObject.at(i);
+		auto isAcrossed = getIsAcrossed(i);
 		if (i != indexPrevious && isAcrossed) continue;
 
 		auto acrossObject = _vecAcrossObject.at(i);
@@ -156,4 +163,20 @@ int LayerAcrossModel::getIndexOfVecAcrossObjects(const cocos2d::Vec2& location)
 		}
 	}
 	return -1;
+}
+
+bool LayerAcrossModel::getIsAcrossed(const int& index)
+{
+	return _vecIsAcrossedAcrossObject.at(index);
+}
+
+void LayerAcrossModel::setIsAcrossed(const int& index, const bool& val)
+{
+	auto& isAcrossed = _vecIsAcrossedAcrossObject.at(index);
+	isAcrossed = val;
+}
+
+bool LayerAcrossModel::getIsResultConfirmed()
+{
+	return _numOfResult == _vecCricleDotLine.size();
 }

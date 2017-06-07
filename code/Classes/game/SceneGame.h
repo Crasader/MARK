@@ -56,11 +56,12 @@ public:
 	CC_SYNTHESIZE(bool, _isCreatedEntity, IsCreatedEntity);
 
 public://layers
-	cocos2d::Layer* getLayer(const TypeLayerInGame& type);
+	cocos2d::Layer* getLayerAndCreateIfNull(const TypeLayerInGame& type);
 	void setLayerPostion(const TypeLayerInGame& type, const cocos2d::Vec2& postion);
 	void setLayerNullptr(const TypeLayerInGame& type);
 
-	void setLayerAcrossNumSize(const int& numRow, const int& numColumn, const cocos2d::Size& size, const float& rowInterval = 1.0f, const float& columnInterval = 1.0f, const bool& isTest = false);
+	void queryAndSetDataOfLayerAcross();
+
 private:
 	cocos2d::Layer* createLayerByType(const TypeLayerInGame& type);
 	bool insertLayerByType(const TypeLayerInGame& type, cocos2d::Layer* layer);

@@ -217,7 +217,7 @@ void SceneGameHandle::updateBySubject(va_list values)
 
 void SceneGameHandle::createLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc /*= nullptr*/)
 {
-	auto layer = _model->getLayer(type);
+	auto layer = _model->getLayerAndCreateIfNull(type);
 	_view->addLayer(layer);
 
 	if (extraFunc != nullptr)
@@ -233,14 +233,14 @@ void SceneGameHandle::deleteLayer(const TypeLayerInGame& type, const std::functi
 		extraFunc();
 	}
 
-	auto layer = _model->getLayer(type);
+	auto layer = _model->getLayerAndCreateIfNull(type);
 	_view->removeLayer(layer);
 	_model->setLayerNullptr(type);
 }
 
 void SceneGameHandle::switchLayer(const TypeLayerInGame& type, const std::function<void()>& extraFunc /*= nullptr*/)
 {
-	auto layer = _model->getLayer(type);
+	auto layer = _model->getLayerAndCreateIfNull(type);
 	if (layer->getParent() == nullptr)
 	{
 		createLayer(type, extraFunc);
@@ -252,13 +252,5 @@ void SceneGameHandle::switchLayer(const TypeLayerInGame& type, const std::functi
 }
 void SceneGameHandle::extraFuncCreateLayerAcross(/*va_list values*/)
 {
-	auto postionX = 320.0f/*(float)va_arg(values, double)*/;
-	auto postionY = 480.0f/*(float)va_arg(values, double)*/;
-	auto numRow = 3/*va_arg(values, int)*/;
-	auto numColumn = 3/*va_arg(values, int)*/;
-	auto sizeWidth = 150.0f/*(float)va_arg(values, double)*/;
-	auto sizeHeight = 150.0f/*(float)va_arg(values, double)*/;
-
-	_model->setLayerPostion(TypeLayerInGame::ACROSS, Vec2(postionX, postionY));
-	_model->setLayerAcrossNumSize(numRow, numColumn, Size(sizeWidth, sizeHeight), 60.0f, 60.0f, true);
+	_model->queryAndSetDataOfLayerAcross();
 }
