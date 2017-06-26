@@ -103,6 +103,7 @@ void SceneWelcomeHandle::playedLogo()
 
 void SceneWelcomeHandle::replaceScene()
 {
-	_view->replaceSceneToGame();
+	auto sceneNext = _model->getNextScene();
+	_view->replaceSceneToNext(sceneNext);
 	_model->setState(StateWelcome::DEFAULT);
 }

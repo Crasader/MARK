@@ -1,5 +1,4 @@
 #include "SceneWelcome.h"
-#include "game/SceneGame.h"
 
 USING_NS_CC;
 
@@ -49,20 +48,17 @@ void SceneWelcome::removeLayer(Layer* layer)
 	layer->removeFromParent();
 }
 
-void SceneWelcome::replaceSceneToGame()
+void SceneWelcome::replaceSceneToNext(cocos2d::Scene* sceneNext, const float& duration /*= 1.0f*/)
 {
-	auto scene = SceneGame::create();
+	auto actionDelay = DelayTime::create(duration);
+	auto acionCallFunc = CallFunc::create([sceneNext]()
+	{
+		sceneNext->scheduleUpdate();
+	});
+	sceneNext->runAction(Sequence::create(actionDelay, acionCallFunc, nullptr));
 
-	auto duration = 1.0f;//1s
 	/*auto animateScene = TransitionMoveInB::create(0.3f, scene);*/
-	auto animateScene = TransitionFade::create(duration, scene);
+	auto animateScene = TransitionFade::create(duration, sceneNext);
 	/*auto animateScene = TransitionPageTurn::create(duration, scene, false);*/
 	Director::getInstance()->replaceScene(animateScene);
-
-	auto actionDelay = DelayTime::create(duration);
-	auto acionCallFunc = CallFunc::create([scene]()
-	{
-		scene->scheduleUpdate();
-	});
-	scene->runAction(Sequence::create(actionDelay, acionCallFunc, nullptr));
 }

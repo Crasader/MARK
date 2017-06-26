@@ -1,5 +1,6 @@
 #include "SceneWelcome.h"
 #include "logo/LayerLogo.h"
+#include "game/SceneGame.h"
 
 USING_NS_CC;
 
@@ -98,3 +99,7 @@ void SceneWelcomeModel::removeEventLIstenerLogoOver()
 	dispatcher->removeEventListener(_listenerLogoOver);
 }
 
+cocos2d::Scene* SceneWelcomeModel::getNextScene()
+{
+	return SceneGame::create();
+}

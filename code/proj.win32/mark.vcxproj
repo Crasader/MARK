@@ -289,6 +289,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\model\data\ManagerData.h" />
+    <ClInclude Include="..\Classes\tests\DbTest.h" />
+    <ClInclude Include="..\Classes\welcome\ISceneWelcome.h" />
     <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h" />
     <ClInclude Include="..\Classes\welcome\SceneWelcome.h" />
     <ClInclude Include="main.h" />

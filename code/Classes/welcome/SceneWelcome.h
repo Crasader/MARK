@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "common/stateCallback/StateCallback.h"
+#include "ISceneWelcome.h"
 
 enum class StateWelcome
 {
@@ -54,15 +55,10 @@ public://ListenerLayerLogoOver
 	void removeEventLIstenerLogoOver();
 	CC_SYNTHESIZE_READONLY(cocos2d::EventListenerCustom*, _listenerLogoOver, ListenerLogoOver);
 	
-};
-
-class ISceneWelcome
-{
 public:
-	virtual void addLayer(cocos2d::Layer* layer) {}
-	virtual void removeLayer(cocos2d::Layer* layer) {}
-	virtual void replaceSceneToGame() {}//切换为游戏场景
-
+	cocos2d::Scene* getNextScene();
+private:
+	
 };
 
 class SceneWelcomeHandle : public cocos2d::Ref
@@ -79,12 +75,11 @@ public:
 
 	void update(float delta);
 
-	void setView(ISceneWelcome* val) { _view = val; }
-
-private:
+private://layers
 	void createLayer(const TypeLayerInWelcome& type);
 	void deleteLayer(const TypeLayerInWelcome& type);
 
+private://layerlogo
 	void playLogo();
 	void addEventLayerLogoOver();
 	void removeEventLayerLogoOver();
@@ -93,10 +88,14 @@ private:
 	bool playedLogoCheck(float delta);
 	void playedLogo();
 
+private://nextScene
 	void replaceScene();
 
-	ISceneWelcome* _view;
-	SceneWelcomeModel* _model;
+public://view
+	CC_SYNTHESIZE(ISceneWelcome*, _view, View);
+
+public://model
+	CC_SYNTHESIZE_READONLY(SceneWelcomeModel*, _model, Model);
 
 };
 
@@ -115,7 +114,7 @@ public:
 	virtual void addLayer(cocos2d::Layer* layer);
 	virtual void removeLayer(cocos2d::Layer* layer);
 
-	virtual void replaceSceneToGame();//切换为游戏场景
+	virtual void replaceSceneToNext(cocos2d::Scene* sceneNext, const float& duration = 1.0f);//切换为游戏场景
 
 private:
 	SceneWelcomeHandle* _handle;
