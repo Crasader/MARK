@@ -1,5 +1,5 @@
-#ifndef __COMMON_BIT_DATA_BIT_DATA_H__
-#define __COMMON_BIT_DATA_BIT_DATA_H__
+#ifndef __BIT_DATA_H__
+#define __BIT_DATA_H__
 
 #include "cocos2d.h"
 #include <vector>

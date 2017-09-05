@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "common/define/DefinesNamespace.h"
 #include "common/stateCallback/StateCallback.h"
-#include "common/bitData/BitData.h"
+#include "common/util/BitData.h"
 #include "common/observer/Observer.h"
 #include "Entity.h"
 

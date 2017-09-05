@@ -1,5 +1,5 @@
-#ifndef __COMMON_SQLITE_MANAGER_SQLITE_H__
-#define __COMMON_SQLITE_MANAGER_SQLITE_H__
+#ifndef __DB_HELPER_H__
+#define __DB_HELPER_H__
 
 #include "cocos2d.h"
 #include "sqlite3.h"

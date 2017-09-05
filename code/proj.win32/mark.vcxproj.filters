@@ -28,9 +28,6 @@
     <Filter Include="src\common\util">
       <UniqueIdentifier>{b3735066-28b3-45b4-9ed1-991246b7da93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\bitData">
-      <UniqueIdentifier>{c2361aba-a4f2-44d0-b8be-4b3cca4643a8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\common\sqlite">
       <UniqueIdentifier>{3a86a9d8-bc31-40bc-a29d-bcaaea492440}</UniqueIdentifier>
     </Filter>
@@ -109,6 +106,9 @@
     <Filter Include="src\tests">
       <UniqueIdentifier>{10a76b67-a54b-49c6-b7ea-543f8fd5f3b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\common\util\bitData">
+      <UniqueIdentifier>{c2361aba-a4f2-44d0-b8be-4b3cca4643a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -167,9 +167,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\model\data\ManagerData.cpp">
       <Filter>src\model\data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\bitData\BitData.cpp">
-      <Filter>src\common\bitData</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\common\sqlite\DbHelper.cpp">
       <Filter>src\common\sqlite</Filter>
@@ -372,6 +369,9 @@
     <ClCompile Include="..\Classes\game\entity\RuneHandle.cpp">
       <Filter>src\game\entity\subs\unit\rune</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\common\util\BitData.cpp">
+      <Filter>src\common\util\bitData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -403,9 +403,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\model\data\ManagerData.h">
       <Filter>src\model\data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\bitData\BitData.h">
-      <Filter>src\common\bitData</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\common\sqlite\DbHelper.h">
       <Filter>src\common\sqlite</Filter>
@@ -556,6 +553,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\welcome\ISceneWelcome.h">
       <Filter>src\welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\BitData.h">
+      <Filter>src\common\util\bitData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
