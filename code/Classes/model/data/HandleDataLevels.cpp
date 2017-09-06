@@ -3,7 +3,7 @@
 #include "ManagerData.h"
 #include "common/util/UtilString.h"
 #include "common/basic/ManagerCfg.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "common/util/UtilRandom.h"
 #include "game/ManagerHandle.h"
 

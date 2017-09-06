@@ -3,9 +3,9 @@
 #include "NodeHead.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "common/basic/ManagerCfg.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "game/ManagerHandle.h"
 
 using namespace ui;

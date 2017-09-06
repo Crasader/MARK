@@ -1,11 +1,11 @@
 ﻿#pragma execution_character_set("utf-8")
 
 #include "LayerMenuSystem.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include <vector>
 #include <string>
 #include "game/ManagerHandle.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 USING_NS_CC;
 using namespace ui;

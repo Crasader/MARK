@@ -1,10 +1,10 @@
 #pragma execution_character_set("utf-8")
 
 #include "LayerGridSelect.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 #include "game/temp/Grid.h"
 #include "game/temp/ManagerGrid.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "common/util/Shake.h"
 #include "game/ManagerHandle.h"
 

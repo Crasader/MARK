@@ -2,7 +2,7 @@
 
 #include "Monster.h"
 #include "ManagerEntity.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "../ManagerHandle.h"
 
 using namespace coreTemp;

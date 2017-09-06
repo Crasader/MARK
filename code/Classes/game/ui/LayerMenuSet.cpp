@@ -1,9 +1,9 @@
 #pragma execution_character_set("utf-8")
 
 #include "LayerMenuSet.h"
-#include "common/define/DefinesRes.h"
-#include "common/define/DefinesValue.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesRes.h"
+#include "defines/DefinesValue.h"
+#include "defines/DefinesString.h"
 #include "cocostudio/ActionTimeline/CSLoader.h"
 
 USING_NS_CC;

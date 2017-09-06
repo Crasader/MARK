@@ -2,7 +2,7 @@
 #define __ENTITY_H__
 
 #include "cocos2d.h"
-#include "common/define/DefinesNamespace.h"
+#include "defines/DefinesNamespace.h"
 #include "common/basic/StateCallback.h"
 
 NS_BEGIN_GAME_ENTITY

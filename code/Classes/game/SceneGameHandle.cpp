@@ -1,6 +1,6 @@
 #include "SceneGame.h"
 #include "common/util/UtilRandom.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 #include "ManagerHandle.h"
 
 USING_NS_CC;

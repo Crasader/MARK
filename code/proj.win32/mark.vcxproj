@@ -237,10 +237,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\basic\ManagerCfgDefines.h" />
     <ClInclude Include="..\Classes\common\basic\Observer.h" />
     <ClInclude Include="..\Classes\common\basic\StateCallback.h" />
-    <ClInclude Include="..\Classes\common\define\DefinesNamespace.h" />
-    <ClInclude Include="..\Classes\common\define\DefinesRes.h" />
-    <ClInclude Include="..\Classes\common\define\DefinesString.h" />
-    <ClInclude Include="..\Classes\common\define\DefinesValue.h" />
     <ClInclude Include="..\Classes\common\util\BitData.h" />
     <ClInclude Include="..\Classes\common\util\Shake.h" />
     <ClInclude Include="..\Classes\common\util\SpriteBlur.h" />
@@ -251,6 +247,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />
     <ClInclude Include="..\Classes\common\util\UtilString.h" />
+    <ClInclude Include="..\Classes\defines\DefinesNamespace.h" />
+    <ClInclude Include="..\Classes\defines\DefinesRes.h" />
+    <ClInclude Include="..\Classes\defines\DefinesString.h" />
+    <ClInclude Include="..\Classes\defines\DefinesValue.h" />
     <ClInclude Include="..\Classes\game\across\CricleDotLine.h" />
     <ClInclude Include="..\Classes\game\across\LayerAcross.h" />
     <ClInclude Include="..\Classes\game\entity\Attribute.h" />

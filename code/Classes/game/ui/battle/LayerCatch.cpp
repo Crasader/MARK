@@ -1,10 +1,10 @@
 #pragma execution_character_set("utf-8")
 
 #include "LayerCatch.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "common/util/UtilRandom.h"
 #include "model/data/ManagerData.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "common/basic/ManagerCfg.h"
 #include "game/ManagerHandle.h"
 

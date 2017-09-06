@@ -1,6 +1,6 @@
 #include "LayerResLoad.h"
 #include <string>
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;

@@ -2,7 +2,7 @@
 
 #include "Maid.h"
 #include "cocostudio/CocoStudio.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "../ManagerHandle.h"
 #include "ManagerEntity.h"
 

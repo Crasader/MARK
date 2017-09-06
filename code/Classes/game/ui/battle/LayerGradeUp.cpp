@@ -1,7 +1,7 @@
 #pragma execution_character_set("utf-8")
 
 #include "LayerGradeUp.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "model/data/ManagerData.h"
 #include "NodeHead.h"
 #include "game/ManagerHandle.h"

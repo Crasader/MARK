@@ -1,7 +1,7 @@
 #pragma execution_character_set("utf-8")
 
 #include "NodeCircleLine.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "game/temp/ManagerGrid.h"
 #include "game/ManagerHandle.h"
 

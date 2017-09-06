@@ -1,5 +1,5 @@
 #include "LayerLogo.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;

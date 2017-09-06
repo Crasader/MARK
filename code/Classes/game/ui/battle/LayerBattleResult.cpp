@@ -2,8 +2,8 @@
 
 #include "LayerBattleResult.h"
 
-#include "common/define/DefinesRes.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesRes.h"
+#include "defines/DefinesString.h"
 #include "model/data/ManagerData.h"
 #include "common/basic/ManagerCfg.h"
 #include "game/ManagerHandle.h"

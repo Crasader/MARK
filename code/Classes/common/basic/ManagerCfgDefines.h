@@ -5,7 +5,7 @@
 
 #include <string>
 #include <map>
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 struct CfgAttribute//属性
 {

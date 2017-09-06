@@ -61,9 +61,6 @@
     <Filter Include="src\welcome">
       <UniqueIdentifier>{860e387c-bb2c-4eae-a070-7a25e70b036e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\define">
-      <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\welcome\logo">
       <UniqueIdentifier>{f32c563d-1e5f-4c37-ba92-2d0cc7ab660e}</UniqueIdentifier>
     </Filter>
@@ -114,6 +111,9 @@
     </Filter>
     <Filter Include="src\common\util\shake">
       <UniqueIdentifier>{5b3a62c1-15d4-480f-aaf4-cf078ea9c998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\defines">
+      <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -473,18 +473,6 @@
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h">
       <Filter>src\game\ui\menu\system</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\common\define\DefinesNamespace.h">
-      <Filter>src\common\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\define\DefinesRes.h">
-      <Filter>src\common\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\define\DefinesString.h">
-      <Filter>src\common\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\define\DefinesValue.h">
-      <Filter>src\common\define</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\welcome\SceneWelcome.h">
       <Filter>src\welcome</Filter>
     </ClInclude>
@@ -559,6 +547,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\util\sqlite\DbHelper.h">
       <Filter>src\common\util\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\defines\DefinesNamespace.h">
+      <Filter>src\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\defines\DefinesRes.h">
+      <Filter>src\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\defines\DefinesString.h">
+      <Filter>src\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\defines\DefinesValue.h">
+      <Filter>src\defines</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

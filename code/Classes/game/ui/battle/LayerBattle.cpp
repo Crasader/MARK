@@ -2,8 +2,8 @@
 
 #include "LayerBattle.h"
 #include "cocostudio/CocoStudio.h"
-#include "common/define/DefinesRes.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesRes.h"
+#include "defines/DefinesValue.h"
 #include "game/temp/ManagerEntity.h"
 #include "LayerBattleResult.h"
 #include "LayerCatch.h"

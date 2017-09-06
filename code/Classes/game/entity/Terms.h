@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "Attribute.h"
-#include "common/define/DefinesNamespace.h"
+#include "defines/DefinesNamespace.h"
 
 NS_BEGIN_GAME_ENTITY
 

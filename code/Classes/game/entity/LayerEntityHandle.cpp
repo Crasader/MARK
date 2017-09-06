@@ -1,5 +1,5 @@
 #include "LayerEntity.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 #include "game/ManagerHandle.h"
 
 USING_NS_GAME_ENTITY;

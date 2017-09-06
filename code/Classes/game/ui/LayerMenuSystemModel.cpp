@@ -1,6 +1,6 @@
 #include "LayerMenuSystem.h"
 #include "cocostudio/ActionTimeline/CSLoader.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 
 USING_NS_CC;
 using namespace ui;

@@ -2,7 +2,7 @@
 #define __LAYER_ENTITY_H__
 
 #include "cocos2d.h"
-#include "common/define/DefinesNamespace.h"
+#include "defines/DefinesNamespace.h"
 #include "common/basic/StateCallback.h"
 #include "common/util/BitData.h"
 #include "common/basic/Observer.h"

@@ -2,8 +2,8 @@
 
 #include "LayerResLoad.h"
 #include "common/util/UtilString.h"
-#include "common/define/DefinesRes.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesRes.h"
+#include "defines/DefinesValue.h"
 #include "cocos2d/cocos/audio/include/SimpleAudioEngine.h"
 #include "common/util/UtilDate.h"
 #include "game/ManagerHandle.h"

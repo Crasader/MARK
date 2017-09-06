@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 #include "common/util/UtilString.h"
 #include "ManagerCfgDefines.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 USING_NS_CC;
 

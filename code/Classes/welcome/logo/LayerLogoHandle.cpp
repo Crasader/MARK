@@ -1,5 +1,5 @@
 #include "LayerLogo.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 USING_NS_CC;
 

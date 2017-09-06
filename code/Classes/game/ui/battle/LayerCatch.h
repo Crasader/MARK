@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 USING_NS_CC;
 using namespace ui;

@@ -1,7 +1,7 @@
 #pragma execution_character_set("utf-8")
 
 #include "Grid.h"
-#include "common/define/DefinesRes.h"
+#include "defines/DefinesRes.h"
 #include "ManagerGrid.h"
 #include "common/basic/ManagerCfg.h"
 #include "ui/UIText.h"

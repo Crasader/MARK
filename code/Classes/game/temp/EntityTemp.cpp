@@ -4,7 +4,7 @@
 #include "model/data/ManagerData.h"
 #include "ManagerEntity.h"
 #include "ManagerGrid.h"
-#include "common/define/DefinesString.h"
+#include "defines/DefinesString.h"
 #include "../ManagerHandle.h"
 
 using namespace CocosDenshion;

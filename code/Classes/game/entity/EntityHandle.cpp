@@ -1,6 +1,6 @@
 #include "Entity.h"
 #include "game/ManagerHandle.h"
-#include "common/define/DefinesValue.h"
+#include "defines/DefinesValue.h"
 
 USING_NS_CC;
 USING_NS_GAME_ENTITY;

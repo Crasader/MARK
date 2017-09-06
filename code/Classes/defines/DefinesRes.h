@@ -1,7 +1,7 @@
 ﻿#pragma execution_character_set("utf-8")
 
-#ifndef __COMMON_DEFINE_DEFINES_RES_H__
-#define __COMMON_DEFINE_DEFINES_RES_H__
+#ifndef __DEFINES_RES_H__
+#define __DEFINES_RES_H__
 
 #define RES_FONTS_KTJT "fonts/ktjt.ttf" 
 

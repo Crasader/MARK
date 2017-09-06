@@ -1,5 +1,5 @@
-#ifndef __COMMON_DEFINE_DEFINES_NAMESPACE_H__
-#define __COMMON_DEFINE_DEFINES_NAMESPACE_H__
+#ifndef __DEFINES_NAMESPACE_H__
+#define __DEFINES_NAMESPACE_H__
 
 #define NS_BEGIN_MODEL_DEFINE namespace model { namespace define { 
 #define USING_NS_MODEL_DEFINE using namespace model::define
