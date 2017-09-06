@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 #include <string>
 #include "common/util/BitData.h"
-#include "common/stateCallback/StateCallback.h"
+#include "common/basic/StateCallback.h"
 
 #define EVENT_LAYER_RES_LOAD_LOADED "event_layer_res_load_loaded"
 

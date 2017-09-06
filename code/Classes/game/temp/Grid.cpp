@@ -3,7 +3,7 @@
 #include "Grid.h"
 #include "common/define/DefinesRes.h"
 #include "ManagerGrid.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "ui/UIText.h"
 
 using namespace cocostudio::timeline;

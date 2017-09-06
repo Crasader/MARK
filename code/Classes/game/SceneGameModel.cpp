@@ -1,5 +1,5 @@
 #include "SceneGame.h"
-#include "common/sqlite/DbHelper.h"
+#include "common/util/sqlite/DbHelper.h"
 #include "resload/LayerResLoad.h"
 #include "entity/LayerEntity.h"
 #include "across/LayerAcross.h"
@@ -79,6 +79,8 @@ void SceneGameModel::queryAndSetDataOfLayerAcross()
 	}
 
 	//从数据库中获取数据
+	auto dbHelper = DbHelper::getInstance();
+	/*dbHelper->dataQuery("","");*/
 	auto numRow = 3;
 	auto numColumn = 3;
 	auto sizeWidth = 150.0f;

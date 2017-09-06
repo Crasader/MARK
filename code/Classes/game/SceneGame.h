@@ -2,8 +2,8 @@
 #define __SCENE_GAME_H__
 
 #include "cocos2d.h"
-#include "common/stateCallback/StateCallback.h"
-#include "common/observer/Observer.h"
+#include "common/basic/StateCallback.h"
+#include "common/basic/Observer.h"
 
 enum class StateGame
 {

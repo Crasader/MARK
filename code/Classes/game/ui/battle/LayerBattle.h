@@ -4,7 +4,7 @@
 #define __UI_MAIN_BATTLE_LAYER_BATTLE_H__
 
 #include "cocos2d.h"
-#include "common/observer/Observer.h"
+#include "common/basic/Observer.h"
 #include "game/ui/ILayerAppearDisappear.h"
 #include "HandleUIEntity.h"
 #include "HandleBg.h"

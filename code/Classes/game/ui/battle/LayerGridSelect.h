@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 #include "ui/UILayout.h"
 #include "NodeCircleLine.h"
-#include "common/observer/Observer.h"
+#include "common/basic/Observer.h"
 
 USING_NS_CC;
 using namespace ui;

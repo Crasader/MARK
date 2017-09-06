@@ -2,7 +2,7 @@
 
 #include "ManagerData.h"
 #include "common/util/UtilString.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 
 HandleDataUnlock::HandleDataUnlock() : 
 	_isDataFileInit(false),

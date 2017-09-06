@@ -5,7 +5,7 @@
 
 #include "cocos2d.h"
 #include "ui/UILayout.h"
-#include "common/observer/Observer.h"
+#include "common/basic/Observer.h"
 #include "game/temp/Grid.h"
 
 USING_NS_CC;

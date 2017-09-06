@@ -5,7 +5,7 @@
 
 #include "cocos2d.h"
 #include "common/define/DefinesValue.h"
-#include "common/config/ManagerCfgDefines.h"
+#include "common/basic/ManagerCfgDefines.h"
 
 USING_NS_CC;
 using namespace std;

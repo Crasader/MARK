@@ -5,7 +5,7 @@
 #include "common/util/UtilRandom.h"
 #include "model/data/ManagerData.h"
 #include "common/define/DefinesString.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "game/ManagerHandle.h"
 
 LayerCatch::LayerCatch() : _skin(nullptr), _index(-1), _remain(0), _typeSelectedMaid(0), _typeSelectedMst(0), _isSuccess(false)

@@ -2,7 +2,7 @@
 #define __SCENE_WELCOME_H__
 
 #include "cocos2d.h"
-#include "common/stateCallback/StateCallback.h"
+#include "common/basic/StateCallback.h"
 #include "ISceneWelcome.h"
 
 enum class StateWelcome

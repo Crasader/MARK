@@ -5,7 +5,7 @@
 #include "game/temp/Grid.h"
 #include "game/temp/ManagerGrid.h"
 #include "common/define/DefinesRes.h"
-#include "common/shake/Shake.h"
+#include "common/util/Shake.h"
 #include "game/ManagerHandle.h"
 
 using namespace coreTemp;

@@ -1,7 +1,6 @@
 #pragma execution_character_set("utf-8")
 
 #include "Scenery.h"
-#include "common/spriteBlur/SpriteBlur.h"
 #include "model/data/ManagerData.h"
 
 using namespace coreTemp;

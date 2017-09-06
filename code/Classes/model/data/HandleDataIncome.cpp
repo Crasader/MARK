@@ -1,6 +1,6 @@
 #include "ManagerData.h"
 #include "common/util/UtilString.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 
 DataTrainingInfo::DataTrainingInfo() : _idEntity(0), _valueLv(0), _valuePrecent(0), _isClothed(false)
 {

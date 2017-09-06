@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "CricleDotLine.h"
-#include "common/stateCallback/StateCallback.h"
+#include "common/basic/StateCallback.h"
 #include <vector>
 
 #define EVENT_LAYER_ACROSS_SELECTED "event_layer_across_selected"

@@ -2,7 +2,7 @@
 
 #include "ManagerGrid.h"
 #include "common/util/UtilString.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "../ManagerHandle.h"
 
 using namespace coreTemp;

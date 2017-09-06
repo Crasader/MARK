@@ -1,7 +1,7 @@
 ﻿#pragma execution_character_set("utf-8")
 
 #include "ManagerData.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "common/util/UtilRandom.h"
 #include "common/util/UtilDate.h"
 #include "game/temp/ManagerGrid.h"

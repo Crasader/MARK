@@ -5,7 +5,7 @@
 #include "common/define/DefinesRes.h"
 #include "common/define/DefinesString.h"
 #include "model/data/ManagerData.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "game/ManagerHandle.h"
 
 LayerBattleResult::LayerBattleResult() : _skin(nullptr), _isAppearing(false)

@@ -2,7 +2,7 @@
 #define __MANAGER_HANDLE_H__
 
 #include "cocos2d.h"
-#include "common/observer/Observer.h"
+#include "common/basic/Observer.h"
 
 class ManagerHandle : public Subject
 {

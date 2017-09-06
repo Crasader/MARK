@@ -145,14 +145,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\common\config\ManagerCfg.cpp" />
-    <ClCompile Include="..\Classes\common\observer\Observer.cpp" />
-    <ClCompile Include="..\Classes\common\shake\Shake.cpp" />
-    <ClCompile Include="..\Classes\common\spriteBlur\SpriteBlur.cpp" />
-    <ClCompile Include="..\Classes\common\sqlite\DbHelper.cpp" />
-    <ClCompile Include="..\Classes\common\sqlite\shell.c" />
-    <ClCompile Include="..\Classes\common\sqlite\sqlite3.c" />
+    <ClCompile Include="..\Classes\common\basic\ManagerCfg.cpp" />
+    <ClCompile Include="..\Classes\common\basic\Observer.cpp" />
     <ClCompile Include="..\Classes\common\util\BitData.cpp" />
+    <ClCompile Include="..\Classes\common\util\Shake.cpp" />
+    <ClCompile Include="..\Classes\common\util\SpriteBlur.cpp" />
+    <ClCompile Include="..\Classes\common\util\sqlite\DbHelper.cpp" />
+    <ClCompile Include="..\Classes\common\util\sqlite\sqlite3.c" />
     <ClCompile Include="..\Classes\common\util\UtilDate.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilHelper.cpp" />
     <ClCompile Include="..\Classes\common\util\UtilRandom.cpp" />
@@ -234,20 +233,20 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\common\config\ManagerCfg.h" />
-    <ClInclude Include="..\Classes\common\config\ManagerCfgDefines.h" />
+    <ClInclude Include="..\Classes\common\basic\ManagerCfg.h" />
+    <ClInclude Include="..\Classes\common\basic\ManagerCfgDefines.h" />
+    <ClInclude Include="..\Classes\common\basic\Observer.h" />
+    <ClInclude Include="..\Classes\common\basic\StateCallback.h" />
     <ClInclude Include="..\Classes\common\define\DefinesNamespace.h" />
     <ClInclude Include="..\Classes\common\define\DefinesRes.h" />
     <ClInclude Include="..\Classes\common\define\DefinesString.h" />
     <ClInclude Include="..\Classes\common\define\DefinesValue.h" />
-    <ClInclude Include="..\Classes\common\observer\Observer.h" />
-    <ClInclude Include="..\Classes\common\shake\Shake.h" />
-    <ClInclude Include="..\Classes\common\spriteBlur\SpriteBlur.h" />
-    <ClInclude Include="..\Classes\common\sqlite\DbHelper.h" />
-    <ClInclude Include="..\Classes\common\sqlite\sqlite3.h" />
-    <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h" />
-    <ClInclude Include="..\Classes\common\stateCallback\StateCallback.h" />
     <ClInclude Include="..\Classes\common\util\BitData.h" />
+    <ClInclude Include="..\Classes\common\util\Shake.h" />
+    <ClInclude Include="..\Classes\common\util\SpriteBlur.h" />
+    <ClInclude Include="..\Classes\common\util\sqlite\DbHelper.h" />
+    <ClInclude Include="..\Classes\common\util\sqlite\sqlite3.h" />
+    <ClInclude Include="..\Classes\common\util\sqlite\sqlite3ext.h" />
     <ClInclude Include="..\Classes\common\util\UtilDate.h" />
     <ClInclude Include="..\Classes\common\util\UtilHelper.h" />
     <ClInclude Include="..\Classes\common\util\UtilRandom.h" />

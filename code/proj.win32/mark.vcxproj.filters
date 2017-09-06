@@ -19,17 +19,8 @@
     <Filter Include="src\model\data">
       <UniqueIdentifier>{c435b92b-b4cf-4632-9eb7-9a35504a08c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\observer">
-      <UniqueIdentifier>{6285f443-5ce4-4e67-a9e1-79f951df0116}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\common\shake">
-      <UniqueIdentifier>{5b3a62c1-15d4-480f-aaf4-cf078ea9c998}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\common\util">
       <UniqueIdentifier>{b3735066-28b3-45b4-9ed1-991246b7da93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\common\sqlite">
-      <UniqueIdentifier>{3a86a9d8-bc31-40bc-a29d-bcaaea492440}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\game">
       <UniqueIdentifier>{50531dc9-dc22-491e-bafe-b01a34a119dd}</UniqueIdentifier>
@@ -70,14 +61,8 @@
     <Filter Include="src\welcome">
       <UniqueIdentifier>{860e387c-bb2c-4eae-a070-7a25e70b036e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\spriteBlur">
-      <UniqueIdentifier>{9025b739-c0bc-4afa-bf48-cc394bd5d1e4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\common\define">
       <UniqueIdentifier>{7fa9417b-844b-4ea7-9562-017d41326353}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\common\config">
-      <UniqueIdentifier>{9b9bd056-09be-4840-afc0-be4013adfb62}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\welcome\logo">
       <UniqueIdentifier>{f32c563d-1e5f-4c37-ba92-2d0cc7ab660e}</UniqueIdentifier>
@@ -97,9 +82,6 @@
     <Filter Include="src\game\entity\subs\unit\rune">
       <UniqueIdentifier>{ac3edc78-5a47-47a4-989a-472208712f5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\stateCallback">
-      <UniqueIdentifier>{4fa2701d-8b68-481a-89d4-4cd2cb0b489c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game\ui\menu\set">
       <UniqueIdentifier>{75d4c44a-984f-463f-a9e9-0f439db9108f}</UniqueIdentifier>
     </Filter>
@@ -108,6 +90,30 @@
     </Filter>
     <Filter Include="src\common\util\bitData">
       <UniqueIdentifier>{c2361aba-a4f2-44d0-b8be-4b3cca4643a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\basic">
+      <UniqueIdentifier>{33d5eba9-445b-496f-a332-2b2f014533e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\date">
+      <UniqueIdentifier>{03c5c18d-3d7f-4027-b06f-0f78cca2e9fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\helper">
+      <UniqueIdentifier>{537953e5-813e-47c5-91c6-7bab4f46399c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\random">
+      <UniqueIdentifier>{5ea77707-041e-4b3b-a3dc-34af068c974b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\str">
+      <UniqueIdentifier>{ff68ea8f-0518-4b0a-9bc1-3ba3eac293bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\sqlite">
+      <UniqueIdentifier>{3a86a9d8-bc31-40bc-a29d-bcaaea492440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\spriteBlur">
+      <UniqueIdentifier>{9025b739-c0bc-4afa-bf48-cc394bd5d1e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\util\shake">
+      <UniqueIdentifier>{5b3a62c1-15d4-480f-aaf4-cf078ea9c998}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -119,24 +125,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\util\UtilDate.cpp">
-      <Filter>src\common\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\util\UtilHelper.cpp">
-      <Filter>src\common\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\util\UtilRandom.cpp">
-      <Filter>src\common\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\util\UtilString.cpp">
-      <Filter>src\common\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\shake\Shake.cpp">
-      <Filter>src\common\shake</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\observer\Observer.cpp">
-      <Filter>src\common\observer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\model\data\HandleDataEntity.cpp">
       <Filter>src\model\data</Filter>
@@ -167,15 +155,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\model\data\ManagerData.cpp">
       <Filter>src\model\data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\sqlite\DbHelper.cpp">
-      <Filter>src\common\sqlite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\sqlite\shell.c">
-      <Filter>src\common\sqlite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\sqlite\sqlite3.c">
-      <Filter>src\common\sqlite</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\game\ManagerHandle.cpp">
       <Filter>src\game</Filter>
@@ -254,12 +233,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\game\ui\LayerMenuSystem.cpp">
       <Filter>src\game\ui\menu\system</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\spriteBlur\SpriteBlur.cpp">
-      <Filter>src\common\spriteBlur</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\common\config\ManagerCfg.cpp">
-      <Filter>src\common\config</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\welcome\SceneWelcome.cpp">
       <Filter>src\welcome</Filter>
@@ -372,6 +345,36 @@
     <ClCompile Include="..\Classes\common\util\BitData.cpp">
       <Filter>src\common\util\bitData</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\common\basic\ManagerCfg.cpp">
+      <Filter>src\common\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\basic\Observer.cpp">
+      <Filter>src\common\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilDate.cpp">
+      <Filter>src\common\util\date</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilHelper.cpp">
+      <Filter>src\common\util\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilRandom.cpp">
+      <Filter>src\common\util\random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\UtilString.cpp">
+      <Filter>src\common\util\str</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\Shake.cpp">
+      <Filter>src\common\util\shake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\SpriteBlur.cpp">
+      <Filter>src\common\util\spriteBlur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\sqlite\sqlite3.c">
+      <Filter>src\common\util\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\util\sqlite\DbHelper.cpp">
+      <Filter>src\common\util\sqlite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -383,35 +386,8 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\common\util\UtilDate.h">
-      <Filter>src\common\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\util\UtilHelper.h">
-      <Filter>src\common\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\util\UtilRandom.h">
-      <Filter>src\common\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\util\UtilString.h">
-      <Filter>src\common\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\shake\Shake.h">
-      <Filter>src\common\shake</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\observer\Observer.h">
-      <Filter>src\common\observer</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\model\data\ManagerData.h">
       <Filter>src\model\data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\sqlite\DbHelper.h">
-      <Filter>src\common\sqlite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\sqlite\sqlite3.h">
-      <Filter>src\common\sqlite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\sqlite\sqlite3ext.h">
-      <Filter>src\common\sqlite</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game\ManagerHandle.h">
       <Filter>src\game</Filter>
@@ -497,9 +473,6 @@
     <ClInclude Include="..\Classes\game\ui\LayerMenuSystem.h">
       <Filter>src\game\ui\menu\system</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\common\spriteBlur\SpriteBlur.h">
-      <Filter>src\common\spriteBlur</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\common\define\DefinesNamespace.h">
       <Filter>src\common\define</Filter>
     </ClInclude>
@@ -511,12 +484,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\define\DefinesValue.h">
       <Filter>src\common\define</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\config\ManagerCfg.h">
-      <Filter>src\common\config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\common\config\ManagerCfgDefines.h">
-      <Filter>src\common\config</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\welcome\SceneWelcome.h">
       <Filter>src\welcome</Filter>
@@ -539,9 +506,6 @@
     <ClInclude Include="..\Classes\game\across\CricleDotLine.h">
       <Filter>src\game\across</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\common\stateCallback\StateCallback.h">
-      <Filter>src\common\stateCallback</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\welcome\logo\LayerLogo.h">
       <Filter>src\welcome\logo</Filter>
     </ClInclude>
@@ -556,6 +520,45 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common\util\BitData.h">
       <Filter>src\common\util\bitData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\basic\ManagerCfg.h">
+      <Filter>src\common\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\basic\ManagerCfgDefines.h">
+      <Filter>src\common\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\basic\Observer.h">
+      <Filter>src\common\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\basic\StateCallback.h">
+      <Filter>src\common\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilDate.h">
+      <Filter>src\common\util\date</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilHelper.h">
+      <Filter>src\common\util\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilRandom.h">
+      <Filter>src\common\util\random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\UtilString.h">
+      <Filter>src\common\util\str</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\Shake.h">
+      <Filter>src\common\util\shake</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\SpriteBlur.h">
+      <Filter>src\common\util\spriteBlur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\sqlite\sqlite3.h">
+      <Filter>src\common\util\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\sqlite\sqlite3ext.h">
+      <Filter>src\common\util\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common\util\sqlite\DbHelper.h">
+      <Filter>src\common\util\sqlite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,6 @@
 #include "cocostudio/CocoStudio.h"
 #include "common/define/DefinesRes.h"
 #include "common/define/DefinesValue.h"
-#include "common/shake/Shake.h"
 #include "game/temp/ManagerEntity.h"
 #include "LayerBattleResult.h"
 #include "LayerCatch.h"

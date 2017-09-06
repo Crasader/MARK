@@ -4,7 +4,7 @@
 #define __CORE_ENTITY_SUBS_CENERY_H__
 
 #include "cocos2d.h"
-#include "common/spriteBlur/SpriteBlur.h"
+#include "common/util/SpriteBlur.h"
 
 USING_NS_CC;
 

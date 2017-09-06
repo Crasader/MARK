@@ -4,7 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "common/define/DefinesRes.h"
-#include "common/config/ManagerCfg.h"
+#include "common/basic/ManagerCfg.h"
 #include "common/define/DefinesString.h"
 #include "game/ManagerHandle.h"
 

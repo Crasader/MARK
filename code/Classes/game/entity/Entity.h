@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "common/define/DefinesNamespace.h"
-#include "common/stateCallback/StateCallback.h"
+#include "common/basic/StateCallback.h"
 
 NS_BEGIN_GAME_ENTITY
 
