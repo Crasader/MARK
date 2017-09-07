@@ -4,9 +4,9 @@
 #define __LAYER_RES_LOAD_H__
 
 #include "cocos2d.h"
-#include <string>
-#include "common/util/BitData.h"
 #include "common/basic/StateCallback.h"
+#include "common/util/BitData.h"
+#include "ILayerResLoad.h"
 
 #define EVENT_LAYER_RES_LOAD_LOADED "event_layer_res_load_loaded"
 
@@ -48,15 +48,6 @@ private:
 	cocos2d::Node* _skin;
 	cocos2d::Node* _spriteLoad;
 	BitData* _bitData;
-
-};
-
-class ILayerResLoad
-{
-public:
-	virtual void addSkin(cocos2d::Node* skin) {}
-	virtual void playLoadAnimation(cocos2d::Node* node) {}//播放加载动画
-	virtual void stopLoadAnimation(cocos2d::Node* node) {}//停止加载动画
 
 };
 

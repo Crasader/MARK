@@ -2,8 +2,8 @@
 #define __LAYER_LOGO_H__
 
 #include "cocos2d.h"
-#include "cocostudio/CocoStudio.h"
 #include "common/basic/StateCallback.h"
+#include "ILayerLogo.h"
 
 #define EVENT_LAYER_LOGO_OVER "event_layer_logo_over"
 
@@ -47,14 +47,6 @@ public://duration
 private:
 	float _duration;
 	const float DURATION_TOTAL = 3.0f;
-
-};
-
-class ILayerLogo
-{
-public:
-	virtual void addSkin(cocos2d::Layer* skin) {}
-	virtual void playAnimation(cocos2d::Layer* skin, cocostudio::timeline::ActionTimeline* action, const std::string& animationName, const bool& isLoop) {}//²¥·Å¶¯»­
 
 };
 

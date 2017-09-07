@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "ui/UIWidget.h"
 #include "common/basic/StateCallback.h"
-#include "ui/UIButton.h"
+#include "ILayerMenuSystem.h"
 
 enum class StateLayerMenuSystem
 {
@@ -42,14 +42,6 @@ public://animation
 	cocos2d::Action* getAnimation();
 	CC_SYNTHESIZE_READONLY(bool, _isAnimationPlayOver, AnimationPlayOver);
 
-};
-
-class ILayerMenuSystem
-{
-public:
-	virtual void addLayer(cocos2d::Layer* layer) {}
-	virtual void addEvent(cocos2d::ui::Button* btn, const std::string& titleName, const cocos2d::ui::Widget::ccWidgetTouchCallback& onTouch) {}
-	virtual void playAnimation(cocos2d::Layer* layer, cocos2d::Action* action) {}
 };
 
 class LayerMenuSystemHandle : public cocos2d::Ref

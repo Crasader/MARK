@@ -560,6 +560,42 @@
     <ClInclude Include="..\Classes\defines\DefinesValue.h">
       <Filter>src\defines</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\welcome\logo\ILayerLogo.h">
+      <Filter>src\welcome\logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ISceneGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerMenuSystem.h">
+      <Filter>src\game\ui\menu\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\ILayerMenuSet.h">
+      <Filter>src\game\ui\menu\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\resload\ILayerResLoad.h">
+      <Filter>src\game\resload</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\across\ILayerAcross.h">
+      <Filter>src\game\across</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ILayerEntity.h">
+      <Filter>src\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\IEntity.h">
+      <Filter>src\game\entity\subs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\IRune.h">
+      <Filter>src\game\entity\subs\unit\rune</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\IUnit.h">
+      <Filter>src\game\entity\subs\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\IRegion.h">
+      <Filter>src\game\entity\subs\unit\Region</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\entity\ICreature.h">
+      <Filter>src\game\entity\subs\unit\creature</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

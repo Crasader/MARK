@@ -5,6 +5,7 @@
 #include "CricleDotLine.h"
 #include "common/basic/StateCallback.h"
 #include <vector>
+#include "ILayerAcross.h"
 
 #define EVENT_LAYER_ACROSS_SELECTED "event_layer_across_selected"
 
@@ -77,16 +78,6 @@ protected:
 public:
 	bool getIsResultConfirmed();
 	CC_SYNTHESIZE(int, _numOfResult, NumOfResult);
-
-};
-
-class ILayerAcross
-{
-public:
-	virtual void setContentSizeByAcrossObject(const cocos2d::Size& size) {}
-	virtual void addEvent(cocos2d::EventListenerTouchOneByOne* listener) {}
-	virtual void removeEvent(cocos2d::EventListenerTouchOneByOne* listener) {}
-	virtual void addNodeTo(cocos2d::Node* node, const cocos2d::Vec2& postion) {}
 
 };
 

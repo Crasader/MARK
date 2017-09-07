@@ -2,9 +2,8 @@
 #define __LAYER_MENU_SET_H__
 
 #include "cocos2d.h"
-#include "ui/UIWidget.h"
 #include "common/basic/StateCallback.h"
-#include "ui/UIButton.h"
+#include "ILayerMenuSet.h"
 
 enum class StateLayerMenuSet
 {
@@ -42,14 +41,6 @@ public://animation
 	cocos2d::Action* getAnimation();
 	CC_SYNTHESIZE_READONLY(bool, _isAnimationPlayOver, AnimationPlayOver);
 
-};
-
-class ILayerMenuSet
-{
-public:
-	virtual void addLayer(cocos2d::Layer* layer) {}
-	virtual void addEvent(cocos2d::ui::Button* btn, const std::string& titleName, const cocos2d::ui::Widget::ccWidgetTouchCallback& onTouch) {}
-	virtual void playAnimation(cocos2d::Layer* layer, cocos2d::Action* action) {}
 };
 
 class LayerMenuSetHandle : public cocos2d::Ref

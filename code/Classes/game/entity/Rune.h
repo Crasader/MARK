@@ -2,6 +2,7 @@
 #define __CORE_ENTITY_RUNE_H__
 
 #include "Unit.h"
+#include "IRune.h"
 
 NS_BEGIN_GAME_ENTITY
 
@@ -19,12 +20,6 @@ protected:
 	virtual cocos2d::Sprite* createSprite();//具体创建Sprite的方法，子类实现
 
 private:
-
-};
-
-class IRune : public IUnit
-{
-public:
 
 };
 

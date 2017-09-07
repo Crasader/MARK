@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "common/basic/StateCallback.h"
 #include "common/basic/Observer.h"
+#include "ISceneGame.h"
 
 enum class StateGame
 {
@@ -77,14 +78,6 @@ public://listener
 
 public://MenuSystem animation play over
 	bool isMenuSystemAnimationPlayOver();
-
-};
-
-class ISceneGame
-{
-public:
-	virtual void addLayer(cocos2d::Layer* layer) {}
-	virtual void removeLayer(cocos2d::Layer* layer) {}
 
 };
 

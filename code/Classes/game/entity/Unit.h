@@ -3,6 +3,7 @@
 
 #include "Entity.h"
 #include "Attribute.h"
+#include "IUnit.h"
 
 NS_BEGIN_GAME_ENTITY
 
@@ -25,12 +26,6 @@ public:
 
 private:
 	cocos2d::Map<int, Attribute*> _poolAttribute;// Ù–‘≥ÿ
-
-};
-
-class IUnit : public IEntity
-{
-public:
 
 };
 

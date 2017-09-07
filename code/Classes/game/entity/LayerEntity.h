@@ -6,7 +6,7 @@
 #include "common/basic/StateCallback.h"
 #include "common/util/BitData.h"
 #include "common/basic/Observer.h"
-#include "Entity.h"
+#include "ILayerEntity.h"
 
 NS_BEGIN_GAME_ENTITY
 
@@ -48,15 +48,6 @@ private:
 	cocos2d::Map<int, Entity*> _dicRegion;
 	cocos2d::Map<int, Entity*> _dicCreature;
 	cocos2d::Map<int, Entity*> _dicRune;
-
-};
-
-class ILayerEntity
-{
-public:
-	virtual void addEntity(Entity* entity) {}
-	virtual void addEntity(Entity* entity, const cocos2d::Vec2& postion) {}
-	virtual void removeEntity(Entity* entity) {}
 
 };
 

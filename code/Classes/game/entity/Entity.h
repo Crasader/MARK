@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "defines/DefinesNamespace.h"
 #include "common/basic/StateCallback.h"
+#include "IEntity.h"
 
 NS_BEGIN_GAME_ENTITY
 
@@ -56,14 +57,6 @@ protected:
 	virtual cocos2d::Sprite* createSprite() { return nullptr; }//具体创建Sprite的方法，子类实现
 private:
 	cocos2d::Sprite* _skin;
-
-};
-
-class IEntity
-{
-public:
-	virtual void addSkin(cocos2d::Sprite* skin) {}
-	virtual void doSomething() {}
 
 };
 
